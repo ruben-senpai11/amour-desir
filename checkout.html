@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiement Sécurisé • PACK DU DÉSIR (1 000 FCFA)</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- FedaPay Checkout CDN -->
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+</head>
+<body>
+
+  <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
+    
+    <div style="text-align: center; margin-bottom: 24px;">
+      <a href="index.html" style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900; color: #ffffff;">
+        AMOUR & DÉSIR
+      </a>
+    </div>
+
+    <div class="card-dark" style="max-width: 520px; margin: 0 auto; border: 2px solid var(--color-cta-blue); box-shadow: 0 0 45px var(--color-rose-glow);">
+      
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div class="badge-pill badge-gold" style="margin-bottom: 10px;">🔒 PAIEMENT 100% SÉCURISÉ</div>
+        <h1 style="font-size: 1.8rem; margin-bottom: 8px;">Finaliser Ta Commande</h1>
+        <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+          Renseigne tes informations pour recevoir ton <strong>Pack du Désir</strong> immédiatement après paiement.
+        </p>
+      </div>
+
+      <!-- Order Summary Box -->
+      <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 16px; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-weight: 700; color: #ffffff;">PACK DU DÉSIR (Guide + 8 Bonus)</span>
+          <span style="font-weight: 800; color: #60a5fa; font-size: 1.15rem;">1 000 FCFA</span>
+        </div>
+        <div style="font-size: 0.8rem; color: #34d399;">
+          ✓ Réduction immédiate de 93% appliquée
+        </div>
+      </div>
+
+      <!-- Checkout Form -->
+      <form id="directCheckoutForm">
+        
+        <div class="form-group">
+          <label class="form-label" for="clientName">Prénom & Nom *</label>
+          <input type="text" id="clientName" class="form-input" placeholder="Ex: Jean Kouamé" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="clientEmail">Adresse Email (pour recevoir le Pack) *</label>
+          <input type="email" id="clientEmail" class="form-input" placeholder="Ex: jean.kouame@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="clientCountry">Pays *</label>
+          <select id="clientCountry" class="form-select">
+            <option value="CI" selected>🇨🇮 Côte d'Ivoire (+225)</option>
+            <option value="CG">🇨🇬 Congo Brazzaville (+242)</option>
+            <option value="CD">🇨🇩 RD Congo (+243)</option>
+            <option value="BJ">🇧🇯 Bénin (+229)</option>
+            <option value="SN">🇸🇳 Sénégal (+221)</option>
+            <option value="CM">🇨🇲 Cameroun (+237)</option>
+            <option value="BF">🇧🇫 Burkina Faso (+226)</option>
+            <option value="ML">🇲🇱 Mali (+223)</option>
+            <option value="TG">🇹🇬 Togo (+228)</option>
+            <option value="GA">🇬🇦 Gabon (+241)</option>
+            <option value="OTHER">🌍 Autre pays</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="clientPhone">Numéro WhatsApp / Mobile Money *</label>
+          <input type="tel" id="clientPhone" class="form-input" placeholder="Ex: 0708091011" required>
+        </div>
+
+        <!-- Submit CTA Button -->
+        <button type="submit" id="payDirectBtn" class="btn-cta" style="width: 100%; margin-top: 10px;">
+          <span>🔒 PAYER 1 000 FCFA EN TOUTE SÉCURITÉ</span>
+          <span class="btn-cta-sub">Orange Money • MTN • Moov • Wave • Carte</span>
+        </button>
+
+      </form>
+
+      <!-- Trust Badges -->
+      <div style="text-align: center; margin-top: 20px; font-size: 0.8rem; color: var(--color-text-dim);">
+        🛡️ Garantie 7 jours satisfait ou remboursé • Accès immédiat
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById('directCheckoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('clientName').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      const country = document.getElementById('clientCountry').value;
+
+      if (!name || !email || !phone) {
+        alert('Veuillez remplir tous les champs obligatoires.');
+        return;
+      }
+
+      // Initialize FedaPay Checkout
+      try {
+        const widget = FedaPay.init({
+          public_key: 'pk_live_Ps51ySoBt1b2ZAxB6RuEkRHt',
+          transaction: {
+            amount: 1000,
+            description: 'PACK DU DÉSIR - Enfin Comprendre Les Hormones (107 pages + 8 Bonus)',
+            custom_metadata: {
+              customer_name: name,
+              customer_country: country
+            }
+          },
+          customer: {
+            email: email,
+            lastname: name.split(' ').slice(1).join(' ') || name,
+            firstname: name.split(' ')[0],
+            phone_number: {
+              number: phone,
+              country: country === 'OTHER' ? 'BJ' : country
+            }
+          },
+          onComplete: function(response) {
+            console.log('FedaPay transaction response:', response);
+            window.location.href = 'merci.html?status=success&ref=' + (response.id || '');
+          }
+        });
+
+        widget.open();
+      } catch (err) {
+        console.error('FedaPay error:', err);
+        // Fallback to direct URL if widget cannot open
+        window.location.href = 'https://amour-desir.mymaketou.shop/fr/products/enfin-comprendre-les-hormones-pour-mieux-seduire-les-femmes-et-avoir-la-tranquilite';
+      }
+    });
+  </script>
+</body>
+</html>

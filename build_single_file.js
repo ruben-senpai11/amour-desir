@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('Generating Single-File Standalone index.html...');
+console.log('Generating Single-File Standalone index.html with Favicon and Immediate Countdown...');
 
 // Read base images and convert to base64
 function getBase64Image(filePath) {
@@ -11,6 +11,7 @@ function getBase64Image(filePath) {
   return `data:${mimeType};base64,${data}`;
 }
 
+const faviconB64 = getBase64Image('assets/images/favicon.jpg');
 const bannerHeroB64 = getBase64Image('assets/images/banner-hero.png');
 const packCoverRedB64 = getBase64Image('assets/images/pack-cover-red.jpg');
 const packCoverBlueB64 = getBase64Image('assets/images/pack-cover-blue.jpg');
@@ -42,6 +43,16 @@ cssContent += `
 // Read JS
 const jsContent = fs.readFileSync('assets/js/script.js', 'utf8');
 
+// Calculate initial server/build time countdown values so it never displays 00:00:00
+const now = new Date();
+const midnight = new Date();
+midnight.setHours(23, 59, 59, 999);
+let diff = midnight.getTime() - now.getTime();
+if (diff < 0) diff = 0;
+const initHours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+const initMinutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+const initSeconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+
 // Build Single File HTML
 const singleFileHtml = `<!DOCTYPE html>
 <html lang="fr">
@@ -50,10 +61,16 @@ const singleFileHtml = `<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>PACK DU DÉSIR • Enfin Comprendre Sa Femme, Son Désir & Retrouver la Paix</title>
   
+  <!-- Favicon Sensuel & Élégant -->
+  <link rel="icon" type="image/jpeg" href="${faviconB64}">
+  <link rel="shortcut icon" type="image/jpeg" href="${faviconB64}">
+  <link rel="apple-touch-icon" href="${faviconB64}">
+  
   <!-- SEO & Open Graph Meta Tags -->
   <meta name="description" content="Découvre le guide complet pour enfin comprendre les hormones de ta femme, réveiller son désir ardent, éviter les conflits et reprendre le contrôle de ton couple. Offre de lancement exclusive à 1 000 FCFA.">
   <meta property="og:title" content="PACK DU DÉSIR • Enfin Comprendre Sa Femme et Retrouver la Paix">
   <meta property="og:description" content="Elle devient distante ou refuse l'intimité ? Comprends enfin ce qui se passe et réveille son désir fou.">
+  <meta property="og:image" content="${faviconB64}">
   <meta property="og:type" content="website">
   
   <!-- Google Fonts: Syne (Sensual Titles) + Outfit & Plus Jakarta Sans (Tall Elegant Body) -->
@@ -65,6 +82,26 @@ const singleFileHtml = `<!DOCTYPE html>
   <style>
 ${cssContent}
   </style>
+
+  <!-- Instant Countdown Initializer (Executes in 0ms before render) -->
+  <script>
+    (function() {
+      function calcTime() {
+        var now = new Date();
+        var midnight = new Date();
+        midnight.setHours(23, 59, 59, 999);
+        var diff = midnight.getTime() - now.getTime();
+        if (diff < 0) diff = 0;
+        var h = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+        var m = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+        var s = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+        document.querySelectorAll('.cd-hours').forEach(function(el){ el.textContent = h; });
+        document.querySelectorAll('.cd-minutes').forEach(function(el){ el.textContent = m; });
+        document.querySelectorAll('.cd-seconds').forEach(function(el){ el.textContent = s; });
+      }
+      document.addEventListener('DOMContentLoaded', calcTime);
+    })();
+  </script>
 </head>
 <body>
 
@@ -76,9 +113,9 @@ ${cssContent}
       <span>🔥 <strong>OFFRE EXCLUSIVE DE LANCEMENT</strong> : -93% DE RÉDUCTION IMMÉDIATE</span>
       <div class="countdown-box">
         <span>FIN DANS :</span>
-        <span class="countdown-digit cd-hours">00</span>h
-        <span class="countdown-digit cd-minutes">00</span>m
-        <span class="countdown-digit cd-seconds">00</span>s
+        <span class="countdown-digit cd-hours">${initHours || '23'}</span>h
+        <span class="countdown-digit cd-minutes">${initMinutes || '59'}</span>m
+        <span class="countdown-digit cd-seconds">${initSeconds || '09'}</span>s
       </div>
       <span class="badge-pill badge-gold" style="padding: 2px 8px; font-size: 0.72rem;">23H59 DERNIER DÉLAI</span>
     </div>

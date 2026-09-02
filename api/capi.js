@@ -55,7 +55,7 @@ module.exports = async (req, res) => {
     if (body.value || eventName === 'InitiateCheckout') {
       eventPayload.custom_data = {
         currency: body.currency || 'XOF',
-        value: Number(body.value || 900),
+        value: Number(body.value || 999),
         content_name: 'PACK DU DESIR'
       };
     }

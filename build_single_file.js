@@ -69,7 +69,7 @@ const singleFileHtml = `<!DOCTYPE html>
   <link rel="apple-touch-icon" href="${faviconB64}">
   
   <!-- SEO & Open Graph Meta Tags -->
-  <meta name="description" content="Découvre le guide complet pour enfin comprendre les hormones de ta femme, réveiller son désir ardent, éviter les conflits et reprendre le contrôle de ton couple. Offre de lancement exclusive à 900 FCFA.">
+  <meta name="description" content="Découvre le guide complet pour enfin comprendre les hormones de ta femme, réveiller son désir ardent, éviter les conflits et reprendre le contrôle de ton couple. Offre de lancement exclusive à 999 FCFA.">
   <meta property="og:title" content="PACK DU DÉSIR • Enfin Comprendre Sa Femme et Retrouver la Paix">
   <meta property="og:description" content="Elle devient distante ou refuse l'intimité ? Comprends enfin ce qui se passe et réveille son désir fou.">
   <meta property="og:image" content="${faviconB64}">
@@ -187,7 +187,7 @@ ${cssContent}
         <img src="${bannerHeroB64}" alt="Enfin Comprendre Les Hormones - Pack du Désir" width="1200" height="500" loading="eager">
       </div>
 
-      <!-- Pricing Action Pill (900 FCFA) -->
+      <!-- Pricing Action Pill (999 FCFA) -->
       <div style="display: flex; justify-content: center;">
         <div class="pricing-banner-pill">
           <div class="price-strike-group">
@@ -196,7 +196,7 @@ ${cssContent}
           </div>
           <div class="price-main-group">
             <div class="price-main-label">⚡ AUJOURD'HUI SEULEMENT</div>
-            <div class="price-main-val">900 FCFA</div>
+            <div class="price-main-val">999 FCFA</div>
           </div>
         </div>
       </div>
@@ -207,7 +207,7 @@ ${cssContent}
           <span>👉 DÉBLOQUER LE PACK DU DÉSIR</span>
           <span class="btn-cta-sub">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/></svg>
-            Accès immédiat par email • 900 FCFA au lieu de 15 000 FCFA
+            Accès immédiat par email • 999 FCFA au lieu de 15 000 FCFA
           </span>
         </a>
       </div>
@@ -405,7 +405,7 @@ ${cssContent}
       <div style="text-align: center; margin-top: 32px;">
         <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-cta" style="margin: 0 auto;">
           <span>JE VEUX CETTE TRANSFORMATION</span>
-          <span class="btn-cta-sub">👉 Obtenir le Pack complet pour 900 FCFA</span>
+          <span class="btn-cta-sub">👉 Obtenir le Pack complet pour 999 FCFA</span>
         </a>
       </div>
 

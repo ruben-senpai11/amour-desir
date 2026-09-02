@@ -283,7 +283,7 @@ function initCheckoutModal() {
           const widget = FedaPay.init({
             public_key: 'pk_live_Ps51ySoBt1b2ZAxB6RuEkRHt',
             transaction: {
-              amount: 1000,
+              amount: 900,
               description: 'PACK DU DÉSIR - Enfin Comprendre Les Hormones (107 pages + 8 Bonus)',
               custom_metadata: {
                 customer_name: name,

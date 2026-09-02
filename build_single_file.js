@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('Generating Single-File Standalone index.html with Favicon and Immediate Countdown...');
+console.log('Generating Single-File Standalone index.html with Chariow Checkout, 900 FCFA Price & Enhanced Blue Badges...');
 
 // Read base images and convert to base64
 function getBase64Image(filePath) {
@@ -53,7 +53,9 @@ const initHours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2,
 const initMinutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
 const initSeconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
 
-// Build Single File HTML
+const CHARIOW_URL = 'https://amour-desir.mychariow.co/pack-du-desir/checkout';
+
+// Build Single File HTML with Chariow, 900 FCFA price and Blue Badges (Top & Bottom)
 const singleFileHtml = `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -67,7 +69,7 @@ const singleFileHtml = `<!DOCTYPE html>
   <link rel="apple-touch-icon" href="${faviconB64}">
   
   <!-- SEO & Open Graph Meta Tags -->
-  <meta name="description" content="Découvre le guide complet pour enfin comprendre les hormones de ta femme, réveiller son désir ardent, éviter les conflits et reprendre le contrôle de ton couple. Offre de lancement exclusive à 1 000 FCFA.">
+  <meta name="description" content="Découvre le guide complet pour enfin comprendre les hormones de ta femme, réveiller son désir ardent, éviter les conflits et reprendre le contrôle de ton couple. Offre de lancement exclusive à 900 FCFA.">
   <meta property="og:title" content="PACK DU DÉSIR • Enfin Comprendre Sa Femme et Retrouver la Paix">
   <meta property="og:description" content="Elle devient distante ou refuse l'intimité ? Comprends enfin ce qui se passe et réveille son désir fou.">
   <meta property="og:image" content="${faviconB64}">
@@ -110,7 +112,7 @@ ${cssContent}
        ========================================================================= -->
   <div class="top-urgency-bar">
     <div class="top-urgency-inner">
-      <span>🔥 <strong>OFFRE EXCLUSIVE DE LANCEMENT</strong> : -93% DE RÉDUCTION IMMÉDIATE</span>
+      <span>🔥 <strong>OFFRE EXCLUSIVE DE LANCEMENT</strong> : -94% DE RÉDUCTION IMMÉDIATE</span>
       <div class="countdown-box">
         <span>FIN DANS :</span>
         <span class="countdown-digit cd-hours">${initHours || '23'}</span>h
@@ -127,10 +129,10 @@ ${cssContent}
   <section class="hero-section" id="hero">
     <div class="container">
       
-      <!-- Pre-heading Badge (Rouge Passion) -->
-      <div class="badge-pill badge-red" style="margin-bottom: 14px;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-        RÉSERVÉ AUX HOMMES EN COUPLE, FIANCÉS OU MARIÉS
+      <!-- Pre-heading Badge (Bleu Roi Lumineux & Ultra-Visible) -->
+      <div class="badge-blue" style="margin-bottom: 16px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        <span>★ RÉSERVÉ AUX HOMMES EN COUPLE, FIANCÉS OU MARIÉS</span>
       </div>
 
       <!-- Main Brutal Headline -->
@@ -149,7 +151,7 @@ ${cssContent}
         <img src="${bannerHeroB64}" alt="Enfin Comprendre Les Hormones - Pack du Désir" width="1200" height="500" loading="eager">
       </div>
 
-      <!-- Pricing Action Pill -->
+      <!-- Pricing Action Pill (900 FCFA) -->
       <div style="display: flex; justify-content: center;">
         <div class="pricing-banner-pill">
           <div class="price-strike-group">
@@ -158,18 +160,18 @@ ${cssContent}
           </div>
           <div class="price-main-group">
             <div class="price-main-label">⚡ AUJOURD'HUI SEULEMENT</div>
-            <div class="price-main-val">1 000 FCFA</div>
+            <div class="price-main-val">900 FCFA</div>
           </div>
         </div>
       </div>
 
-      <!-- Main Royal Blue Curvy & Vibrating CTA Button -->
+      <!-- Main Royal Blue Curvy & Vibrating CTA Button (Chariow Direct Link) -->
       <div style="display: flex; justify-content: center;">
-        <a href="https://amour-desir.mychariow.co/pack-du-desir/checkout" target="_blank" rel="noopener" class="btn-cta">
+        <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-cta">
           <span>👉 DÉBLOQUER LE PACK DU DÉSIR</span>
           <span class="btn-cta-sub">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/></svg>
-            Accès immédiat par email • 1 000 FCFA au lieu de 15 000 FCFA
+            Accès immédiat par email • 900 FCFA au lieu de 15 000 FCFA
           </span>
         </a>
       </div>
@@ -363,11 +365,11 @@ ${cssContent}
 
       </div>
 
-      <!-- Quick CTA -->
+      <!-- Quick CTA Button -->
       <div style="text-align: center; margin-top: 32px;">
-        <a href="https://amour-desir.mychariow.co/pack-du-desir/checkout" target="_blank" rel="noopener" class="btn-cta" style="margin: 0 auto;">
+        <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-cta" style="margin: 0 auto;">
           <span>JE VEUX CETTE TRANSFORMATION</span>
-          <span class="btn-cta-sub">👉 Obtenir le Pack complet pour 1 000 FCFA</span>
+          <span class="btn-cta-sub">👉 Obtenir le Pack complet pour 900 FCFA</span>
         </a>
       </div>
 
@@ -841,14 +843,14 @@ ${cssContent}
           </li>
         </ul>
 
-        <!-- Price Stack Calc -->
+        <!-- Price Stack Calc (900 FCFA) -->
         <div class="offer-total-calc">
           <div class="offer-total-old">Valeur totale cumulée : <span class="highlight-strike">60 000 FCFA</span></div>
           <div style="font-size: 1.05rem; color: var(--color-gold); font-weight: 800; text-transform: uppercase;">
             ⏰ PRIX PROMOTIONNEL JUSQU'À CE SOIR 23H59 :
           </div>
           <div class="offer-total-new text-gradient-red">
-            1 000 FCFA
+            900 FCFA
           </div>
           <div style="font-size: 0.88rem; color: var(--color-text-muted);">
             (Paiement unique en une seule fois • Aucun abonnement caché)
@@ -866,10 +868,10 @@ ${cssContent}
           </div>
         </div>
 
-        <!-- Master Royal Blue Order CTA Button with Rose Wave Glow -->
+        <!-- Master Royal Blue Order CTA Button (Chariow Direct Link) -->
         <div style="display: flex; justify-content: center; margin: 30px 0 18px;">
-          <a href="https://amour-desir.mychariow.co/pack-du-desir/checkout" target="_blank" rel="noopener" class="btn-cta">
-            <span>🔥 OUI ! JE COMMANDE MON PACK DU DÉSIR (1 000 F)</span>
+          <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-cta">
+            <span>🔥 OUI ! JE COMMANDE MON PACK DU DÉSIR (900 F)</span>
             <span class="btn-cta-sub">
               ⚡ Accès immédiat envoyé par email en 30 secondes
             </span>
@@ -976,7 +978,7 @@ ${cssContent}
           </div>
           <div class="faq-content">
             <p>
-              Dès que ton paiement de 1 000 FCFA est validé sur la page sécurisée, tu es redirigé immédiatement vers la page de téléchargement, et un lien d'accès direct et confidentiel t'est envoyé à ton adresse email. Tu peux lire les guides sur ton smartphone, tablette ou ordinateur en toute discrétion.
+              Dès que ton paiement de 900 FCFA est validé sur la page sécurisée, tu es redirigé immédiatement vers la page de téléchargement, et un lien d'accès direct et confidentiel t'est envoyé à ton adresse email. Tu peux lire les guides sur ton smartphone, tablette ou ordinateur en toute discrétion.
             </p>
           </div>
         </div>
@@ -1011,7 +1013,7 @@ ${cssContent}
 
       <!-- Quick Urgency Reminder in FAQ -->
       <div style="text-align: center; margin-top: 24px; color: #fbbf24; font-weight: 700;">
-        ⏰ Rappel : L'offre exceptionnelle à 1 000 FCFA prend fin aujourd'hui à 23H59 précises. Après cette heure, le tarif repasse à 15 000 FCFA.
+        ⏰ Rappel : L'offre exceptionnelle à 900 FCFA prend fin aujourd'hui à 23H59 précises. Après cette heure, le tarif repasse à 15 000 FCFA.
       </div>
 
     </div>
@@ -1025,7 +1027,7 @@ ${cssContent}
   <section class="section" id="choix">
     <div class="container">
       
-      <div style="text-align: center; margin-bottom: 36px;">
+      <div style="text-align: center; margin-bottom: 30px;">
         <div class="badge-pill badge-red" style="margin-bottom: 10px;">⚡ LE MOMENT DE DÉCIDER</div>
         <h2 style="font-size: 2.1rem; margin-bottom: 14px;">
           Tu Es À La Croisée Des Chemins. <br>
@@ -1057,10 +1059,10 @@ ${cssContent}
         <div class="choice-card choice-good">
           <div>
             <h3 style="color: #34d399; font-size: 1.25rem; margin-bottom: 14px;">
-              ✅ OPTION 2 : PRENDRE LE PACK DU DÉSIR (1 000 F)
+              ✅ OPTION 2 : PRENDRE LE PACK DU DÉSIR (900 F)
             </h3>
             <p style="color: #f1f5f9; font-size: 0.95rem; line-height: 1.55; margin-bottom: 14px;">
-              Tu investis l'équivalent d'un plat ou d'une boisson pour accéder aux secrets du désir féminin et transformer ta dynamique de couple.
+              Tu investis l'équivalent d'une simple collation pour accéder aux secrets du désir féminin et transformer ta dynamique de couple.
             </p>
             <p style="color: #f1f5f9; font-size: 0.95rem; line-height: 1.55;">
               Tu comprends enfin chaque réaction de ta femme, tu sais comment la séduire au bon moment, tu ravives la flamme de la passion et tu retrouves la <strong>paix et le respect absolu dans ton foyer</strong>.
@@ -1073,10 +1075,18 @@ ${cssContent}
 
       </div>
 
+      <!-- Duplicated Blue Badge at Bottom -->
+      <div style="text-align: center; margin-top: 36px; margin-bottom: 16px;">
+        <div class="badge-blue">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <span>★ RÉSERVÉ AUX HOMMES EN COUPLE, FIANCÉS OU MARIÉS</span>
+        </div>
+      </div>
+
       <!-- Final Master CTA -->
-      <div style="text-align: center; margin-top: 40px;">
-        <a href="https://amour-desir.mychariow.co/pack-du-desir/checkout" target="_blank" rel="noopener" class="btn-cta" style="margin: 0 auto;">
-          <span>👉 JE COMMANDE LE PACK DU DÉSIR À 1 000 FCFA</span>
+      <div style="text-align: center;">
+        <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-cta" style="margin: 0 auto;">
+          <span>👉 JE COMMANDE LE PACK DU DÉSIR À 900 FCFA</span>
           <span class="btn-cta-sub">⚡ Téléchargement immédiat • Offre valable jusqu'à 23h59</span>
         </a>
       </div>
@@ -1100,7 +1110,7 @@ ${cssContent}
       <div class="footer-links">
         <a href="https://wa.me/2290195928057" target="_blank" rel="noopener">Support WhatsApp (+229 0195928057)</a>
         <span>•</span>
-        <a href="https://amour-desir.mychariow.co/pack-du-desir/checkout" target="_blank" rel="noopener">Commander le Pack</a>
+        <a href="${CHARIOW_URL}" target="_blank" rel="noopener">Commander le Pack (900 FCFA)</a>
         <span>•</span>
         <a href="#">Politique de confidentialité</a>
       </div>
@@ -1119,11 +1129,11 @@ ${cssContent}
   <div class="sticky-bottom-bar" id="stickyCtaBar">
     <div class="sticky-price-info">
       <div class="sticky-price-title">OFFRE ÉCLAIR</div>
-      <div class="sticky-price-val">1 000 F <span>15 000 F</span></div>
+      <div class="sticky-price-val">900 F <span>15 000 F</span></div>
     </div>
-    <a href="https://amour-desir.mychariow.co/pack-du-desir/checkout" target="_blank" rel="noopener" class="btn-sticky-cta">
+    <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-sticky-cta">
       <span>JE COMMANDE LE PACK</span>
-      <span style="font-size: 0.78rem; opacity: 0.9; text-transform: none;">(1 000 FCFA)</span>
+      <span style="font-size: 0.78rem; opacity: 0.9; text-transform: none;">(900 FCFA)</span>
     </a>
   </div>
 

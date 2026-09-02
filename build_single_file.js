@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('Generating Single-File Standalone index.html with Chariow Checkout, 900 FCFA Price & Enhanced Blue Badges...');
+console.log('Generating Single-File Standalone index.html with Meta Pixel & Conversions API (CAPI)...');
 
 // Read base images and convert to base64
 function getBase64Image(filePath) {
@@ -55,7 +55,7 @@ const initSeconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
 
 const CHARIOW_URL = 'https://amour-desir.mychariow.co/pack-du-desir/checkout';
 
-// Build Single File HTML with Chariow, 900 FCFA price and Blue Badges (Top & Bottom)
+// Build Single File HTML with Meta Pixel & Conversions API
 const singleFileHtml = `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -80,6 +80,42 @@ const singleFileHtml = `<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
   
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    // Generate unique PageView event ID for deduplication with CAPI
+    window._pvEventId = 'pv_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+    
+    fbq('init', '2465772550579051');
+    fbq('track', 'PageView', {}, { eventID: window._pvEventId });
+
+    // Send PageView to Meta Conversions API (CAPI)
+    try {
+      fetch('/api/capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event_name: 'PageView',
+          event_id: window._pvEventId,
+          url: window.location.href
+        })
+      }).catch(function(){});
+    } catch(e){}
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=2465772550579051&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
   <!-- Inlined Stylesheet -->
   <style>
 ${cssContent}
@@ -1159,9 +1195,43 @@ ${cssContent}
     </div>
   </div>
 
-  <!-- Inlined JavaScript -->
+  <!-- Inlined JavaScript & Meta CAPI Event Trackers -->
   <script>
 ${jsContent}
+
+    // Attach Meta InitiateCheckout event tracking to all CTA links
+    document.addEventListener('DOMContentLoaded', function() {
+      var ctaElements = document.querySelectorAll('.btn-cta, .btn-sticky-cta');
+      ctaElements.forEach(function(el) {
+        el.addEventListener('click', function() {
+          var icEventId = 'ic_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+          
+          if (typeof fbq !== 'undefined') {
+            fbq('track', 'InitiateCheckout', {
+              content_name: 'PACK DU DESIR',
+              currency: 'XOF',
+              value: 900
+            }, { eventID: icEventId });
+          }
+
+          // Send to Meta CAPI serverless endpoint
+          try {
+            fetch('/api/capi', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                event_name: 'InitiateCheckout',
+                event_id: icEventId,
+                value: 900,
+                currency: 'XOF',
+                url: window.location.href
+              }),
+              keepalive: true
+            }).catch(function(){});
+          } catch(err){}
+        });
+      });
+    });
   </script>
 </body>
 </html>`;

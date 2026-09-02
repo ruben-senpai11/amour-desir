@@ -22,6 +22,42 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
   
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    // Generate unique PageView event ID for deduplication with CAPI
+    window._pvEventId = 'pv_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+    
+    fbq('init', '2465772550579051');
+    fbq('track', 'PageView', {}, { eventID: window._pvEventId });
+
+    // Send PageView to Meta Conversions API (CAPI)
+    try {
+      fetch('/api/capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event_name: 'PageView',
+          event_id: window._pvEventId,
+          url: window.location.href
+        })
+      }).catch(function(){});
+    } catch(e){}
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=2465772550579051&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
   <!-- Inlined Stylesheet -->
   <style>
 /* ==========================================================================
@@ -1740,8 +1776,8 @@ h1, h2, h3, h4, h5, h6 {
       <div class="countdown-box">
         <span>FIN DANS :</span>
         <span class="countdown-digit cd-hours">09</span>h
-        <span class="countdown-digit cd-minutes">34</span>m
-        <span class="countdown-digit cd-seconds">37</span>s
+        <span class="countdown-digit cd-minutes">32</span>m
+        <span class="countdown-digit cd-seconds">11</span>s
       </div>
       <span class="badge-pill badge-gold" style="padding: 2px 8px; font-size: 0.72rem;">23H59 DERNIER DÉLAI</span>
     </div>
@@ -2783,7 +2819,7 @@ h1, h2, h3, h4, h5, h6 {
     </div>
   </div>
 
-  <!-- Inlined JavaScript -->
+  <!-- Inlined JavaScript & Meta CAPI Event Trackers -->
   <script>
 /**
  * AMOUR & DÉSIR - High Conversion Landing Page Scripts & FedaPay Integration
@@ -3105,6 +3141,40 @@ function initCheckoutModal() {
   }
 }
 
+
+    // Attach Meta InitiateCheckout event tracking to all CTA links
+    document.addEventListener('DOMContentLoaded', function() {
+      var ctaElements = document.querySelectorAll('.btn-cta, .btn-sticky-cta');
+      ctaElements.forEach(function(el) {
+        el.addEventListener('click', function() {
+          var icEventId = 'ic_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+          
+          if (typeof fbq !== 'undefined') {
+            fbq('track', 'InitiateCheckout', {
+              content_name: 'PACK DU DESIR',
+              currency: 'XOF',
+              value: 900
+            }, { eventID: icEventId });
+          }
+
+          // Send to Meta CAPI serverless endpoint
+          try {
+            fetch('/api/capi', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                event_name: 'InitiateCheckout',
+                event_id: icEventId,
+                value: 900,
+                currency: 'XOF',
+                url: window.location.href
+              }),
+              keepalive: true
+            }).catch(function(){});
+          } catch(err){}
+        });
+      });
+    });
   </script>
 </body>
 </html>

@@ -19,7 +19,6 @@ function getBase64Image(filePath) {
 const faviconB64 = getBase64Image('assets/images/favicon.jpg');
 const bookCoverB64 = getBase64Image('assets/images/couverture-fou-de-toi.jpg');
 const bundleMockupB64 = getBase64Image('assets/images/pack-bundle-mockup.jpg');
-const avantApresB64 = getBase64Image('assets/images/avant-apres.jpg');
 const temoignageRivaldoB64 = getBase64Image('assets/images/testimonials/temoignage-rivaldo.jpg');
 const temoignageGuyAdolpheB64 = getBase64Image('assets/images/testimonials/temoignage-guy-adolphe.jpg');
 const temoignageRosemondeB64 = getBase64Image('assets/images/testimonials/temoignage-rosemonde.jpg');
@@ -457,11 +456,6 @@ ${cssContent}
         <p style="color: var(--color-text-muted); font-size: 1.05rem;">
           Voici ce qui se passe quand vous passez de l'ignorance douloureuse à la science divine de l'intimité :
         </p>
-      </div>
-
-      <!-- Image Avant Après -->
-      <div style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 30px; max-width: 860px; margin-left: auto; margin-right: auto;">
-        <img src="${avantApresB64}" alt="Avant vs Après - Reprends le contrôle de ta maison" style="width: 100%; display: block;">
       </div>
 
       <!-- Colonnes Comparatives -->

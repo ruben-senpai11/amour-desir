@@ -665,6 +665,68 @@ ${cssContent}
         </div>
       </div>
 
+      <!-- SECTION VEDETTE : DEUX GUIDES ÉDUCATIFS ANATOMIQUES EXTRAITS DU LIVRE -->
+      <div style="background: #FFFFFF; border: 2px solid var(--color-burgundy); border-radius: var(--radius-lg); padding: 32px 24px; margin: 40px auto 30px auto; max-width: 920px; box-shadow: 0 10px 30px rgba(112, 9, 24, 0.08);">
+        
+        <div style="text-align: center; margin-bottom: 26px;">
+          <div class="badge-pill badge-burgundy" style="margin-bottom: 8px;">EXTRAITS VISUELS DU LIVRE • CLARTÉ PÉDAGOGIQUE</div>
+          <h3 style="font-size: 1.85rem; color: var(--color-text-title); margin-bottom: 10px; line-height: 1.3;">
+            Des Schémas Anatomiques & Pratiques Sans Équivoque :<br>
+            <span class="title-burgundy">Fini Les Doutes, Voici Exactement Quoi Faire et Comment Toucher</span>
+          </h3>
+          <p style="color: var(--color-text-muted); font-size: 0.98rem; max-width: 720px; margin: 0 auto;">
+            Dans <em>FOU DE TOI, FOLLE DE TOI</em>, chaque explication est appuyée par des infographies pas-à-pas d'une netteté absolue. Ni vulgarité ni théorie abstraite : vous apprenez la mécanique précise du plaisir avec respect, anatomie et méthode.
+          </p>
+        </div>
+
+        <div class="illustrations-2col-grid" style="gap: 24px; align-items: start;">
+          
+          <!-- Guide Homme pour Elle (Chapitre 7) -->
+          <div class="book-illustration-box" style="margin: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; background: #FFFFFF;">
+            <div style="background: var(--color-bg-subtle); padding: 12px 16px; border-bottom: 1px solid var(--color-border); text-align: left;">
+              <span class="book-illustration-tag" style="background: #700918; color: #FFFFFF;">POUR LUI • CHAPITRE 7</span>
+              <strong style="display: block; font-size: 1.05rem; color: #141414; margin-top: 4px;">Anatomie Féminine & Les 4 Mouvements Clés</strong>
+            </div>
+            <div style="background: #FAF7F5; padding: 12px; text-align: center;">
+              <img src="/assets/images/illustrations/guide-educatif-stimulation-clitoris-femme.jpg" alt="Guide Éducatif : Anatomie Féminine & 4 Mouvements Clés" style="width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; object-fit: contain; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" loading="lazy">
+            </div>
+            <div class="book-illustration-caption" style="text-align: left; padding: 16px; background: #FFFFFF; border-top: 1px solid var(--color-border);">
+              <p style="font-size: 0.90rem; color: var(--color-text-body); line-height: 1.5; margin: 0;">
+                🎯 <strong>Ce que vous apprenez pas à pas :</strong> Localisation médicale du clitoris, des petites et grandes lèvres, et la maîtrise des 4 types de caresse (<strong>mouvements circulaires, caresse verticale, léger tapotement, pression vibratoire</strong>) pour conduire sa femme à l'orgasme sans précipitation.
+              </p>
+            </div>
+          </div>
+
+          <!-- Guide Femme pour Lui (Chapitre 9) -->
+          <div class="book-illustration-box" style="margin: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; background: #FFFFFF;">
+            <div style="background: var(--color-bg-subtle); padding: 12px 16px; border-bottom: 1px solid var(--color-border); text-align: left;">
+              <span class="book-illustration-tag" style="background: #700918; color: #FFFFFF;">POUR ELLE • CHAPITRE 9</span>
+              <strong style="display: block; font-size: 1.05rem; color: #141414; margin-top: 4px;">Guide de Stimulation Main & Langue pour l'Homme</strong>
+            </div>
+            <div style="background: #FAF7F5; padding: 12px; text-align: center;">
+              <img src="/assets/images/illustrations/guide-educatif-stimulation-main-langue-homme.jpg" alt="Guide Éducatif : Intervalles de Stimulation de la Main et de la Langue" style="width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; object-fit: contain; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" loading="lazy">
+            </div>
+            <div class="book-illustration-caption" style="text-align: left; padding: 16px; background: #FFFFFF; border-top: 1px solid var(--color-border);">
+              <p style="font-size: 0.90rem; color: var(--color-text-body); line-height: 1.5; margin: 0;">
+                🎯 <strong>Ce que vous apprenez pas à pas :</strong> Cartographie des zones sensibles (gland, frein, prépuce, méat urétral, base et scrotum), maîtrise des <strong>intervalles de pression (délicate, ferme, continue)</strong>, du contact lèvres et langue, et des mouvements de va-et-vient fluides pour combler son mari sans fatigue.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 24px; padding-top: 16px; border-top: 1px dashed var(--color-border);">
+          <p style="font-size: 0.92rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 14px;">
+            📖 Retrouvez ces guides en pleine résolution (PDF HD prêt à l'emploi) immédiatement après paiement.
+          </p>
+          <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 480px; margin: 0 auto;">
+            <span>🔥 ACCÉDER AU LIVRE COMPLET & AUX GUIDES (9 500 FCFA)</span>
+            <span class="btn-cta-sub">Téléchargement Immédiat • 100% Discret</span>
+          </a>
+        </div>
+
+      </div>
+
       <div class="parts-grid">
         
         <!-- PART 1 -->
@@ -701,6 +763,13 @@ ${cssContent}
             <li><strong>Chapitre 7 : Savoir faire jouir une femme à chaque fois</strong> — Ce qu'elle n'ose pas te dire, les 4 mouvements d'orfèvre du clitoris (cercles, haut-bas, tapotements, pression fixe) et <strong>LA RÈGLE D'OR : quand elle monte, ne change rien !</strong></li>
             <li><strong>Le Cunnilingus pas à pas</strong> — Technique de la langue à plat, stimulation du Point G (doigts en crochet à 3-4 cm) et orgasmes multiples.</li>
           </ul>
+
+          <div style="margin-top: 14px; border-radius: 8px; overflow: hidden; border: 1px solid var(--color-border); background: #FAF7F5; text-align: center;">
+            <img src="/assets/images/illustrations/guide-educatif-stimulation-clitoris-femme.jpg" alt="Extrait Chapitre 7 : Guide des 4 Mouvements et Anatomie Féminine" style="width: 100%; max-height: 280px; object-fit: contain; display: block; margin: 0 auto; background: #FAF7F5; padding: 8px 0;" loading="lazy">
+            <div style="padding: 8px 12px; font-size: 0.8rem; color: var(--color-burgundy); font-weight: 700; background: #FFFFFF; border-top: 1px solid var(--color-border);">
+              🔎 Extrait Inclus : L'Anatomie Féminine & Les 4 Mouvements Clés du Clitoris
+            </div>
+          </div>
         </div>
 
         <!-- PART 4 -->
@@ -713,6 +782,13 @@ ${cssContent}
             <li><strong>La fellation douce pas à pas sans fatigue</strong> — Éviter le réflexe nauséeux, mouvements lèvres et main, et mots qui le rendent fou.</li>
             <li><strong>Prendre l'initiative : La soirée « Il ne fait rien »</strong> — 30 minutes où il s'abandonne entièrement entre vos mains.</li>
           </ul>
+
+          <div style="margin-top: 14px; border-radius: 8px; overflow: hidden; border: 1px solid var(--color-border); background: #FAF7F5; text-align: center;">
+            <img src="/assets/images/illustrations/guide-educatif-stimulation-main-langue-homme.jpg" alt="Extrait Chapitre 9 : Guide des Intervalles de Stimulation de la Main et de la Langue" style="width: 100%; max-height: 280px; object-fit: contain; display: block; margin: 0 auto; background: #FAF7F5; padding: 8px 0;" loading="lazy">
+            <div style="padding: 8px 12px; font-size: 0.8rem; color: var(--color-burgundy); font-weight: 700; background: #FFFFFF; border-top: 1px solid var(--color-border);">
+              🔎 Extrait Inclus : Guide des Intervalles de Stimulation (Main & Langue)
+            </div>
+          </div>
         </div>
 
         <!-- PART 5 -->

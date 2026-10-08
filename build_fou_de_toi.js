@@ -178,7 +178,7 @@ ${cssContent}
 
         <!-- Bouton CTA principal -->
         <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="width: 100%;">
-          <span>🔥 OUI, JE VEUX NOTRE LIT DE FEU DÈS CE SOIR</span>
+          <span>🔥 OUI, JE VEUX NOTRE LIT DE FEU DÈS CE SOIR <span class="cta-arrow">→</span></span>
           <span class="btn-cta-sub">Accès Immédiat pour 9 500 FCFA • Wave, Orange, MTN, Moov, Carte</span>
         </a>
 
@@ -437,6 +437,17 @@ ${cssContent}
 
       </div>
 
+      <!-- CTA Intermédiaire : Bénédiction et Révélation -->
+      <div class="cta-inter-box reveal-on-scroll">
+        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+          <span class="live-pulse-dot"></span> Entrez dans la liberté et la plénitude voulues par Dieu pour votre mariage
+        </div>
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 520px; margin: 0 auto;">
+          <span>📖 OBTENIR LE GUIDE BIBLIQUE ET PRATIQUE (9 500 FCFA) <span class="cta-arrow">→</span></span>
+          <span class="btn-cta-sub">Téléchargement Immédiat • 100% Conforme aux Écritures</span>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -527,6 +538,22 @@ ${cssContent}
           </ul>
         </div>
 
+      </div>
+
+      <!-- CTA Intermédiaire 1 : Transformation Immédiate -->
+      <div class="cta-inter-box reveal-on-scroll">
+        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+          <span class="live-pulse-dot"></span> Ne laissez plus la routine et la frustration abîmer votre foyer
+        </div>
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 540px; margin: 0 auto;">
+          <span>🔥 OUI, JE PASSE À L'ACTION POUR MON FOYER (9 500 FCFA) <span class="cta-arrow">→</span></span>
+          <span class="btn-cta-sub">Accès Immédiat & Confidentiel • 190 Pages HD + 6 Bonus Inclus</span>
+        </a>
+        <div class="hero-badges-row" style="margin-top: 14px; justify-content: center; gap: 16px; font-size: 0.82rem;">
+          <div class="hero-badge-item"><span>🔒 Paiement 100% Sécurisé</span></div>
+          <div class="hero-badge-item"><span>⚡ Téléchargement Direct</span></div>
+          <div class="hero-badge-item"><span>🛡️ Garantie 30 Jours</span></div>
+        </div>
       </div>
 
     </div>
@@ -714,7 +741,7 @@ ${cssContent}
             📖 Retrouvez ces guides en pleine résolution (PDF HD prêt à l'emploi) immédiatement après paiement.
           </p>
           <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 480px; margin: 0 auto;">
-            <span>🔥 ACCÉDER AU LIVRE COMPLET & AUX GUIDES (9 500 FCFA)</span>
+            <span>🔥 ACCÉDER AU LIVRE COMPLET & AUX GUIDES (9 500 FCFA) <span class="cta-arrow">→</span></span>
             <span class="btn-cta-sub">Téléchargement Immédiat • 100% Discret</span>
           </a>
         </div>
@@ -812,6 +839,21 @@ ${cssContent}
           </ul>
         </div>
 
+      </div>
+
+      <!-- CTA Intermédiaire 2 : Table des Matières Complète -->
+      <div class="cta-inter-box reveal-on-scroll">
+        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+          <span class="live-pulse-dot"></span> Tout ce savoir concret et bienveillant accessible sur votre téléphone dans 2 minutes
+        </div>
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 540px; margin: 0 auto;">
+          <span>⚡ ACCÉDER AUX 190 PAGES DU GUIDE MAÎTRE (9 500 FCFA) <span class="cta-arrow">→</span></span>
+          <span class="btn-cta-sub">Format PDF Haute Définition • Lisible sur Smartphone, PC & Tablette</span>
+        </a>
+        <div class="hero-badges-row" style="margin-top: 14px; justify-content: center; gap: 16px; font-size: 0.82rem;">
+          <div class="hero-badge-item"><span>✓ Wave, Orange Money, MTN, Moov, Carte</span></div>
+          <div class="hero-badge-item"><span>✓ Reçu & Accès Immédiat par Email</span></div>
+        </div>
       </div>
 
     </div>
@@ -1120,6 +1162,21 @@ ${cssContent}
         </div>
       </div>
 
+      <!-- CTA Intermédiaire 3 : 18 Positions & Nutrition -->
+      <div class="cta-inter-box reveal-on-scroll">
+        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+          <span class="live-pulse-dot"></span> Pratiquez ces positions dès ce soir sans aucune gêne ni acrobatie
+        </div>
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 540px; margin: 0 auto;">
+          <span>🔥 RECEVOIR LES 18 POSITIONS & LES SCHÉMAS (9 500 FCFA) <span class="cta-arrow">→</span></span>
+          <span class="btn-cta-sub">Croquis Clairs & Pudiques • Angles au Coussin Près • Plaisir Partagé</span>
+        </a>
+        <div class="hero-badges-row" style="margin-top: 14px; justify-content: center; gap: 16px; font-size: 0.82rem;">
+          <div class="hero-badge-item"><span>🔒 Discrétion Absolue (Libellé Neutre)</span></div>
+          <div class="hero-badge-item"><span>⚡ Disponibilité Immédiate</span></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1245,7 +1302,7 @@ ${cssContent}
       <!-- Bouton intermédiaire -->
       <div style="text-align: center; margin-top: 30px;">
         <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 480px; margin: 0 auto;">
-          <span>🔥 COMMANDER LE LIVRE & LES 6 BONUS (9 500 FCFA)</span>
+          <span>🔥 COMMANDER LE LIVRE & LES 6 BONUS (9 500 FCFA) <span class="cta-arrow">→</span></span>
           <span class="btn-cta-sub">Téléchargement Immédiat & Accès à Vie</span>
         </a>
       </div>
@@ -1326,6 +1383,21 @@ ${cssContent}
         <img src="${preuveVentesB64}" alt="Preuve des ventes">
         <div style="padding: 14px; font-size: 0.85rem; color: var(--color-burgundy); text-align: center; font-weight: 700; background: var(--color-bg-subtle);">
           📊 Plus de 3 850 commandes enregistrées • 98,7% de couples déclarant un renouveau intime dès la 1ère semaine
+        </div>
+      </div>
+
+      <!-- CTA Intermédiaire 4 : Témoignages & Preuve Sociale -->
+      <div class="cta-inter-box reveal-on-scroll">
+        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+          <span class="live-pulse-dot"></span> Rejoignez plus de 3 850 couples chrétiens épanouis dès ce soir
+        </div>
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 540px; margin: 0 auto;">
+          <span>💬 COMMENCER NOTRE RENOUVEAU CONJUGAL (9 500 FCFA) <span class="cta-arrow">→</span></span>
+          <span class="btn-cta-sub">Tarif de Lancement à -62% • Paiement Mobile Sécurisé • Accès Immédiat</span>
+        </a>
+        <div class="hero-badges-row" style="margin-top: 14px; justify-content: center; gap: 16px; font-size: 0.82rem;">
+          <div class="hero-badge-item"><span>⭐️ Note Moyenne : 4.9/5 (1 420+ avis)</span></div>
+          <div class="hero-badge-item"><span>🛡️ 30 Jours Satisfait ou Remboursé</span></div>
         </div>
       </div>
 
@@ -1439,7 +1511,7 @@ ${cssContent}
 
         <!-- Bouton CTA Commande -->
         <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="width: 100%; margin-top: 20px;">
-          <span>🔒 COMMANDER MAINTENANT POUR 9 500 FCFA</span>
+          <span>🔒 COMMANDER MAINTENANT POUR 9 500 FCFA <span class="cta-arrow">→</span></span>
           <span class="btn-cta-sub">Accès Immédiat 24h/24 • Orange, MTN, Wave, Moov, Carte</span>
         </a>
 
@@ -1560,6 +1632,21 @@ ${cssContent}
 
       </div>
 
+      <!-- CTA Intermédiaire 5 : Après FAQ & Garantie -->
+      <div class="cta-inter-box reveal-on-scroll">
+        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+          <span class="live-pulse-dot"></span> Vous n'avez aucun risque à essayer : garantie 30 jours 100% remboursé
+        </div>
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 540px; margin: 0 auto;">
+          <span>🔥 COMMENCER EN TOUTE SÉRÉNITÉ (9 500 FCFA) <span class="cta-arrow">→</span></span>
+          <span class="btn-cta-sub">Accès Immédiat en 1 Clic • Aucun Risque • Garantie Intégrale</span>
+        </a>
+        <div class="hero-badges-row" style="margin-top: 14px; justify-content: center; gap: 16px; font-size: 0.82rem;">
+          <div class="hero-badge-item"><span>🛡️ Zéro Risque Financier</span></div>
+          <div class="hero-badge-item"><span>⚡ Support WhatsApp Dédié</span></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1604,7 +1691,7 @@ ${cssContent}
       <!-- Bouton final -->
       <div style="text-align: center; margin-top: 36px;">
         <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 520px; margin: 0 auto;">
-          <span>🔥 JE CHOISIS NOTRE LIT DE FEU (9 500 FCFA)</span>
+          <span>🔥 JE CHOISIS NOTRE LIT DE FEU (9 500 FCFA) <span class="cta-arrow">→</span></span>
           <span class="btn-cta-sub">Téléchargement Immédiat • 100% Discret • Garantie 30 Jours</span>
         </a>
       </div>
@@ -1650,7 +1737,7 @@ ${cssContent}
       </div>
 
       <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-sticky-cta btn-chariow-checkout" style="flex: 1; max-width: 340px; padding: 12px 16px;">
-        <span style="font-weight: 800; font-size: 0.92rem;">🔥 COMMANDER MON EXEMPLAIRE</span>
+        <span style="font-weight: 800; font-size: 0.92rem;">🔥 COMMANDER MON EXEMPLAIRE <span class="cta-arrow">→</span></span>
         <span class="btn-cta-sub" style="font-size: 0.85rem;">Wave • Orange • MTN • Moov • Carte</span>
       </a>
 
@@ -1793,6 +1880,25 @@ ${cssContent}
           }
         });
       });
+
+      // 6. Micro-animations : Scroll Reveal Observer
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.reveal-on-scroll, .part-card, .bonus-item-card, .screenshot-card, .position-card-rich, .verse-sacred-card, .regle-dor-card, .compare-col, .hero-media-card').forEach(el => {
+          el.classList.add('reveal-on-scroll');
+          revealObserver.observe(el);
+        });
+      } else {
+        document.querySelectorAll('.reveal-on-scroll, .part-card, .bonus-item-card, .screenshot-card, .position-card-rich, .verse-sacred-card, .regle-dor-card, .compare-col, .hero-media-card').forEach(el => el.classList.add('is-visible'));
+      }
     });
   </script>
 </body>

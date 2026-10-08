@@ -381,6 +381,17 @@ ${cssContent}
               <img src="${fouDeToiB64}" alt="Livre Fou de Toi, Folle de Toi" style="width: 100%; display: block;">
             </div>
 
+            <div style="display: flex; gap: 8px; justify-content: center; margin-top: 14px; margin-bottom: 8px;">
+              <img src="/assets/images/illustrations/chapitre-4-cartes-zones-erogenes.jpg" alt="Aperçu Zones Érogènes" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Carte des zones érogènes">
+              <img src="/assets/images/illustrations/position-1-cuillere.jpg" alt="Aperçu 18 Positions" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="18 Positions adaptées">
+              <img src="/assets/images/illustrations/chapitre-11-six-temps.jpg" alt="Aperçu Déroulé en 6 temps" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Déroulé en 6 temps">
+              <img src="/assets/images/illustrations/chapitre-6-aliments-vitalite.jpg" alt="Aperçu Pharmacie africaine" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Pharmacie africaine">
+            </div>
+            <div style="font-size: 0.8rem; color: var(--color-burgundy); font-weight: 700; text-align: center; margin-bottom: 12px;">
+              ✨ Livre illustré : schémas 3D, 18 positions & infographies exclusives
+            </div>
+
+
             <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">
               VOLUME 2 • LE LIT CONJUGAL DE FEU
             </div>

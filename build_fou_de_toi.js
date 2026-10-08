@@ -125,7 +125,8 @@ ${cssContent}
        2. HERO SECTION : L'ACCROCHE & LE CHOC ÉMOTIONNEL
        ========================================================================= -->
   <section class="hero-section" id="hero">
-    <div class="container">
+    <div class="hero-bg-immersion"></div>
+    <div class="container" style="position: relative; z-index: 1;">
       
       <!-- En-tête typographique du livre -->
       <div class="book-header-rule">
@@ -159,10 +160,10 @@ ${cssContent}
       <!-- Carte centrale de présentation -->
       <div class="hero-media-card">
         
-        <div style="margin-bottom: 20px;">
-          <img src="${bookCoverB64}" alt="Livre FOU DE TOI, FOLLE DE TOI" style="width: 100%; max-width: 440px; margin: 0 auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
-          <div style="font-size: 0.8rem; color: var(--color-burgundy); text-align: center; font-weight: 700; margin-top: 10px;">
-            📖 LE GUIDE COMPLET DU COUPLE CHRÉTIEN (190 PAGES HD) • 18 POSITIONS • 6 BONUS INCLUS
+        <div class="book-cover-3d-box" style="margin-bottom: 24px;">
+          <img src="${bookCoverB64}" alt="Livre FOU DE TOI, FOLLE DE TOI - Guide Officiel" class="book-cover-3d-img">
+          <div style="font-size: 0.88rem; color: var(--color-burgundy); text-align: center; font-weight: 800; margin-top: 14px;">
+            📖 LE GUIDE MAÎTRE OFFICIEL DU COUPLE CHRÉTIEN (190 PAGES HD) • 18 POSITIONS • 6 BONUS INCLUS
           </div>
         </div>
 
@@ -200,6 +201,17 @@ ${cssContent}
           </div>
         </div>
 
+      </div>
+
+    </div>
+      
+      <!-- Illustration 1 : Couple complice au réveil -->
+      <div class="book-illustration-box">
+        <img src="/assets/images/illustrations/intro-couple-reveil.jpg" alt="Couple complice au réveil - Amina et Kofi" class="book-illustration-img" loading="lazy">
+        <div class="book-illustration-caption">
+          <span class="book-illustration-tag">Introduction Officielle</span>
+          <span>Redécouvrez la complicité tendre et le sourire au réveil : la vision divine et bienveillante pour votre foyer.</span>
+        </div>
       </div>
 
     </div>
@@ -548,6 +560,113 @@ ${cssContent}
       </div>
 
       <!-- Grille des parties -->
+      
+      <!-- Illustrations Anatomie & Cartographie -->
+      <div class="illustrations-2col-grid">
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-3-anatomie-feminine.jpg" alt="Anatomie Féminine Schéma 3D" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 3 • Anatomie 3D</span>
+            <span>Schéma médical précis du clitoris & des bulbes vestibulaires : l'organe d'extase féminin démystifié.</span>
+          </div>
+        </div>
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-3-anatomie-masculine.jpg" alt="Anatomie Masculine Schéma 3D" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 3 • Anatomie 3D</span>
+            <span>Anatomie masculine & corps caverneux : les mécanismes physiologiques de l'érection ferme et durable.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-illustration-box">
+        <img src="/assets/images/illustrations/chapitre-4-cartes-zones-erogenes.jpg" alt="Carte des Zones Érogènes" class="book-illustration-img" loading="lazy">
+        <div class="book-illustration-caption">
+          <span class="book-illustration-tag">Chapitre 4 • Cartographie</span>
+          <span>La Carte des 7 zones érogènes majeures du corps : nuque, dos, lèvres, cuisses et points réflexes d'excitation.</span>
+        </div>
+      </div>
+
+      <div class="illustrations-2col-grid">
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-4-massage-cartographie.jpg" alt="Massage de cartographie" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 4 • Le Rituel</span>
+            <span>Le massage de cartographie à l'huile tiède : relâcher les tensions et reconnecter les corps sans pression.</span>
+          </div>
+        </div>
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-3-diversite-corps.jpg" alt="Diversité des corps" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 3 • Confiance</span>
+            <span>La diversité des morphologies : mince, ronde, après accouchement... chaque corps est digne et capable d'extase.</span>
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- Illustrations Endurance Masculine -->
+      <div class="illustrations-2col-grid">
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-5-echelle-excitation.jpg" alt="Échelle d'excitation 1 à 10" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 5 • Endurance</span>
+            <span>L'infographie de l'Échelle 1 à 10 : identifier le palier 7 pour retarder l'éjaculation et durer 20 minutes sans forcer.</span>
+          </div>
+        </div>
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-5-plancher-pelvien.jpg" alt="Plancher pelvien masculin" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 5 • Muscle PC</span>
+            <span>Le plancher pelvien masculin : la gymnastique invisible pour verrouiller l'érection et stopper la fuite précoce.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-illustration-box">
+        <img src="/assets/images/illustrations/chapitre-5-pause-caline.jpg" alt="La pause câline" class="book-illustration-img" loading="lazy">
+        <div class="book-illustration-caption">
+          <span class="book-illustration-tag">Chapitre 5 • Technique Clé</span>
+          <span>La pause câline : comment reprendre son souffle et synchroniser les battements du cœur sans casser le rythme.</span>
+        </div>
+      </div>
+
+      
+      <!-- Illustrations Caresses & Signaux Féminins -->
+      <div class="illustrations-2col-grid">
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-7-mouvements-stimulation.jpg" alt="Mouvements de stimulation clitoridienne" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 7 • L'Orfèvrerie</span>
+            <span>Les 4 mouvements de caresse clitoridienne pour amener son épouse à l'orgasme avant la pénétration.</span>
+          </div>
+        </div>
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-7-lire-les-signaux.jpg" alt="Lire les signaux corporels" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 7 • Les Indices</span>
+            <span>Infographie : décoder les soupirs, contractions involontaires et mouvements du bassin de sa femme.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="illustrations-2col-grid">
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-7-cunnilingus.jpg" alt="Cunnilingus pudique et respectueux" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 7 • Offrande</span>
+            <span>La caresse orale langue à plat : l'art d'offrir le plaisir le plus pur sans précipitation.</span>
+          </div>
+        </div>
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-9-seduction-maison.jpg" alt="Séduction à la maison" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 9 • Séduction</span>
+            <span>Recréer l'ambiance et la tension amoureuse dans la maison dès 17h.</span>
+          </div>
+        </div>
+      </div>
+
       <div class="parts-grid">
         
         <!-- PART 1 -->
@@ -755,7 +874,42 @@ ${cssContent}
           Voici comment se déroule, minute par minute, une nuit d'intimité épanouie dans le couple :
         </p>
 
-        <div class="timeline-roadmap">
+        
+      <!-- Illustrations Le Déroulé en 6 Temps -->
+      <div class="illustrations-2col-grid">
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-8-se-dire-les-choses.jpg" alt="Se dire les choses avec tendresse" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 8 • Paroles Douces</span>
+            <span>Les mots murmurés à l'oreille qui embrasent l'imagination sans aucune vulgarité.</span>
+          </div>
+        </div>
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-10-rendez-vous.jpg" alt="Rendez-vous à deux sanctuarisé" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 10 • Le Sanctuaire</span>
+            <span>Comment sanctuariser un rendez-vous hebdomadaire intime sans interruption des enfants.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-illustration-box">
+        <img src="/assets/images/illustrations/chapitre-11-six-temps.jpg" alt="Le déroulé en six temps d'une union" class="book-illustration-img" loading="lazy">
+        <div class="book-illustration-caption">
+          <span class="book-illustration-tag">Chapitre 11 • La Partition</span>
+          <span>L'infographie officielle du Déroulé en 6 Temps : de la mise en condition matinale jusqu'à l'extase partagée.</span>
+        </div>
+      </div>
+
+      <div class="book-illustration-box">
+        <img src="/assets/images/illustrations/chapitre-11-tendresse-apres.jpg" alt="Tendresse après le rapport" class="book-illustration-img" loading="lazy">
+        <div class="book-illustration-caption">
+          <span class="book-illustration-tag">Chapitre 11 • L'Atterrissage</span>
+          <span>Le rituel d'après-rapport : les caresses d'atterrissage pour sceller l'attachement émotionnel et la paix du cœur.</span>
+        </div>
+      </div>
+
+      <div class="timeline-roadmap">
           
           <div class="time-step-card">
             <div class="time-step-header">
@@ -822,7 +976,26 @@ ${cssContent}
           Ce que vous trouvez au marché pour soutenir la circulation sanguine, l'endurance masculine et la lubrification :
         </p>
 
-        <div class="market-pharmacy-grid">
+        
+      <!-- Illustrations Pharmacie & Vitalité -->
+      <div class="illustrations-2col-grid">
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-6-aliments-vitalite.jpg" alt="Aliments de la vitalité africaine" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 6 • Pharmacie Africaine</span>
+            <span>Les super-aliments d'énergie sexuelle : gingembre frais, bissap, pastèque citrulline, moringa, dattes.</span>
+          </div>
+        </div>
+        <div class="book-illustration-box" style="margin: 0;">
+          <img src="/assets/images/illustrations/chapitre-6-exercices-endurance.jpg" alt="Exercices physiques pour l'endurance" class="book-illustration-img" loading="lazy">
+          <div class="book-illustration-caption">
+            <span class="book-illustration-tag">Chapitre 6 • Routine 15 Min</span>
+            <span>Les 3 exercices simples de renforcement : squats, pont fessier et gainage pour un bassin puissant.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="market-pharmacy-grid">
           
           <div class="food-card">
             <div class="food-icon">🫚</div>
@@ -1096,7 +1269,8 @@ ${cssContent}
   <!-- =========================================================================
        11. SECTION : L'OFFRE IRRÉSISTIBLE & STACK DE PRIX (LE COEUR DU TUNNEL)
        ========================================================================= -->
-  <section class="section" id="offre" style="background: #FFFFFF;">
+  <section class="section section-immersive" id="offre" style="background: #FFFFFF;">
+    <div class="section-immersive-bg" style="background-image: url('/assets/images/illustrations/ambiance-couple-intime.jpg');"></div>
     <div class="container">
       
       <div style="text-align: center; max-width: 780px; margin: 0 auto 30px auto;">

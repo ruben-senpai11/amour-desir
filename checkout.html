@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paiement Sécurisé • FOU DE TOI, FOLLE DE TOI (9 500 FCFA)</title>
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpg">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,45 +16,130 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
 
+  <style>
+    :root {
+      --color-primary: #700918;
+      --color-primary-dark: #4A040D;
+      --color-primary-light: #8B1527;
+      --color-bg-paper: #FAF7F5;
+      --color-card-bg: #FFFFFF;
+      --color-border: #E6DED8;
+      --color-text-main: #2D2D2D;
+      --color-text-muted: #665E5A;
+    }
+
+    body {
+      background-color: var(--color-bg-paper);
+      color: var(--color-text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+    }
+
+    .checkout-card {
+      max-width: 540px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-top: 5px solid var(--color-primary);
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+    }
+
+    .badge-bordeaux {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #F8ECEE;
+      color: #700918;
+      border: 1px solid #E2B9C0;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: #FFFFFF;
+      color: var(--color-text-main);
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus, .form-select:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(112, 9, 24, 0.1);
+    }
+
+    .order-summary {
+      background: #FDFBFA;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 22px;
+    }
+  </style>
+
   <!-- FedaPay Checkout CDN -->
   <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
 </head>
-<body style="background-color: #0c0608; background-image: radial-gradient(circle at 50% 0%, rgba(142, 16, 34, 0.28) 0%, transparent 60%);">
+<body>
 
   <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
     
     <div style="text-align: center; margin-bottom: 24px;">
-      <a href="index.html" style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900; letter-spacing: 0.05em; color: #ffffff;">
+      <a href="index.html" style="font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 900; letter-spacing: 0.05em; color: var(--color-primary); text-decoration: none;">
         FOU DE TOI, FOLLE DE TOI
       </a>
-      <div style="font-size: 0.85rem; color: var(--color-gold-sacred); font-style: italic; margin-top: 4px;">
+      <div style="font-size: 0.88rem; color: var(--color-text-muted); font-style: italic; margin-top: 4px;">
         Le guide du couple chrétien qui veut un lit de feu
       </div>
     </div>
 
-    <div class="card-dark" style="max-width: 520px; margin: 0 auto; border: 2px solid var(--color-gold-sacred); box-shadow: 0 0 50px rgba(142, 16, 34, 0.45); background: rgba(22, 10, 15, 0.95);">
+    <div class="checkout-card">
       
       <div style="text-align: center; margin-bottom: 20px;">
-        <div class="badge-pill badge-gold-foil" style="margin-bottom: 10px;">🔒 PAIEMENT 100% SÉCURISÉ & ANONYME</div>
-        <h1 style="font-size: 1.8rem; margin-bottom: 8px; color: #ffffff;">Finaliser Votre Accès Immédiat</h1>
-        <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+        <div class="badge-bordeaux" style="margin-bottom: 10px;">🔒 PAIEMENT 100% SÉCURISÉ & ANONYME</div>
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 8px; color: #1F1F1F;">Finaliser Votre Accès Immédiat</h1>
+        <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.5;">
           Renseignez vos informations ci-dessous pour recevoir votre guide <strong>FOU DE TOI, FOLLE DE TOI</strong> et ses <strong>6 Bonus exclusifs</strong> instantanément après paiement.
         </p>
       </div>
 
       <!-- Order Summary Box -->
-      <div style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: var(--radius-md); padding: 18px; margin-bottom: 20px;">
+      <div class="order-summary">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
           <div>
-            <div style="font-weight: 800; color: #ffffff; font-size: 1rem;">FOU DE TOI, FOLLE DE TOI</div>
+            <div style="font-weight: 800; color: #1F1F1F; font-size: 1rem;">FOU DE TOI, FOLLE DE TOI</div>
             <div style="font-size: 0.8rem; color: var(--color-text-muted);">Guide Maître (190 pages HD) + 6 Bonus Inclus</div>
           </div>
-          <span style="font-weight: 900; color: var(--color-gold-bright); font-size: 1.3rem;">9 500 FCFA</span>
+          <span style="font-weight: 900; color: var(--color-primary); font-size: 1.35rem;">9 500 FCFA</span>
         </div>
-        <div style="font-size: 0.82rem; color: #34d399; font-weight: 600;">
+        <div style="font-size: 0.82rem; color: #047857; font-weight: 700;">
           ✓ Réduction exceptionnelle de 62% appliquée (-15 500 FCFA) (Prix normal : 25 000 FCFA)
         </div>
-        <div style="font-size: 0.78rem; color: #fda4af; margin-top: 6px;">
+        <div style="font-size: 0.78rem; color: var(--color-text-muted); margin-top: 6px;">
           ⚡ Facturation 100% discrète sous l'intitulé neutre "Éditions Éveil"
         </div>
       </div>
@@ -92,15 +180,15 @@
         </div>
 
         <!-- Submit CTA Button -->
-        <button type="submit" id="payDirectBtn" class="btn-cta" style="width: 100%; margin-top: 14px; background: linear-gradient(135deg, #8e1022 0%, #6e0817 50%, #42040d 100%); border: 1px solid var(--color-gold-sacred); box-shadow: 0 0 30px rgba(142, 16, 34, 0.6);">
-          <span style="font-weight: 900; letter-spacing: 0.04em;">🔒 VALIDER ET PAYER 9 500 FCFA</span>
-          <span class="btn-cta-sub" style="color: #fef08a;">Orange Money • MTN • Moov • Wave • Carte Visa / Mastercard</span>
+        <button type="submit" id="payDirectBtn" class="btn-cta" style="width: 100%; margin-top: 14px; background: linear-gradient(135deg, #8B1527 0%, #700918 100%); color: #ffffff; border: 1px solid #700918; border-radius: 10px; padding: 16px 20px; box-shadow: 0 4px 15px rgba(112, 9, 24, 0.25); cursor: pointer;">
+          <span style="font-weight: 900; letter-spacing: 0.04em; font-size: 1.05rem; display: block;">🔒 VALIDER ET PAYER 9 500 FCFA</span>
+          <span class="btn-cta-sub" style="color: #F8ECEE; font-size: 0.8rem; display: block; margin-top: 4px;">Orange Money • MTN • Moov • Wave • Carte Visa / Mastercard</span>
         </button>
 
       </form>
 
       <!-- Trust Badges -->
-      <div style="text-align: center; margin-top: 22px; font-size: 0.8rem; color: var(--color-text-dim); line-height: 1.5;">
+      <div style="text-align: center; margin-top: 22px; font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.5;">
         🛡️ Garantie Inconditionnelle 30 jours Satisfait ou Remboursé<br>
         ⚡ Téléchargement immédiat + Envoi automatique par email & WhatsApp
       </div>

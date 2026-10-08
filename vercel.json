@@ -7,7 +7,35 @@
       "dest": "/api/$1"
     },
     {
-      "src": "/(.*)",
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/downloads/(.*)",
+      "dest": "/downloads/$1"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/dashboard.html"
+    },
+    {
+      "src": "/pack-du-desir",
+      "dest": "/pack-du-desir.html"
+    },
+    {
+      "src": "/fou-de-toi-folle-de-toi",
+      "dest": "/fou-de-toi-folle-de-toi.html"
+    },
+    {
+      "src": "/checkout",
+      "dest": "/checkout.html"
+    },
+    {
+      "src": "/merci",
+      "dest": "/merci.html"
+    },
+    {
+      "src": "/",
       "dest": "/index.html"
     }
   ]

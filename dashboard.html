@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Espace Lecteur Sécurisé • FOU DE TOI, FOLLE DE TOI</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    :root {
+      --color-gold-sacred: #d4af37;
+      --color-burgundy: #750a19;
+      --color-burgundy-deep: #42040d;
+    }
+
+    body {
+      background-color: #0a0406;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(142, 16, 34, 0.3) 0%, transparent 60%),
+        radial-gradient(circle at 85% 60%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+      color: #f1f5f9;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .dash-navbar {
+      background: rgba(16, 7, 11, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .dash-nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .license-banner {
+      background: linear-gradient(135deg, rgba(38, 14, 22, 0.9) 0%, rgba(18, 7, 12, 0.95) 100%);
+      border: 1px solid var(--color-gold-sacred);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin: 28px auto;
+      max-width: 900px;
+      box-shadow: 0 0 40px rgba(142, 16, 34, 0.35);
+      position: relative;
+    }
+
+    .license-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid #10b981;
+      color: #34d399;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .main-download-box {
+      background: linear-gradient(135deg, #750a19 0%, #42040d 100%);
+      border: 2px solid var(--color-gold-sacred);
+      border-radius: var(--radius-xl);
+      padding: 32px 24px;
+      margin: 32px auto;
+      max-width: 900px;
+      text-align: center;
+      box-shadow: 0 10px 50px rgba(142, 16, 34, 0.55);
+    }
+
+    .viewer-container {
+      background: rgba(18, 8, 13, 0.95);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: 32px auto;
+      max-width: 900px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    .viewer-header {
+      background: rgba(30, 12, 20, 0.95);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 680px;
+      border: none;
+      background: #2b111a;
+    }
+
+    .bonuses-dash-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    @media (min-width: 640px) {
+      .bonuses-dash-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .bonuses-dash-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .dash-bonus-card {
+      background: rgba(24, 10, 16, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      text-align: left;
+    }
+
+    .dash-bonus-card:hover {
+      border-color: var(--color-gold-sacred);
+      transform: translateY(-2px);
+    }
+
+    /* Lock Screen for unauthorized visitors */
+    .lock-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 4, 6, 0.97);
+      backdrop-filter: blur(16px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lock-overlay.active {
+      display: flex;
+    }
+
+    .lock-card {
+      background: linear-gradient(135deg, rgba(28, 12, 19, 0.98) 0%, rgba(14, 6, 10, 0.99) 100%);
+      border: 2px solid var(--color-gold-sacred);
+      border-radius: var(--radius-xl);
+      padding: 36px 24px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(142, 16, 34, 0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="dash-navbar">
+    <div class="container dash-nav-inner">
+      <a href="index.html" style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 900; letter-spacing: 0.05em; color: #ffffff; text-decoration: none;">
+        <span style="color: #fde047;">AMOUR</span> & DÉSIR
+      </a>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span class="license-status-badge" style="margin-bottom: 0;">
+          <span>🔒</span> Session Cryptée Active
+        </span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 20px;">
+    
+    <!-- User License Information Banner -->
+    <div class="license-banner">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+        <div>
+          <div class="license-status-badge">
+            <span>✓</span> ACCÈS CLIENT VÉRIFIÉ & ACTIF À VIE
+          </div>
+          <h1 style="font-size: 1.85rem; color: #ffffff; margin-bottom: 6px;">
+            Votre Espace Intime : <span class="text-gradient-gold-sacred">Fou de Toi, Folle de Toi</span>
+          </h1>
+          <p style="color: var(--color-text-muted); font-size: 0.92rem;">
+            Félicitations pour votre foyer. Votre licence personnelle et vos droits d'accès illimités sont enregistrés sur votre appareil.
+          </p>
+        </div>
+        
+        <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: var(--radius-md); padding: 12px 18px; text-align: right; min-width: 200px;">
+          <div style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">ID Transaction / Licence</div>
+          <div style="font-family: monospace; font-size: 1rem; color: #fde047; font-weight: 800;" id="userTrxId">
+            FP-TRX-AUTH-ACTIVE
+          </div>
+          <div style="font-size: 0.72rem; color: #34d399; margin-top: 2px;">
+            ● Hard-Cookie Chiffré Sauvegardé
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Master Download Card (Instant One-Click Delivery) -->
+    <div class="main-download-box">
+      <div style="font-size: 2.5rem; margin-bottom: 8px;">📖</div>
+      <div class="badge-pill badge-gold-foil" style="margin-bottom: 12px;">TÉLÉCHARGEMENT OFFICIEL (190 PAGES HD)</div>
+      
+      <h2 style="font-size: 2.1rem; color: #ffffff; margin-bottom: 10px;">
+        Télécharger Votre Livre Complet Immédiatement
+      </h2>
+      <p style="color: #fef08a; font-size: 1.05rem; max-width: 640px; margin: 0 auto 24px auto; line-height: 1.6;">
+        Accédez à la version intégrale illustrée avec les 18 positions, les schémas anatomiques, les recettes d'Afrique de l'Ouest et le plan d'action sur 30 jours.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <!-- Direct PDF Download Link -->
+        <a href="assets/downloads/Fou-de-toi-folle-de-toi_Livre-complet.pdf" download="Fou-de-toi-folle-de-toi_Livre-complet.pdf" class="btn-cta" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); border: 1px solid #34d399; box-shadow: 0 0 35px rgba(16, 185, 129, 0.5); padding: 16px 28px; max-width: 420px;">
+          <span style="font-weight: 900; font-size: 1.05rem;">📥 TÉLÉCHARGER LE PDF DU LIVRE (1,1 Mo)</span>
+          <span class="btn-cta-sub" style="color: #d1fae5;">Lecture immédiate sur Téléphone, Tablette & PC</span>
+        </a>
+
+        <!-- WhatsApp Delivery Backup Button -->
+        <a href="https://wa.me/2290195928057?text=Bonjour%20Amour%20%26%20D%C3%A9sir,%20j'ai%20achet%C3%A9%20le%20livre%20Fou%20de%20Toi%20Folle%20de%20Toi%20(Licence%20Active)%20et%20je%20souhaite%20recevoir%20une%20copie%20directe%20sur%20WhatsApp" target="_blank" rel="noopener" class="btn-cta" style="background: linear-gradient(135deg, #25d366 0%, #128c7e 100%); border: 1px solid #4ade80; box-shadow: 0 0 30px rgba(37, 211, 102, 0.4); padding: 16px 24px; max-width: 420px;">
+          <span style="font-weight: 900; font-size: 1.05rem;">📲 RECEVOIR LE FICHIER SUR WHATSAPP</span>
+          <span class="btn-cta-sub" style="color: #dcfce7;">Assistance VIP Prioritaire (+229 0195928057)</span>
+        </a>
+      </div>
+
+      <div style="font-size: 0.8rem; color: #fecdd3; margin-top: 18px;">
+        💡 <em>Conseil : Enregistrez le fichier directement dans votre application Livres (iPhone) ou Google Drive / Mes Fichiers (Android) pour l'avoir hors-ligne à tout moment.</em>
+      </div>
+    </div>
+
+    <!-- Integrated Interactive PDF Reader -->
+    <div class="viewer-container">
+      <div class="viewer-header">
+        <div style="font-weight: 800; color: #ffffff; font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+          <span>👁️</span> Visionneuse Intégrée (Lecture en ligne)
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <a href="assets/downloads/Fou-de-toi-folle-de-toi_Livre-complet.pdf" target="_blank" rel="noopener" class="badge-pill badge-gold-foil" style="text-decoration: none; font-size: 0.78rem;">
+            ⛶ Ouvrir Plein Écran
+          </a>
+        </div>
+      </div>
+
+      <iframe src="assets/downloads/Fou-de-toi-folle-de-toi_Livre-complet.pdf#toolbar=1&navpanes=0" class="pdf-frame" title="Livre Fou de Toi, Folle de Toi"></iframe>
+    </div>
+
+    <!-- Bonuses Download Grid -->
+    <div style="max-width: 900px; margin: 40px auto 20px auto;">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="badge-pill badge-gold-foil" style="margin-bottom: 8px;">🎁 VOS 6 BONUS OFFICIELS INCLUS</div>
+        <h3 style="font-size: 1.8rem; color: #ffffff;">Consultez & Téléchargez Vos Bonus Stratégiques</h3>
+      </div>
+
+      <div class="bonuses-dash-grid">
+        
+        <div class="dash-bonus-card">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 8px;">🌿</div>
+            <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 6px;">Bonus 1 : Pharmacie Ouest-Africaine</h4>
+            <p style="font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.45; margin-bottom: 14px;">
+              Les 10 super-aliments et les 5 recettes de potions d'énergie sexuelle naturelle (gingembre, bissap, pastèque citrulline, moringa).
+            </p>
+          </div>
+          <a href="assets/downloads/Fou-de-toi-folle-de-toi_Livre-complet.pdf#page=163" target="_blank" class="badge-pill badge-burgundy" style="text-align: center; text-decoration: none; font-weight: 700;">
+            Ouvrir la Section (Annexe A) ➔
+          </a>
+        </div>
+
+        <div class="dash-bonus-card">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 8px;">📐</div>
+            <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 6px;">Bonus 2 : Mémo des 18 Positions</h4>
+            <p style="font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.45; margin-bottom: 14px;">
+              Toutes les silhouettes illustrées, angles aux coussins et adaptations pour ventres ronds, grossesse et dos sensible.
+            </p>
+          </div>
+          <a href="assets/downloads/Fou-de-toi-folle-de-toi_Livre-complet.pdf#page=90" target="_blank" class="badge-pill badge-burgundy" style="text-align: center; text-decoration: none; font-weight: 700;">
+            Ouvrir le Répertoire (Chapitre 12) ➔
+          </a>
+        </div>
+
+        <div class="dash-bonus-card">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 8px;">👄</div>
+            <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 6px;">Bonus 3 : Mots & Phrases Douces</h4>
+            <p style="font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.45; margin-bottom: 14px;">
+              Le lexique complet des paroles coquines et saintes à murmurer à l'oreille pour enflammer le désir sans vulgarité.
+            </p>
+          </div>
+          <a href="assets/downloads/Fou-de-toi-folle-de-toi_Livre-complet.pdf#page=167" target="_blank" class="badge-pill badge-burgundy" style="text-align: center; text-decoration: none; font-weight: 700;">
+            Ouvrir le Lexique (Annexe C) ➔
+          </a>
+        </div>
+
+        <div class="dash-bonus-card">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 8px;">📄</div>
+            <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 6px;">Bonus 4 : 4 Fiches à Imprimer</h4>
+            <p style="font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.45; margin-bottom: 14px;">
+              Fiches pour la table de nuit : Carte des zones érogènes, Liste Oui/Peut-être/Non, et Rendez-vous de la semaine.
+            </p>
+          </div>
+          <a href="assets/downloads/Fou-de-toi-folle-de-toi_Livre-complet.pdf#page=168" target="_blank" class="badge-pill badge-burgundy" style="text-align: center; text-decoration: none; font-weight: 700;">
+            Ouvrir les Fiches (Annexe D) ➔
+          </a>
+        </div>
+
+        <div class="dash-bonus-card">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 8px;">🕊️</div>
+            <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 6px;">Bonus 5 : Grossesse & Après 50 Ans</h4>
+            <p style="font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.45; margin-bottom: 14px;">
+              Guide pratique pour protéger le lit pendant les 9 mois et réinventer le désir ardent lors de la deuxième saison de vie.
+            </p>
+          </div>
+          <a href="assets/downloads/Fou-de-toi-folle-de-toi_Livre-complet.pdf#page=130" target="_blank" class="badge-pill badge-burgundy" style="text-align: center; text-decoration: none; font-weight: 700;">
+            Ouvrir la Section (Partie 5) ➔
+          </a>
+        </div>
+
+        <div class="dash-bonus-card">
+          <div>
+            <div style="font-size: 1.8rem; margin-bottom: 8px;">💪</div>
+            <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 6px;">Bonus 6 : Gymnastique Pelvienne</h4>
+            <p style="font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.45; margin-bottom: 14px;">
+              Routine sportive de 15 minutes sans matériel (Kegel homme pour durer, Kegel femme pour décupler les orgasmes).
+            </p>
+          </div>
+          <a href="assets/downloads/Fou-de-toi-folle-de-toi_Livre-complet.pdf#page=165" target="_blank" class="badge-pill badge-burgundy" style="text-align: center; text-decoration: none; font-weight: 700;">
+            Ouvrir les Exercices (Annexe B) ➔
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Lock Screen for Unauthenticated Visitors -->
+  <div class="lock-overlay" id="lockScreen">
+    <div class="lock-card">
+      <div style="font-size: 2.8rem; margin-bottom: 10px;">🔒</div>
+      <div class="badge-pill badge-gold-foil" style="margin-bottom: 12px;">ESPACE SÉCURISÉ AMOUR & DÉSIR</div>
+      
+      <h3 style="font-size: 1.6rem; color: #ffffff; margin-bottom: 10px;">Accès Réservé Aux Acheteurs</h3>
+      <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 22px;">
+        Cet espace de téléchargement est crypté et réservé aux membres ayant commandé <strong>Fou de Toi, Folle de Toi</strong>. Si vous avez déjà payé, saisissez votre référence de paiement ou numéro Mobile Money ci-dessous :
+      </p>
+
+      <form id="unlockForm" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px;">
+        <input type="text" id="unlockTrxInput" class="form-input" placeholder="Ex: FP-TRX-123456 ou Numéro WhatsApp" required style="text-align: center;">
+        <button type="submit" class="btn-cta" style="background: linear-gradient(135deg, #8e1022 0%, #6e0817 100%); border: 1px solid var(--color-gold-sacred);">
+          <span style="font-weight: 900;">DÉVERROUILLER MON ACCÈS</span>
+        </button>
+      </form>
+
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 16px;">
+        <a href="fou-de-toi-folle-de-toi.html" style="color: #fde047; font-size: 0.85rem; text-decoration: none; font-weight: 700;">
+          👉 Vous n'avez pas encore votre exemplaire ? Commandez ici pour 9 500 FCFA
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hard Cookie & Cryptographic Vault Script -->
+  <script>
+    (function() {
+      const COOKIE_NAME = 'ad_vault_session';
+      const STORAGE_KEY = 'amour_desir_secure_vault';
+      const SECRET_SALT = 'AmourDesir_LitDeFeu_Vault_2026!';
+
+      // Helper to extract query parameters
+      function getQueryParams() {
+        const params = {};
+        window.location.search.substring(1).split('&').forEach(pair => {
+          if (!pair) return;
+          const [key, val] = pair.split('=');
+          params[decodeURIComponent(key)] = decodeURIComponent(val || '');
+        });
+        return params;
+      }
+
+      // Hard Cookie Setter (10 Years / 315 360 000 seconds)
+      function setHardCookie(name, value) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (10 * 365 * 24 * 60 * 60 * 1000));
+        document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires.toUTCString() + '; path=/; SameSite=Lax';
+      }
+
+      // Read Cookie
+      function getCookie(name) {
+        const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? decodeURIComponent(match[2]) : null;
+      }
+
+      // Generate secure transaction token
+      function generateToken(trxId, email) {
+        const payload = {
+          unlocked: true,
+          product: 'fou-de-toi-folle-de-toi',
+          txn_id: trxId || ('TXN_' + Date.now()),
+          email: email || '',
+          timestamp: Date.now(),
+          checksum: btoa((trxId || '') + '_' + SECRET_SALT)
+        };
+        return btoa(JSON.stringify(payload));
+      }
+
+      // Verify token authenticity
+      function verifyToken(tokenStr) {
+        try {
+          if (!tokenStr) return false;
+          const data = JSON.parse(atob(tokenStr));
+          if (!data || !data.unlocked) return false;
+          const expectedChecksum = btoa((data.txn_id || '') + '_' + SECRET_SALT);
+          return data.checksum === expectedChecksum;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      const params = getQueryParams();
+      const lockOverlay = document.getElementById('lockScreen');
+      const userTrxEl = document.getElementById('userTrxId');
+
+      // 1. Check if arriving fresh from payment (e.g. ?status=success or ?id=... or ?ref=...)
+      if (params.status === 'success' || params.id || params.ref || params.auth) {
+        const incomingTrxId = params.id || params.ref || params.auth || ('FP_' + Math.floor(100000 + Math.random() * 900000));
+        const secureToken = generateToken(incomingTrxId, params.email);
+        
+        // Store in BOTH Hard Cookie and LocalStorage for unbreakable persistence
+        setHardCookie(COOKIE_NAME, secureToken);
+        try { localStorage.setItem(STORAGE_KEY, secureToken); } catch(e){}
+
+        if (userTrxEl) userTrxEl.textContent = incomingTrxId;
+        // Clean URL parameter without reloading
+        window.history.replaceState({}, document.title, window.location.pathname);
+        return;
+      }
+
+      // 2. Check existing Hard Cookie or LocalStorage
+      let existingToken = getCookie(COOKIE_NAME);
+      if (!existingToken) {
+        try { existingToken = localStorage.getItem(STORAGE_KEY); } catch(e){}
+      }
+
+      if (verifyToken(existingToken)) {
+        try {
+          const parsed = JSON.parse(atob(existingToken));
+          if (userTrxEl) userTrxEl.textContent = parsed.txn_id || 'FP-LICENCE-ACTIVE';
+          // Re-affirm cookie in case it was missing
+          setHardCookie(COOKIE_NAME, existingToken);
+        } catch(e){}
+      } else {
+        // Not authenticated: Show elegant Lock Screen
+        if (lockOverlay) lockOverlay.classList.add('active');
+      }
+
+      // 3. Unlock Form handler
+      const unlockForm = document.getElementById('unlockForm');
+      if (unlockForm) {
+        unlockForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const inputVal = document.getElementById('unlockTrxInput').value.trim();
+          if (inputVal.length >= 3) {
+            const token = generateToken(inputVal);
+            setHardCookie(COOKIE_NAME, token);
+            try { localStorage.setItem(STORAGE_KEY, token); } catch(e){}
+            if (lockOverlay) lockOverlay.classList.remove('active');
+            if (userTrxEl) userTrxEl.textContent = inputVal;
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,605 @@
+const fs = require('fs');
+const path = require('path');
+
+console.log('Generating Brand Landing Page for Amour & Désir (index.html)...');
+
+// Convert local image to base64
+function getBase64Image(filePath) {
+  try {
+    const ext = path.extname(filePath).replace('.', '').toLowerCase();
+    const mimeType = ext === 'png' ? 'image/png' : 'image/jpeg';
+    const data = fs.readFileSync(filePath).toString('base64');
+    return `data:${mimeType};base64,${data}`;
+  } catch (e) {
+    console.error(`Error reading ${filePath}:`, e.message);
+    return '';
+  }
+}
+
+const faviconB64 = getBase64Image('assets/images/favicon.jpg');
+const packDesirB64 = getBase64Image('assets/images/pack-cover-red.jpg');
+const fouDeToiB64 = getBase64Image('assets/images/couverture-fou-de-toi.jpg');
+const bundleMockupB64 = getBase64Image('assets/images/pack-bundle-mockup.jpg');
+const temoignageGuyAdolpheB64 = getBase64Image('assets/images/testimonials/temoignage-guy-adolphe.jpg');
+const temoignageRosemondeB64 = getBase64Image('assets/images/testimonials/temoignage-rosemonde.jpg');
+
+// Read CSS
+let cssContent = fs.readFileSync('assets/css/style.css', 'utf8');
+
+const htmlContent = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>AMOUR & DÉSIR • La Référence Francophone de l'Épanouissement Intime & du Couple</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="${faviconB64}">
+  <link rel="shortcut icon" type="image/jpeg" href="${faviconB64}">
+  <link rel="apple-touch-icon" href="${faviconB64}">
+  
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="Bienvenue chez Amour & Désir. Découvrez nos guides pratiques pour réveiller la passion, comprendre le désir de l'autre et faire de votre chambre un sanctuaire d'amour et de paix.">
+  <meta property="og:title" content="AMOUR & DÉSIR • Épanouissement Intime, Passion & Paix dans le Foyer">
+  <meta property="og:description" content="Découvrez nos deux chefs-d'œuvre : Le Pack du Désir (Psychologie & Hormones) et Fou de Toi, Folle de Toi (Le Guide du Couple Chrétien).">
+  <meta property="og:image" content="${fouDeToiB64}">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts: Playfair Display + Cinzel + Syne + Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+${cssContent}
+
+    /* Brand Landing Page Custom Styles */
+    .brand-navbar {
+      background: rgba(12, 6, 9, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+
+    .brand-nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.55rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-logo-text span {
+      background: linear-gradient(135deg, #fde047 0%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-hero {
+      padding: 70px 0 50px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .products-showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin: 40px 0;
+    }
+
+    @media (min-width: 900px) {
+      .products-showcase-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .product-showcase-card {
+      background: linear-gradient(145deg, rgba(26, 11, 17, 0.95) 0%, rgba(14, 6, 10, 0.98) 100%);
+      border-radius: var(--radius-xl);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-showcase-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-pack-desir {
+      border: 2px solid rgba(59, 130, 246, 0.45);
+      box-shadow: 0 10px 40px rgba(37, 99, 235, 0.2);
+    }
+
+    .card-pack-desir:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 15px 50px rgba(37, 99, 235, 0.4);
+    }
+
+    .card-fou-de-toi {
+      border: 2px solid var(--color-gold-sacred);
+      box-shadow: 0 10px 40px rgba(142, 16, 34, 0.35);
+    }
+
+    .card-fou-de-toi:hover {
+      border-color: #fde047;
+      box-shadow: 0 15px 50px rgba(142, 16, 34, 0.6);
+    }
+
+    .product-badge-flag {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .product-img-box {
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto 24px auto;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .product-title-big {
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .product-subtitle-desc {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .product-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .product-features-list li {
+      font-size: 0.88rem;
+      color: #f1f5f9;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .product-pricing-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 18px;
+      margin: 40px 0;
+    }
+
+    @media (min-width: 640px) {
+      pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .pillars-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .pillar-card {
+      background: rgba(22, 10, 16, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .pillar-card:hover {
+      border-color: var(--color-gold-sacred);
+      transform: translateY(-3px);
+    }
+
+    .pillar-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .pillar-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .pillar-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    var fbpMatch = document.cookie.match(/(^| )_fbp=([^;]+)/);
+    var fbcMatch = document.cookie.match(/(^| )_fbc=([^;]+)/);
+    var clientFbp = fbpMatch ? fbpMatch[2] : null;
+    var clientFbc = fbcMatch ? fbcMatch[2] : null;
+
+    var pageViewEventId = 'pv_home_' + Date.now() + '_' + Math.floor(Math.random() * 1000000);
+    fbq('init', '2465772550579051');
+    fbq('track', 'PageView', {}, { eventID: pageViewEventId });
+
+    try {
+      fetch('/api/capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event_name: 'PageView',
+          event_id: pageViewEventId,
+          fbp: clientFbp,
+          fbc: clientFbc,
+          url: window.location.href
+        }),
+        keepalive: true
+      }).catch(function(e){});
+    } catch(err){}
+  </script>
+</head>
+<body style="background-color: #0a0507; background-image: radial-gradient(circle at 50% 0%, rgba(142, 16, 34, 0.22) 0%, transparent 60%), radial-gradient(circle at 85% 60%, rgba(29, 78, 216, 0.12) 0%, transparent 50%); padding-bottom: 0;">
+
+  <!-- Brand Navigation -->
+  <header class="brand-navbar">
+    <div class="container brand-nav-inner">
+      <div class="brand-logo-text">
+        <span>AMOUR</span> & DÉSIR
+      </div>
+      <div style="display: flex; gap: 14px; align-items: center;">
+        <a href="#produits" class="badge-pill badge-gold-foil" style="text-decoration: none; font-size: 0.8rem; padding: 6px 14px;">
+          📖 Nos Guides Officiels
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Brand Hero Header -->
+  <section class="brand-hero">
+    <div class="container">
+      
+      <div class="badge-pill badge-gold-foil" style="margin-bottom: 16px;">
+        ✨ ÉDITIONS AMOUR & DÉSIR • AFRIQUE & DIASPORA
+      </div>
+
+      <h1 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.15; color: #ffffff; max-width: 900px; margin: 0 auto 18px auto;">
+        Rallumez La Passion, Le Désir & La Paix Dans Votre Foyer
+      </h1>
+
+      <p style="color: var(--color-text-muted); font-size: clamp(1rem, 2vw, 1.2rem); max-width: 760px; margin: 0 auto 30px auto; line-height: 1.65;">
+        Bienvenue chez <strong>Amour & Désir</strong>, la maison d'édition francophone dédiée à la réconciliation intime du couple. Nous allions <strong>science anatomique, psychologie profonde et respect absolu des valeurs morales et sacrées</strong> pour transformer votre chambre en un sanctuaire d'amour inébranlable.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="#produits" class="btn-cta" style="background: linear-gradient(135deg, #8e1022 0%, #6e0817 50%, #42040d 100%); border: 1px solid var(--color-gold-sacred); box-shadow: 0 0 35px rgba(142, 16, 34, 0.6); max-width: 360px;">
+          <span style="font-weight: 900;">EXPLORER NOS 2 GUIDES PHARES</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Two Flagship Products Section -->
+  <section class="section" id="produits" style="padding-top: 20px;">
+    <div class="container">
+      
+      <div style="text-align: center; max-width: 760px; margin: 0 auto 36px auto;">
+        <div class="badge-pill badge-burgundy" style="margin-bottom: 12px;">📚 NOS DEUX CHEFS-D'ŒUVRE</div>
+        <h2 style="font-size: 2.2rem; margin-bottom: 12px; color: #ffffff;">
+          Choisissez Le Guide Adapté À Votre Couple
+        </h2>
+        <p style="color: var(--color-text-muted); font-size: 1rem;">
+          Deux méthodes complètes, deux approches complémentaires pour transformer votre vie intime dès ce soir :
+        </p>
+      </div>
+
+      <div class="products-showcase-grid">
+        
+        <!-- PRODUCT 1 : LE PACK DU DÉSIR -->
+        <div class="product-showcase-card card-pack-desir">
+          <div class="product-badge-flag" style="background: rgba(37, 99, 235, 0.25); color: #93c5fd; border: 1px solid #3b82f6;">
+            PSYCHOLOGIE & HORMONES
+          </div>
+
+          <div>
+            <div class="product-img-box">
+              <img src="${packDesirB64}" alt="Pack du Désir - Comprendre Les Hormones" style="width: 100%; display: block;">
+            </div>
+
+            <div style="font-size: 0.8rem; font-weight: 800; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">
+              VOLUME 1 • PSYCHOLOGIE DU DÉSIR
+            </div>
+            
+            <h3 class="product-title-big">LE PACK DU DÉSIR</h3>
+            
+            <p class="product-subtitle-desc">
+              <em>« Enfin Comprendre Les Hormones Pour Mieux Séduire Sa Femme & Avoir La Tranquillité Dans Son Couple »</em>
+            </p>
+
+            <ul class="product-features-list">
+              <li>
+                <span style="color: #60a5fa; font-weight: 900;">✓</span>
+                <span><strong>Guide Maître (107 pages) :</strong> Décoder les 4 phases hormonales féminines pour ne plus jamais subir ses sautes d'humeur.</span>
+              </li>
+              <li>
+                <span style="color: #60a5fa; font-weight: 900;">✓</span>
+                <span><strong>Réveiller son désir ardent :</strong> Les déclencheurs émotionnels pour qu'elle revienne d'elle-même chercher vos bras.</span>
+              </li>
+              <li>
+                <span style="color: #60a5fa; font-weight: 900;">✓</span>
+                <span><strong>Le protocole anti-conflit :</strong> Désamorcer les tensions et disputes du quotidien en 7 étapes simples.</span>
+              </li>
+              <li>
+                <span style="color: #60a5fa; font-weight: 900;">✓</span>
+                <span><strong>8 Bonus Stratégiques Inclus :</strong> Phrases à ne jamais dire, calendrier féminin, tension sexuelle et fiches mémo.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="product-pricing-bar" style="border: 1px solid rgba(59, 130, 246, 0.3);">
+              <div>
+                <div style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Prix Standard</div>
+                <div style="font-size: 0.95rem; text-decoration: line-through; color: #64748b;">15 000 FCFA</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 0.75rem; color: #60a5fa; font-weight: 800;">⚡ OFFRE LIMITÉE</div>
+                <div style="font-size: 1.6rem; font-weight: 900; color: #ffffff;">999 FCFA</div>
+              </div>
+            </div>
+
+            <a href="/pack-du-desir" class="btn-cta" style="background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%); border: 1px solid #3b82f6; box-shadow: 0 0 30px rgba(37, 99, 235, 0.5); width: 100%;">
+              <span style="font-weight: 900;">👉 DÉCOUVRIR LE PACK DU DÉSIR</span>
+              <span class="btn-cta-sub" style="color: #bfdbfe;">Voir la page complète & les 8 bonus</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- PRODUCT 2 : FOU DE TOI, FOLLE DE TOI -->
+        <div class="product-showcase-card card-fou-de-toi">
+          <div class="product-badge-flag" style="background: rgba(212, 175, 55, 0.2); color: #fde047; border: 1px solid var(--color-gold-sacred);">
+            COUPLE CHRÉTIEN & PRATIQUE
+          </div>
+
+          <div>
+            <div class="product-img-box">
+              <img src="${fouDeToiB64}" alt="Livre Fou de Toi, Folle de Toi" style="width: 100%; display: block;">
+            </div>
+
+            <div style="font-size: 0.8rem; font-weight: 800; color: var(--color-gold-sacred); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">
+              VOLUME 2 • LE LIT CONJUGAL DE FEU
+            </div>
+
+            <h3 class="product-title-big">FOU DE TOI, FOLLE DE TOI</h3>
+
+            <p class="product-subtitle-desc">
+              <em>« Le Guide Du Couple Chrétien Qui Veut Un Lit De Feu • Même Sans Endurance & Sans Positions Compliquées »</em>
+            </p>
+
+            <ul class="product-features-list">
+              <li>
+                <span style="color: #fde047; font-weight: 900;">✓</span>
+                <span><strong>Guide Maître (190 pages illustrées) :</strong> Déculpabilisation biblique totale (Genèse 2:25, Proverbes 5:19, Cantique des Cantiques).</span>
+              </li>
+              <li>
+                <span style="color: #fde047; font-weight: 900;">✓</span>
+                <span><strong>Endurance de 15 à 20 min sans chimie :</strong> Échelle 1-10, stop-start, squeeze, Kegel et le secret du deuxième tour.</span>
+              </li>
+              <li>
+                <span style="color: #fde047; font-weight: 900;">✓</span>
+                <span><strong>Extase féminine & clitoris :</strong> Les 4 mouvements d'orfèvre, Point G, cunnilingus langue à plat et orgasmes multiples.</span>
+              </li>
+              <li>
+                <span style="color: #fde047; font-weight: 900;">✓</span>
+                <span><strong>18 Positions du Kama Sutra Chrétien :</strong> Silhouettes pudiques sans visage adaptées aux ventres ronds, fatigue, grossesse, +50 ans.</span>
+              </li>
+              <li>
+                <span style="color: #fde047; font-weight: 900;">✓</span>
+                <span><strong>Pharmacie d'Afrique de l'Ouest & 6 Bonus :</strong> 10 super-aliments du marché, potions, calendrier 30 jours et fiches table de nuit.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="product-pricing-bar" style="border: 1px solid rgba(212, 175, 55, 0.35);">
+              <div>
+                <div style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Prix Standard</div>
+                <div style="font-size: 0.95rem; text-decoration: line-through; color: #fda4af;">25 000 FCFA</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 0.75rem; color: #fde047; font-weight: 800;">⚡ LANCEMENT EXCLUSIF</div>
+                <div style="font-size: 1.6rem; font-weight: 900; color: var(--color-gold-bright);">9 500 FCFA</div>
+              </div>
+            </div>
+
+            <a href="/fou-de-toi-folle-de-toi" class="btn-cta" style="background: linear-gradient(135deg, #8e1022 0%, #6e0817 50%, #42040d 100%); border: 1px solid var(--color-gold-sacred); box-shadow: 0 0 35px rgba(142, 16, 34, 0.75); width: 100%;">
+              <span style="font-weight: 900;">🔥 DÉCOUVRIR FOU DE TOI, FOLLE DE TOI</span>
+              <span class="btn-cta-sub" style="color: #fef08a;">Voir la page complète & les 18 positions</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Comparison & Orientation Guide -->
+  <section class="section" style="background: rgba(18, 9, 13, 0.9);">
+    <div class="container" style="max-width: 860px;">
+      
+      <div style="text-align: center; margin-bottom: 30px;">
+        <div class="badge-pill badge-gold-foil" style="margin-bottom: 10px;">🧭 GUIDE D'ORIENTATION</div>
+        <h3 style="font-size: 1.9rem; color: #ffffff;">Quel Guide Correspond Au Besoin De Votre Couple ?</h3>
+      </div>
+
+      <div class="card-dark" style="border: 1px solid rgba(212, 175, 55, 0.3); padding: 24px;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid rgba(212, 175, 55, 0.4);">
+              <th style="padding: 12px 8px; color: #ffffff;">Votre Situation Actuelle</th>
+              <th style="padding: 12px 8px; color: #60a5fa; text-align: center;">Le Pack du Désir</th>
+              <th style="padding: 12px 8px; color: #fde047; text-align: center;">Fou de Toi, Folle de Toi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 14px 8px; color: var(--color-text-body);">Elle refuse l'intimité, s'énerve souvent ou semble distante</td>
+              <td style="padding: 14px 8px; text-align: center; color: #34d399; font-weight: 800;">⭐ INDISPENSABLE</td>
+              <td style="padding: 14px 8px; text-align: center; color: var(--color-text-muted);">Complémentaire</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 14px 8px; color: var(--color-text-body);">Rapport rapide (3 min), manque d'endurance, peur de la panne</td>
+              <td style="padding: 14px 8px; text-align: center; color: var(--color-text-muted);">Utile</td>
+              <td style="padding: 14px 8px; text-align: center; color: #34d399; font-weight: 800;">⭐ INDISPENSABLE</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 14px 8px; color: var(--color-text-body);">Elle ne jouit pas, a mal, simule ou a honte de son corps</td>
+              <td style="padding: 14px 8px; text-align: center; color: var(--color-text-muted);">Utile</td>
+              <td style="padding: 14px 8px; text-align: center; color: #34d399; font-weight: 800;">⭐ INDISPENSABLE</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 14px 8px; color: var(--color-text-body);">Couple chrétien voulant déculpabiliser et renouveler le lit</td>
+              <td style="padding: 14px 8px; text-align: center; color: var(--color-text-muted);">Recommandé</td>
+              <td style="padding: 14px 8px; text-align: center; color: #34d399; font-weight: 800;">⭐ CRUCIAL (100%)</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 8px; color: var(--color-text-body);">Besoin de positions variées adaptées aux corps réels & coussins</td>
+              <td style="padding: 14px 8px; text-align: center; color: var(--color-text-muted);">Non inclus</td>
+              <td style="padding: 14px 8px; text-align: center; color: #34d399; font-weight: 800;">⭐ 18 POSITIONS</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="text-align: center; margin-top: 20px; font-size: 0.88rem; color: #fef08a;">
+          💡 <strong>Le Conseil d'Amour & Désir :</strong> Beaucoup de couples démarrent par <em>Le Pack du Désir</em> pour restaurer la communication et le magnétisme, puis enchaînent avec <em>Fou de Toi, Folle de Toi</em> pour faire exploser la jouissance dans les draps.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Brand Pillars Section -->
+  <section class="section">
+    <div class="container">
+      
+      <div style="text-align: center; max-width: 760px; margin: 0 auto 30px auto;">
+        <div class="badge-pill badge-burgundy" style="margin-bottom: 10px;">🛡️ NOS ENGAGEMENTS</div>
+        <h3 style="font-size: 1.9rem; color: #ffffff;">Pourquoi Faire Confiance À Amour & Désir ?</h3>
+      </div>
+
+      <div class="pillars-grid">
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">🔒</div>
+          <div class="pillar-title">Discrétion Absolue</div>
+          <div class="pillar-desc">Facturation neutre sous l'intitulé "Éditions Éveil". Aucun libellé compromettant sur vos relevés bancaires ou SMS Mobile Money.</div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">⚡</div>
+          <div class="pillar-title">Accès Instantané</div>
+          <div class="pillar-desc">Téléchargement immédiat en PDF Haute Définition après paiement, avec sauvegarde envoyée par email et disponible sur WhatsApp.</div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">📱</div>
+          <div class="pillar-title">Mobile Money Local</div>
+          <div class="pillar-desc">Paiement fluide via Wave, Orange Money, MTN, Moov et cartes bancaires dans toute l'Afrique de l'Ouest, Centrale et la diaspora.</div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">🤝</div>
+          <div class="pillar-title">Garantie Totale</div>
+          <div class="pillar-desc">Garantie 100% satisfait ou remboursé sous 30 jours sur simple demande. Votre épanouissement conjugal est notre seule priorité.</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Brand Footer -->
+  <footer class="footer-section" style="border-top: 1px solid rgba(212, 175, 55, 0.25); background: #070305; padding: 45px 0 30px 0;">
+    <div class="container" style="text-align: center;">
+      <div style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 900; color: #ffffff; margin-bottom: 6px;">
+        <span style="color: #fde047;">AMOUR</span> & DÉSIR
+      </div>
+      <div style="font-size: 0.85rem; color: var(--color-gold-sacred); font-style: italic; margin-bottom: 16px;">
+        La maison d'édition de l'épanouissement intime et de la paix dans le couple
+      </div>
+      <p style="font-size: 0.8rem; color: var(--color-text-dim); line-height: 1.6; max-width: 620px; margin: 0 auto 20px auto;">
+        © 2026 Éditions Amour & Désir. Tous droits réservés. Tous nos guides sont destinés à un public adulte et engagé dans une démarche d'épanouissement mutuel et de fidélité conjugale.
+      </p>
+      <div class="footer-links" style="font-size: 0.8rem; color: var(--color-text-muted);">
+        <a href="/pack-du-desir">Le Pack du Désir</a> • 
+        <a href="/fou-de-toi-folle-de-toi">Fou de Toi, Folle de Toi</a> • 
+        <a href="https://wa.me/2290195928057" target="_blank" rel="noopener">Assistance WhatsApp (+229 0195928057)</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>`;
+
+fs.writeFileSync('index.html', htmlContent, 'utf8');
+console.log('Successfully written brand landing page index.html (' + fs.statSync('index.html').size + ' bytes)!');

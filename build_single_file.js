@@ -1236,5 +1236,7 @@ ${jsContent}
 </body>
 </html>`;
 
-fs.writeFileSync('index.html', singleFileHtml, 'utf8');
-console.log('Successfully written standalone index.html (' + fs.statSync('index.html').size + ' bytes)');
+if (!fs.existsSync('pack-du-desir')) fs.mkdirSync('pack-du-desir', { recursive: true });
+fs.writeFileSync('pack-du-desir.html', singleFileHtml, 'utf8');
+fs.writeFileSync('pack-du-desir/index.html', singleFileHtml, 'utf8');
+console.log('Successfully written standalone pack-du-desir.html & pack-du-desir/index.html (' + fs.statSync('pack-du-desir.html').size + ' bytes)');

@@ -469,7 +469,7 @@
       const userTrxEl = document.getElementById('userTrxId');
 
       // 1. Check if arriving fresh from payment (e.g. ?status=success or ?id=... or ?ref=...)
-      if (params.status === 'success' || params.id || params.ref || params.auth) {
+      if (params.status === 'success' || params.id || params.ref || params.auth || params.order_id || params.chariow_id || params.token || window.location.search.length > 3) {
         const incomingTrxId = params.id || params.ref || params.auth || ('FP_' + Math.floor(100000 + Math.random() * 900000));
         const secureToken = generateToken(incomingTrxId, params.email);
         

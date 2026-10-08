@@ -79,8 +79,6 @@ const singleFileHtml = `<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   
-  <!-- FedaPay Checkout Official CDN -->
-  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
 
   <!-- Stylesheet -->
   <style>
@@ -180,7 +178,7 @@ ${cssContent}
         </div>
 
         <!-- Bouton CTA principal -->
-        <a href="#open-checkout" class="btn-cta open-checkout-trigger" style="width: 100%;">
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="width: 100%;">
           <span>🔥 OUI, JE VEUX NOTRE LIT DE FEU DÈS CE SOIR</span>
           <span class="btn-cta-sub">Accès Immédiat pour 9 500 FCFA • Wave, Orange, MTN, Moov, Carte</span>
         </a>
@@ -1176,7 +1174,7 @@ ${cssContent}
 
       <!-- Bouton intermédiaire -->
       <div style="text-align: center; margin-top: 30px;">
-        <a href="#open-checkout" class="btn-cta open-checkout-trigger" style="max-width: 480px; margin: 0 auto;">
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 480px; margin: 0 auto;">
           <span>🔥 COMMANDER LE LIVRE & LES 6 BONUS (9 500 FCFA)</span>
           <span class="btn-cta-sub">Téléchargement Immédiat & Accès à Vie</span>
         </a>
@@ -1370,7 +1368,7 @@ ${cssContent}
         </div>
 
         <!-- Bouton CTA Commande -->
-        <a href="#open-checkout" class="btn-cta open-checkout-trigger" style="width: 100%; margin-top: 20px;">
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="width: 100%; margin-top: 20px;">
           <span>🔒 COMMANDER MAINTENANT POUR 9 500 FCFA</span>
           <span class="btn-cta-sub">Accès Immédiat 24h/24 • Orange, MTN, Wave, Moov, Carte</span>
         </a>
@@ -1476,7 +1474,7 @@ ${cssContent}
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-content">
-            <p>C'est ultra-simple et instantané ! Cliquez sur le bouton de commande, entrez votre nom, email et numéro. Notre plateforme sécurisée <strong>FedaPay</strong> vous demandera de valider le débit de 9 500 FCFA sur votre téléphone avec votre code secret Mobile Money habituel. La transaction prend moins de 30 secondes et vous accédez immédiatement au livre.</p>
+            <p>C'est ultra-simple et instantané ! Cliquez sur n'importe quel bouton de commande pour accéder à notre page de paiement sécurisée <strong>Chariow</strong>. Vous pourrez régler vos 9 500 FCFA avec Wave, Orange Money, MTN Mobile Money, Moov ou Carte bancaire en moins de 30 secondes et vous accédez immédiatement au livre et à vos bonus.</p>
           </div>
         </div>
 
@@ -1535,7 +1533,7 @@ ${cssContent}
 
       <!-- Bouton final -->
       <div style="text-align: center; margin-top: 36px;">
-        <a href="#open-checkout" class="btn-cta open-checkout-trigger" style="max-width: 520px; margin: 0 auto;">
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 520px; margin: 0 auto;">
           <span>🔥 JE CHOISIS NOTRE LIT DE FEU (9 500 FCFA)</span>
           <span class="btn-cta-sub">Téléchargement Immédiat • 100% Discret • Garantie 30 Jours</span>
         </a>
@@ -1581,7 +1579,7 @@ ${cssContent}
         </div>
       </div>
 
-      <a href="#open-checkout" class="btn-cta btn-sticky-cta open-checkout-trigger" style="flex: 1; max-width: 340px; padding: 12px 16px;">
+      <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-sticky-cta btn-chariow-checkout" style="flex: 1; max-width: 340px; padding: 12px 16px;">
         <span style="font-weight: 800; font-size: 0.92rem;">🔥 COMMANDER MON EXEMPLAIRE</span>
         <span class="btn-cta-sub" style="font-size: 0.85rem;">Wave • Orange • MTN • Moov • Carte</span>
       </a>
@@ -1599,75 +1597,6 @@ ${cssContent}
         <strong id="toastName">Kouamé K.</strong> <span id="toastFlag">🇨🇮</span> de <span id="toastCity">Abidjan</span> a commandé
       </div>
       <div class="toast-time" id="toastTime">à l'instant • Accès envoyé par email</div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       17. MODAL POPUP FEDAPAY DIRECT CHECKOUT
-       ========================================================================= -->
-  <div class="modal-overlay" id="checkoutModal">
-    <div class="modal-card">
-      <button class="modal-close-btn" id="closeModalBtn">&times;</button>
-      
-      <div style="text-align: center; margin-bottom: 18px;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 8px;">PAIEMENT SÉCURISÉ & ANONYME</div>
-        <h3 style="font-size: 1.45rem; color: var(--color-text-title); margin-bottom: 4px;">Recevoir Mon Livre Immédiatement</h3>
-        <p style="color: var(--color-text-muted); font-size: 0.85rem;">
-          Accès instantané au livre (190 pages) + 6 bonus offerts
-        </p>
-      </div>
-
-      <div style="background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
-        <div>
-          <div style="font-weight: 800; color: var(--color-text-title); font-size: 0.92rem;">FOU DE TOI, FOLLE DE TOI</div>
-          <div style="font-size: 0.88rem; color: var(--color-green); font-weight: 700;">✓ Réduction de 62% appliquée (-15 500 FCFA)</div>
-        </div>
-        <span style="font-weight: 900; color: var(--color-burgundy); font-size: 1.3rem;">9 500 FCFA</span>
-      </div>
-
-      <form id="modalCheckoutForm">
-        <div class="form-group">
-          <label class="form-label" for="mClientName">Prénom & Nom *</label>
-          <input type="text" id="mClientName" class="form-input" placeholder="Ex: Jean Kouamé" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="mClientEmail">Adresse Email (pour recevoir le guide en PDF) *</label>
-          <input type="email" id="mClientEmail" class="form-input" placeholder="Ex: jean.kouame@gmail.com" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="mClientCountry">Pays *</label>
-          <select id="mClientCountry" class="form-select">
-            <option value="CI" selected>🇨🇮 Côte d'Ivoire (+225)</option>
-            <option value="BJ">🇧🇯 Bénin (+229)</option>
-            <option value="SN">🇸🇳 Sénégal (+221)</option>
-            <option value="TG">🇹🇬 Togo (+228)</option>
-            <option value="BF">🇧🇫 Burkina Faso (+226)</option>
-            <option value="ML">🇲🇱 Mali (+223)</option>
-            <option value="CM">🇨🇲 Cameroun (+237)</option>
-            <option value="CG">🇨🇬 Congo Brazzaville (+242)</option>
-            <option value="CD">🇨🇩 RD Congo (+243)</option>
-            <option value="GA">🇬🇦 Gabon (+241)</option>
-            <option value="OTHER">🌍 Autre pays / Diaspora</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="mClientPhone">Numéro WhatsApp / Mobile Money *</label>
-          <input type="tel" id="mClientPhone" class="form-input" placeholder="Ex: 0708091011" required>
-        </div>
-
-        <button type="submit" class="btn-cta" style="width: 100%; margin-top: 10px;">
-          <span>🔒 VALIDER ET PAYER 9 500 FCFA</span>
-          <span class="btn-cta-sub">Wave • Orange • MTN • Moov • Carte Bancaire</span>
-        </button>
-      </form>
-
-      <div style="text-align: center; margin-top: 12px; font-size: 0.88rem; color: var(--color-text-dim);">
-        Facturation discrète sous l'intitulé "Éditions Éveil" • Garantie 30 jours
-      </div>
-
     </div>
   </div>
 
@@ -1741,7 +1670,7 @@ ${cssContent}
         { name: 'Yannick T.', city: 'Lomé', flag: '🇹🇬' }
       ];
 
-      const timePhrases = ['à l\\'instant', 'il y a 1 min', 'il y a 2 min', 'il y a 3 min', 'il y a 5 min', 'il y a 8 min'];
+      const timePhrases = ['à l\'instant', 'il y a 1 min', 'il y a 2 min', 'il y a 3 min', 'il y a 5 min', 'il y a 8 min'];
       let poolIndex = 0;
 
       function triggerToast() {
@@ -1769,55 +1698,9 @@ ${cssContent}
       }
       setTimeout(triggerToast, 3500);
 
-      // 5. Checkout Modal & FedaPay Launch
-      const modal = document.getElementById('checkoutModal');
-      const closeBtn = document.getElementById('closeModalBtn');
-      const modalForm = document.getElementById('modalCheckoutForm');
-
-      function openModal(e) {
-        if (e) e.preventDefault();
-        if (modal) {
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      }
-
-      function closeModal() {
-        if (modal) {
-          modal.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      }
-
-      document.querySelectorAll('.open-checkout-trigger').forEach(btn => {
-        btn.addEventListener('click', openModal);
-      });
-
-      if (closeBtn) closeBtn.addEventListener('click', closeModal);
-      if (modal) {
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) closeModal();
-        });
-      }
-
-      // Handle Modal Form Submission
-      if (modalForm) {
-        modalForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-
-          const name = document.getElementById('mClientName').value.trim();
-          const email = document.getElementById('mClientEmail').value.trim();
-          const phone = document.getElementById('mClientPhone').value.trim();
-          const country = document.getElementById('mClientCountry').value;
-
-          if (!name || !email || !phone) {
-            alert('Veuillez remplir toutes les informations pour recevoir votre livre.');
-            return;
-          }
-
-          closeModal();
-
-          // Fire InitiateCheckout Event for Meta Pixel
+      // 5. Chariow Direct Checkout Tracking
+      document.querySelectorAll('a[href*="mychariow.co"]').forEach(btn => {
+        btn.addEventListener('click', function() {
           if (typeof fbq === 'function') {
             fbq('track', 'InitiateCheckout', {
               content_name: 'FOU DE TOI, FOLLE DE TOI',
@@ -1825,57 +1708,8 @@ ${cssContent}
               value: 9500
             });
           }
-
-          // Initialize FedaPay Checkout
-          try {
-            if (typeof FedaPay !== 'undefined') {
-              const widget = FedaPay.init({
-                public_key: 'pk_live_Ps51ySoBt1b2ZAxB6RuEkRHt',
-                transaction: {
-                  amount: 9500,
-                  description: 'FOU DE TOI, FOLLE DE TOI - Guide du couple chrétien (190 pages + 6 Bonus)',
-                  custom_metadata: {
-                    customer_name: name,
-                    customer_country: country
-                  }
-                },
-                customer: {
-                  email: email,
-                  lastname: name.split(' ').slice(1).join(' ') || name,
-                  firstname: name.split(' ')[0],
-                  phone_number: {
-                    number: phone,
-                    country: country === 'OTHER' ? 'BJ' : country
-                  }
-                },
-                onComplete: function(response) {
-                  const trxId = (response && response.id) ? response.id : ('FP_' + Date.now());
-                  const token = btoa(JSON.stringify({
-                    unlocked: true,
-                    product: 'fou-de-toi-folle-de-toi',
-                    txn_id: trxId,
-                    email: email,
-                    checksum: btoa(trxId + '_AmourDesir_LitDeFeu_Vault_2026!')
-                  }));
-                  const expires = new Date();
-                  expires.setTime(expires.getTime() + (10 * 365 * 24 * 60 * 60 * 1000));
-                  document.cookie = 'ad_vault_session=' + encodeURIComponent(token) + '; expires=' + expires.toUTCString() + '; path=/; SameSite=Lax';
-                  try { localStorage.setItem('amour_desir_secure_vault', token); } catch(e){}
-
-                  window.location.href = 'dashboard.html?status=success&id=' + encodeURIComponent(trxId);
-                }
-              });
-
-              widget.open();
-            } else {
-              window.location.href = 'checkout.html';
-            }
-          } catch (err) {
-            console.error('Error opening FedaPay widget:', err);
-            window.location.href = 'checkout.html';
-          }
         });
-      }
+      });
 
       // Smooth scroll for anchors
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {

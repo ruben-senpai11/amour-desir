@@ -42,10 +42,10 @@ const htmlContent = `<!DOCTYPE html>
   <meta property="og:image" content="${fouDeToiB64}">
   <meta property="og:type" content="website">
   
-  <!-- Google Fonts: Playfair Display + Cinzel + Plus Jakarta Sans & Outfit -->
+  <!-- Google Fonts: Plus Jakarta Sans (Haute Lisibilité) + Lora (Édition Noble) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   
   <style>
 ${cssContent}
@@ -157,12 +157,12 @@ ${cssContent}
     }
 
     .product-features-list li {
-      font-size: 0.88rem;
-      color: var(--color-text-body);
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      line-height: 1.5;
+      font-size: 0.96rem;
+      color: var(--color-text-body);
+      line-height: 1.6;
     }
 
     .product-features-list li span.check-icon {
@@ -281,7 +281,7 @@ ${cssContent}
         MAISON D'ÉDITION POUR LE COUPLE • AFRIQUE & DIASPORA
       </div>
 
-      <h1 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.15; color: var(--color-text-title); max-width: 900px; margin: 0 auto 18px auto;">
+      <h1 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.25; color: var(--color-text-title); max-width: 900px; margin: 0 auto 18px auto;">
         Rallumez La Passion, Le Désir & La Paix Dans Votre Foyer
       </h1>
 
@@ -324,7 +324,7 @@ ${cssContent}
               <img src="${packDesirB64}" alt="Pack du Désir - Comprendre Les Hormones" style="width: 100%; display: block;">
             </div>
 
-            <div style="font-size: 0.75rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">
               VOLUME 1 • PSYCHOLOGIE DU DÉSIR
             </div>
             
@@ -357,11 +357,11 @@ ${cssContent}
           <div>
             <div class="product-pricing-bar">
               <div>
-                <div style="font-size: 0.75rem; color: var(--color-text-dim); text-transform: uppercase;">Prix Standard</div>
+                <div style="font-size: 0.88rem; color: var(--color-text-dim); text-transform: uppercase;">Prix Standard</div>
                 <div style="font-size: 0.95rem; text-decoration: line-through; color: #888888;">15 000 FCFA</div>
               </div>
               <div style="text-align: right;">
-                <div style="font-size: 0.75rem; color: var(--color-burgundy); font-weight: 800;">⚡ OFFRE LIMITÉE</div>
+                <div style="font-size: 0.88rem; color: var(--color-burgundy); font-weight: 800;">⚡ OFFRE LIMITÉE</div>
                 <div style="font-size: 1.6rem; font-weight: 900; color: var(--color-burgundy);">999 FCFA</div>
               </div>
             </div>
@@ -381,7 +381,7 @@ ${cssContent}
               <img src="${fouDeToiB64}" alt="Livre Fou de Toi, Folle de Toi" style="width: 100%; display: block;">
             </div>
 
-            <div style="font-size: 0.75rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">
               VOLUME 2 • LE LIT CONJUGAL DE FEU
             </div>
 
@@ -418,11 +418,11 @@ ${cssContent}
           <div>
             <div class="product-pricing-bar">
               <div>
-                <div style="font-size: 0.75rem; color: var(--color-text-dim); text-transform: uppercase;">Prix Standard</div>
+                <div style="font-size: 0.88rem; color: var(--color-text-dim); text-transform: uppercase;">Prix Standard</div>
                 <div style="font-size: 0.95rem; text-decoration: line-through; color: #888888;">25 000 FCFA</div>
               </div>
               <div style="text-align: right;">
-                <div style="font-size: 0.75rem; color: var(--color-burgundy); font-weight: 800;">⚡ LANCEMENT EXCLUSIF (-62%)</div>
+                <div style="font-size: 0.88rem; color: var(--color-burgundy); font-weight: 800;">⚡ LANCEMENT EXCLUSIF (-62%)</div>
                 <div style="font-size: 1.6rem; font-weight: 900; color: var(--color-burgundy);">9 500 FCFA</div>
               </div>
             </div>

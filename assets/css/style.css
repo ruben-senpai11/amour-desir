@@ -3,7 +3,7 @@
    Charte graphique fidèle au livre de A à Z :
    - Fond clair : Papier ivoire & blanc pur (#FAF8F6, #FFFFFF)
    - Couleur maîtresse : Bordeaux profond (#700918, #8B1527, #5A0511)
-   - Typographie : Playfair Display / Cinzel (Titres nobles) + Plus Jakarta Sans / Outfit (Corps aéré)
+   - Typographie : Plus Jakarta Sans (Haute Lisibilité & Écran) + Lora (Citations & Versets)
    - Aucune couleur or. Palette sobre, littéraire, sacrée et aérée.
    ========================================================================== */
 
@@ -25,11 +25,11 @@
   --color-burgundy-glow: rgba(112, 9, 24, 0.15);
   
   /* Textes & contrastes haute lisibilité */
-  --color-text-title: #1A1A1A;
+  --color-text-title: #141414;
   --color-text-burgundy: #700918;
-  --color-text-body: #2D2D2D;
-  --color-text-muted: #5A5A5A;
-  --color-text-dim: #7A7A7A;
+  --color-text-body: #222222;
+  --color-text-muted: #3D3D3D;
+  --color-text-dim: #555555;
   
   /* Bordures fines */
   --color-border: #EAE3DC;
@@ -46,9 +46,9 @@
   --color-green-border: rgba(5, 150, 105, 0.3);
   
   /* Typographie */
-  --font-serif: 'Playfair Display', 'Cinzel', Georgia, serif;
-  --font-heading: 'Playfair Display', 'Syne', serif;
-  --font-body: 'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif;
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   
   /* Ombres douces & élégantes */
   --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
@@ -74,17 +74,18 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 15px;
+  font-size: 16px;
   background-color: var(--color-bg-main);
   color: var(--color-text-body);
   font-family: var(--font-body);
-  line-height: 1.68;
+  line-height: 1.72;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 
@@ -120,8 +121,9 @@ button {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--color-text-title);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  font-weight: 800;
 }
 
 .title-burgundy {
@@ -190,12 +192,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .book-header-text {
-  font-size: 0.72rem;
-  letter-spacing: 0.35em;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-burgundy);
-  font-weight: 700;
-  font-family: var(--font-serif);
+  font-weight: 800;
+  font-family: var(--font-heading);
 }
 
 /* 1. Bandeau supérieur */
@@ -251,7 +253,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 6px;
   padding: 5px 14px;
   border-radius: var(--radius-full);
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -297,7 +299,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-cta-sub {
-  font-size: 0.78rem;
+  font-size: 0.90rem;
   font-weight: 500;
   opacity: 0.92;
   margin-top: 3px;
@@ -356,7 +358,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .price-strike-label {
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   color: var(--color-text-dim);
   text-transform: uppercase;
 }
@@ -373,7 +375,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .price-main-label {
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   font-weight: 800;
   color: var(--color-burgundy);
   text-transform: uppercase;
@@ -431,11 +433,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .verse-text {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-style: italic;
   color: var(--color-burgundy);
-  line-height: 1.6;
-  margin-bottom: 6px;
+  line-height: 1.7;
+  margin-bottom: 8px;
 }
 
 .verse-ref {
@@ -458,10 +460,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .callout-title-retenir {
-  font-family: var(--font-serif);
-  font-size: 0.82rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
   font-weight: 800;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.08em;
   color: var(--color-burgundy);
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -479,10 +481,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .callout-title-ce-soir {
-  font-family: var(--font-serif);
-  font-size: 0.82rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
   font-weight: 800;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.08em;
   color: var(--color-burgundy);
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -500,10 +502,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .callout-title-regle-dor {
-  font-family: var(--font-serif);
-  font-size: 0.9rem;
-  font-weight: 900;
-  letter-spacing: 0.2em;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   color: var(--color-burgundy);
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -533,7 +535,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   font-weight: 800;
   flex-shrink: 0;
   margin-top: 2px;
@@ -619,7 +621,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .part-tag {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -690,7 +692,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .position-num {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--color-burgundy);
   background: var(--color-burgundy-soft);
@@ -761,14 +763,14 @@ h1, h2, h3, h4, h5, h6 {
 .time-step-badge {
   background: var(--color-burgundy);
   color: #FFFFFF;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 800;
   padding: 2px 8px;
   border-radius: var(--radius-full);
 }
 
 .time-step-duration {
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   color: var(--color-text-dim);
   font-weight: 600;
 }
@@ -822,7 +824,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .food-benefit {
-  font-size: 0.78rem;
+  font-size: 0.90rem;
   color: var(--color-text-muted);
   line-height: 1.4;
 }
@@ -854,7 +856,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bonus-badge-top {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--color-burgundy);
   letter-spacing: 0.1em;
@@ -952,7 +954,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .screenshot-badge {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   color: var(--color-burgundy);
   font-weight: 700;
 }
@@ -972,7 +974,7 @@ h1, h2, h3, h4, h5, h6 {
 .offer-ribbon {
   background: var(--color-burgundy);
   color: #FFFFFF;
-  font-size: 0.78rem;
+  font-size: 0.90rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   padding: 6px 16px;
@@ -1082,7 +1084,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--color-border);
   padding: 5px 12px;
   border-radius: var(--radius-full);
-  font-size: 0.78rem;
+  font-size: 0.90rem;
   font-weight: 700;
   color: var(--color-text-body);
 }
@@ -1219,7 +1221,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .sticky-price-title {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--color-burgundy);
   text-transform: uppercase;
@@ -1350,7 +1352,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .toast-time {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   color: var(--color-burgundy);
   font-weight: 600;
 }

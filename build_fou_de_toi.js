@@ -74,10 +74,10 @@ const singleFileHtml = `<!DOCTYPE html>
   <meta property="og:image" content="${bookCoverB64}">
   <meta property="og:type" content="website">
   
-  <!-- Google Fonts: Playfair Display + Cinzel (Titres nobles du livre) + Plus Jakarta Sans & Outfit (Corps lisible) -->
+  <!-- Google Fonts: Plus Jakarta Sans (Haute Lisibilité) + Lora (Édition Noble) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   
   <!-- FedaPay Checkout Official CDN -->
   <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
@@ -110,10 +110,10 @@ ${cssContent}
        ========================================================================= -->
   <div class="top-urgency-bar">
     <div class="top-urgency-inner">
-      <span class="badge-pill badge-burgundy" style="background: rgba(255,255,255,0.2); color: #FFFFFF; border-color: rgba(255,255,255,0.4); font-size: 0.72rem;">🔥 OFFRE DE LANCEMENT</span>
+      <span class="badge-pill badge-burgundy" style="background: rgba(255,255,255,0.2); color: #FFFFFF; border-color: rgba(255,255,255,0.4); font-size: 0.85rem;">🔥 OFFRE DE LANCEMENT</span>
       <span>PRIX EXCLUSIF : <strong>9 500 FCFA</strong> AU LIEU DE <span style="text-decoration: line-through; opacity: 0.8;">25 000 FCFA</span> (-62%)</span>
       <div class="countdown-box">
-        <span style="font-size: 0.75rem; margin-right: 4px;">FIN À MINUIT :</span>
+        <span style="font-size: 0.88rem; margin-right: 4px;">FIN À MINUIT :</span>
         <span class="countdown-digit cd-hours">${initHours || '23'}</span>h
         <span class="countdown-digit cd-minutes">${initMinutes || '59'}</span>m
         <span class="countdown-digit cd-seconds">${initSeconds || '09'}</span>s
@@ -230,7 +230,7 @@ ${cssContent}
         <!-- Douleurs Lui -->
         <div class="card-light" style="border-left: 4px solid var(--color-burgundy);">
           <div style="margin-bottom: 14px;">
-            <div style="font-size: 0.75rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.1em;">CE QUE L'HOMME VIT EN SILENCE</div>
+            <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.1em;">CE QUE L'HOMME VIT EN SILENCE</div>
             <h3 style="font-size: 1.25rem; color: var(--color-text-title); margin-top: 4px;">La terreur de ne pas assurer et le sentiment d'être un mendiant</h3>
           </div>
           <ul class="pain-list">
@@ -256,7 +256,7 @@ ${cssContent}
         <!-- Douleurs Elle -->
         <div class="card-light" style="border-left: 4px solid var(--color-burgundy);">
           <div style="margin-bottom: 14px;">
-            <div style="font-size: 0.75rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.1em;">CE QUE LA FEMME ENDURE SANS OSER LE DIRE</div>
+            <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.1em;">CE QUE LA FEMME ENDURE SANS OSER LE DIRE</div>
             <h3 style="font-size: 1.25rem; color: var(--color-text-title); margin-top: 4px;">La frustration invisible, le devoir conjugal et la honte de son corps</h3>
           </div>
           <ul class="pain-list">
@@ -1381,7 +1381,7 @@ ${cssContent}
       <div style="font-size: 0.85rem; color: var(--color-text-muted); font-style: italic; margin-bottom: 16px;">
         Le guide du couple chrétien qui veut un lit de feu
       </div>
-      <p style="font-size: 0.78rem; color: var(--color-text-dim); line-height: 1.6; max-width: 600px; margin: 0 auto 16px auto;">
+      <p style="font-size: 0.90rem; color: var(--color-text-dim); line-height: 1.6; max-width: 600px; margin: 0 auto 16px auto;">
         © 2026 Tous droits réservés. Ce livre est un guide éducatif et pratique réservé aux couples adultes. Facturation 100% discrète.
       </p>
       <div class="footer-links" style="font-size: 0.8rem;">
@@ -1409,7 +1409,7 @@ ${cssContent}
 
       <a href="#open-checkout" class="btn-cta btn-sticky-cta open-checkout-trigger" style="flex: 1; max-width: 340px; padding: 12px 16px;">
         <span style="font-weight: 800; font-size: 0.92rem;">🔥 COMMANDER MON EXEMPLAIRE</span>
-        <span class="btn-cta-sub" style="font-size: 0.72rem;">Wave • Orange • MTN • Moov • Carte</span>
+        <span class="btn-cta-sub" style="font-size: 0.85rem;">Wave • Orange • MTN • Moov • Carte</span>
       </a>
 
     </div>
@@ -1446,7 +1446,7 @@ ${cssContent}
       <div style="background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
         <div>
           <div style="font-weight: 800; color: var(--color-text-title); font-size: 0.92rem;">FOU DE TOI, FOLLE DE TOI</div>
-          <div style="font-size: 0.75rem; color: var(--color-green); font-weight: 700;">✓ Réduction de 62% appliquée (-15 500 FCFA)</div>
+          <div style="font-size: 0.88rem; color: var(--color-green); font-weight: 700;">✓ Réduction de 62% appliquée (-15 500 FCFA)</div>
         </div>
         <span style="font-weight: 900; color: var(--color-burgundy); font-size: 1.3rem;">9 500 FCFA</span>
       </div>
@@ -1490,7 +1490,7 @@ ${cssContent}
         </button>
       </form>
 
-      <div style="text-align: center; margin-top: 12px; font-size: 0.75rem; color: var(--color-text-dim);">
+      <div style="text-align: center; margin-top: 12px; font-size: 0.88rem; color: var(--color-text-dim);">
         Facturation discrète sous l'intitulé "Éditions Éveil" • Garantie 30 jours
       </div>
 

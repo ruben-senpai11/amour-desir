@@ -7,7 +7,7 @@ console.log('Generating Single-File Standalone index.html with Meta Pixel & Conv
 const faviconUrl = '/assets/images/favicon.jpg';
 const bannerHeroUrl = '/assets/images/banner-hero.png';
 const packCoverRedUrl = '/assets/images/pack-cover-red.jpg';
-const packCoverBlueUrl = '/assets/images/pack-cover-blue.jpg';
+const packCoverGreenUrl = '/assets/images/pack-cover-green.jpg';
 const avantApresUrl = '/assets/images/avant-apres.jpg';
 const temoignageRivaldoUrl = '/assets/images/testimonials/temoignage-rivaldo.jpg';
 const temoignageGuyAdolpheUrl = '/assets/images/testimonials/temoignage-guy-adolphe.jpg';
@@ -448,13 +448,13 @@ const singleFileHtml = `<!DOCTYPE html>
         </p>
       </div>
 
-      <!-- Guide Covers Double Showcase (Red Passion & Royal Blue Edition) -->
+      <!-- Guide Covers Double Showcase (Red Passion & Green Natural Edition) -->
       <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 36px;">
-        <div style="max-width: 290px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-glow-red); border: 2px solid var(--color-primary-red);">
+        <div style="max-width: 290px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 0 35px rgba(229, 9, 20, 0.45); border: 2px solid var(--color-primary-red);">
           <img src="${packCoverRedUrl}" alt="Guide Enfin Comprendre les Hormones - Édition Rouge Passion" width="600" height="900" loading="lazy" decoding="async">
         </div>
-        <div style="max-width: 290px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-glow-blue); border: 2px solid var(--color-cta-blue);">
-          <img src="${packCoverBlueUrl}" alt="Guide Enfin Comprendre les Hormones - Édition Bleu Roi" width="600" height="900" loading="lazy" decoding="async">
+        <div style="max-width: 290px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 0 35px rgba(22, 163, 74, 0.45); border: 2px solid #16a34a;">
+          <img src="${packCoverGreenUrl}" alt="Guide Enfin Comprendre les Hormones - Édition Émeraude Naturelle" width="600" height="900" loading="lazy" decoding="async">
         </div>
       </div>
 

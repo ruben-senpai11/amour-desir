@@ -130,17 +130,30 @@ ${cssContent}
         <span class="book-header-text">F O U   D E   T O I ,   F O L L E   D E   T O I</span>
       </div>
 
-      <!-- Badge d'autorité -->
-      <div class="badge-pill badge-burgundy" style="margin-bottom: 16px;">
-        RÉSERVÉ AUX COUPLES ADULTES • GUIDE DU COUPLE CHRÉTIEN
+      <!-- Badge d'autorité en pleine visibilité -->
+      <div style="text-align: center; margin-bottom: 18px;">
+        <div class="badge-authority-hero">
+          <span>📖 ÉDITION OFFICIELLE</span>
+          <span>•</span>
+          <span>RÉSERVÉ AUX COUPLES ADULTES</span>
+          <span>•</span>
+          <span>GUIDE DU COUPLE CHRÉTIEN</span>
+        </div>
       </div>
 
-      <!-- Citation biblique inspirée de la page 11 du livre -->
-      <div class="verse-sacred-card" style="max-width: 760px;">
-        <div class="verse-text">
-          « Que ta source soit bénie, et fais ta joie de la femme de ta jeunesse... Que sa tendresse t'enivre en tout temps, sois sans cesse épris de son amour. »
+      <!-- Citation biblique inspirée de la page 11 du livre (Mise en valeur solennelle) -->
+      <div class="verse-sacred-card reveal-on-scroll">
+        <div class="verse-header-tag">
+          <span>✝️ LE FONDEMENT SACRÉ DE L'INTIMITÉ CONJUGALE</span>
         </div>
-        <div class="verse-ref">— PROVERBES 5:18-19</div>
+        <div class="verse-text">
+          « <strong>Que ta source soit bénie</strong>, et fais ta joie de la femme de ta jeunesse... <strong>Que sa tendresse t'enivre en tout temps</strong>, sois sans cesse épris de son amour. »
+        </div>
+        <div class="verse-ref">
+          <span>— PROVERBES 5:18–19</span>
+          <span style="font-weight: 400; opacity: 0.7;">•</span>
+          <span>LA SAINTE BIBLE</span>
+        </div>
       </div>
 
       <!-- Titre principal -->
@@ -1338,9 +1351,6 @@ ${cssContent}
             <span class="screenshot-client-name">Guy-Adolphe (Abidjan)</span>
             <span class="screenshot-badge">Marié depuis 6 ans</span>
           </div>
-          <p style="padding: 12px 14px; font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.45;">
-            <em>« J'avoue qu'avec ce livre j'ai compris tellement de choses qu'elle n'osait pas me dire. Elle était timide et ça me dérangeait. On a évité tellement d'erreurs en tant qu'homme ! »</em>
-          </p>
         </div>
 
         <div class="screenshot-card">
@@ -1349,9 +1359,6 @@ ${cssContent}
             <span class="screenshot-client-name">Rosemonde (Cotonou)</span>
             <span class="screenshot-badge">Femme comblée</span>
           </div>
-          <p style="padding: 12px 14px; font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.45;">
-            <em>« Votre livre a fait que j'ai gagné un rendez-vous exceptionnel... Il a tellement bien pris la lecture. Ce matin il m'a appelée pour sortir. Je suis surprise de ce changement ! »</em>
-          </p>
         </div>
 
         <div class="screenshot-card">
@@ -1360,9 +1367,6 @@ ${cssContent}
             <span class="screenshot-client-name">Rivaldo (Pointe-Noire)</span>
             <span class="screenshot-badge">Mariage renouvelé</span>
           </div>
-          <p style="padding: 12px 14px; font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.45;">
-            <em>« Franchement les conseils sur le clitoris et le stop-start ont tout changé dans notre intimité. Madame me regarde d'une manière différente maintenant. »</em>
-          </p>
         </div>
 
         <div class="screenshot-card">
@@ -1371,9 +1375,6 @@ ${cssContent}
             <span class="screenshot-client-name">Thibaut (Kinshasa)</span>
             <span class="screenshot-badge">Fidélité préservée</span>
           </div>
-          <p style="padding: 12px 14px; font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.45;">
-            <em>« Le chapitre sur la fidélité et le plan des 30 jours est une bombe spirituelle. C'est exactement le livre que tous les couples fiancés et mariés devraient lire. »</em>
-          </p>
         </div>
 
       </div>

@@ -180,11 +180,11 @@ const htmlContent = `<!DOCTYPE html>
         Même après 15 ans de mariage, même avec la fatigue des enfants ou le manque d'endurance, et <strong>sans aucune position compliquée</strong>. Découvrez le guide illustré qui déculpabilise votre sexualité et rend votre partenaire complètement fou/folle de vous.
       </p>
 
-      <!-- Hero Visual 3D Book Presentation -->
-      <div class="hero-media-card" style="max-width: 520px; margin: 0 auto 28px auto;">
-        <div style="padding: 16px; text-align: center;">
-          <img src="${bookCoverUrl}" alt="Livre FOU DE TOI, FOLLE DE TOI - Guide Officiel" class="book-cover-3d-img" fetchpriority="high" decoding="async" style="width: 100%; max-width: 380px; margin: 0 auto; display: block; border-radius: 12px; box-shadow: 0 20px 60px rgba(229, 9, 20, 0.45);">
-          <div style="font-size: 0.88rem; color: #FDA4AF; text-align: center; font-weight: 800; margin-top: 16px; letter-spacing: 0.04em;">
+      <!-- Hero Visual 3D Book Presentation (Zoomed & Ultra-Prominent) -->
+      <div class="hero-media-card" style="max-width: 620px; margin: 0 auto 28px auto;">
+        <div style="padding: 12px 16px 20px 16px; text-align: center;">
+          <img src="${bookCoverUrl}" alt="Livre FOU DE TOI, FOLLE DE TOI - Guide Officiel" class="book-cover-3d-img" fetchpriority="high" decoding="async" style="width: 100%; max-width: 520px; margin: 0 auto; display: block; border-radius: 14px; box-shadow: 0 24px 70px rgba(229, 9, 20, 0.55);">
+          <div style="font-size: 0.92rem; color: #FDA4AF; text-align: center; font-weight: 800; margin-top: 20px; letter-spacing: 0.04em;">
             📖 LE GUIDE MAÎTRE DU COUPLE CHRÉTIEN (190 PAGES ILLUSTRÉES) • 18 POSITIONS • 6 BONUS INCLUS
           </div>
         </div>

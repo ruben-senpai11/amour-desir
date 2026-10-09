@@ -14,20 +14,19 @@
   <link rel="preload" as="image" href="/assets/images/couverture-fou-de-toi.jpg" fetchpriority="high">
 
   <!-- SEO & Open Graph Meta Tags -->
-  <meta name="description" content="Découvrez le livre officiel avec schémas anatomiques et 18 positions pour transformer votre chambre en un lit de feu. Déculpabilisation biblique, endurance masculine et fidélité absolue. Offre de lancement à 9 500 FCFA.">
+  <meta name="description" content="Découvrez le guide maître illustré (190 pages) pour transformer votre chambre en un lit de feu. Déculpabilisation biblique, orgasme féminin garanti, endurance masculine et fidélité absolue. Offre exclusive à 9 500 FCFA.">
   <meta property="og:title" content="FOU DE TOI, FOLLE DE TOI • Le Guide Du Couple Chrétien Qui Veut Un Lit De Feu">
-  <meta property="og:description" content="Le livre avec schémas détaillés pour jouir à chaque fois et rendre votre partenaire complètement fou/folle de vous. Même sans endurance et sans positions compliquées.">
+  <meta property="og:description" content="Le livre avec schémas anatomiques pour faire de votre lit un sanctuaire de désir ardent, sans honte, sans vulgarité et dans la pleine bénédiction de Dieu.">
   <meta property="og:image" content="/assets/images/couverture-fou-de-toi.jpg">
   <meta property="og:type" content="website">
   
-  <!-- Google Fonts: Plus Jakarta Sans (Haute Lisibilité) + Lora (Édition Noble) -->
+  <!-- Google Fonts: Plus Jakarta Sans + Outfit / Syne -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
   
   <!-- Global Stylesheet (Browser Cached) -->
   <link rel="stylesheet" href="/assets/css/style.css">
-
 
   <!-- Meta Pixel Code -->
   <script>
@@ -40,132 +39,150 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    var pageViewEventId = 'pv_' + Date.now() + '_' + Math.floor(Math.random() * 1000000);
+    window._pvEventId = 'pv_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
     fbq('init', '2465772550579051');
-    fbq('track', 'PageView', {}, { eventID: pageViewEventId });
+    fbq('track', 'PageView', {}, { eventID: window._pvEventId });
+
+    try {
+      fetch('/api/capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event_name: 'PageView',
+          event_id: window._pvEventId,
+          url: window.location.href
+        })
+      }).catch(function(){});
+    } catch(e){}
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=2465772550579051&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <!-- Instant Countdown Initializer (0ms) -->
+  <script>
+    (function() {
+      function calcTime() {
+        var now = new Date();
+        var midnight = new Date();
+        midnight.setHours(23, 59, 59, 999);
+        var diff = midnight.getTime() - now.getTime();
+        if (diff < 0) diff = 0;
+        var h = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+        var m = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+        var s = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+        document.querySelectorAll('.cd-hours').forEach(function(el){ el.textContent = h; });
+        document.querySelectorAll('.cd-minutes').forEach(function(el){ el.textContent = m; });
+        document.querySelectorAll('.cd-seconds').forEach(function(el){ el.textContent = s; });
+      }
+      document.addEventListener('DOMContentLoaded', calcTime);
+    })();
   </script>
 </head>
-<body style="background-color: #FAF7F5; color: #2D2D2D;">
+<body>
 
   <!-- =========================================================================
-       1. TOP URGENCY COUNTDOWN ANNOUNCEMENT BAR
+       1. BANDEAU D'URGENCE SUPÉRIEUR (STICKY TOP BAR)
        ========================================================================= -->
   <div class="top-urgency-bar">
     <div class="top-urgency-inner">
-      <span class="badge-pill badge-burgundy" style="background: rgba(255,255,255,0.2); color: #FFFFFF; border-color: rgba(255,255,255,0.4); font-size: 0.85rem;">🔥 OFFRE DE LANCEMENT</span>
-      <span>PRIX EXCLUSIF : <strong>9 500 FCFA</strong> AU LIEU DE <span style="text-decoration: line-through; opacity: 0.8;">25 000 FCFA</span> (-62%)</span>
+      <span>🔥 <strong>OFFRE EXCLUSIVE DE LANCEMENT</strong> : -62% DE RÉDUCTION IMMÉDIATE</span>
       <div class="countdown-box">
-        <span style="font-size: 0.88rem; margin-right: 4px;">FIN À MINUIT :</span>
+        <span>FIN DANS :</span>
         <span class="countdown-digit cd-hours">07</span>h
-        <span class="countdown-digit cd-minutes">30</span>m
-        <span class="countdown-digit cd-seconds">10</span>s
+        <span class="countdown-digit cd-minutes">14</span>m
+        <span class="countdown-digit cd-seconds">12</span>s
       </div>
+      <span class="badge-pill badge-gold" style="padding: 2px 8px; font-size: 0.72rem;">23H59 DERNIER DÉLAI</span>
     </div>
   </div>
 
   <!-- =========================================================================
-       2. HERO SECTION : L'ACCROCHE & LE CHOC ÉMOTIONNEL
+       2. HERO SECTION : L'ACCROCHE & LE CHOC (POSITIONNEMENT PREMIUM)
        ========================================================================= -->
   <section class="hero-section" id="hero">
-    <div class="hero-bg-immersion"></div>
-    <div class="container" style="position: relative; z-index: 1;">
+    <div class="container">
       
-      <!-- En-tête typographique du livre -->
-      <div class="book-header-rule">
-        <span class="book-header-text">F O U   D E   T O I ,   F O L L E   D E   T O I</span>
+      <!-- Pre-heading Badge (Rouge Feu & Autorité Spirituelle) -->
+      <div class="badge-red" style="margin-bottom: 18px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        <span>RÉSERVÉ AUX COUPLES CHRÉTIENS, FIANCÉS & MARIÉS QUI VEULENT UN LIT DE FEU</span>
       </div>
 
-      <!-- Badge d'autorité en pleine visibilité -->
-      <div style="text-align: center; margin-bottom: 18px;">
-        <div class="badge-authority-hero">
-          <span>📖 ÉDITION OFFICIELLE</span>
-          <span>•</span>
-          <span>RÉSERVÉ AUX COUPLES ADULTES</span>
-          <span>•</span>
-          <span>GUIDE DU COUPLE CHRÉTIEN</span>
+      <!-- Sacred Biblical Foundation Card -->
+      <div class="verse-sacred-card-dark">
+        <div style="font-size: 0.78rem; font-weight: 800; letter-spacing: 0.12em; color: #FF3340; text-transform: uppercase; margin-bottom: 10px;">
+          ✦ LE MANDAT DIVIN DANS LE MARIAGE ✦
         </div>
-      </div>
-
-      <!-- Citation biblique inspirée de la page 11 du livre (Mise en valeur solennelle) -->
-      <div class="verse-sacred-card reveal-on-scroll">
-        <div class="verse-header-tag">
-          <span>✝️ LE FONDEMENT SACRÉ DE L'INTIMITÉ CONJUGALE</span>
+        <div style="font-family: var(--font-heading); font-size: 1.22rem; font-style: italic; color: #FFFFFF; line-height: 1.6; margin-bottom: 10px;">
+          « Que ta source soit bénie, et fais ta joie de la femme de ta jeunesse... <br>
+          <strong style="color: #FF1A26;">Que ses caresses te comblent en tout temps, sois continuellement épris de son amour !</strong> »
         </div>
-        <div class="verse-text">
-          « <strong>Que ta source soit bénie</strong>, et fais ta joie de la femme de ta jeunesse... <strong>Que sa tendresse t'enivre en tout temps</strong>, sois sans cesse épris de son amour. »
-        </div>
-        <div class="verse-ref">
-          <span>— PROVERBES 5:18–19</span>
-          <span style="font-weight: 400; opacity: 0.7;">•</span>
-          <span>LA SAINTE BIBLE</span>
+        <div style="font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; color: #FDA4AF; text-transform: uppercase;">
+          — PROVERBES 5:18-19
         </div>
       </div>
 
-      <!-- Titre principal -->
+      <!-- Main Brutal & Transformational Headline -->
       <h1 class="hero-title">
-        Ce Soir, Votre Lit Ne Sera Plus Jamais Le Même.<br>
-        <span class="title-burgundy">Le Livre Avec Schémas Détaillés Pour Jouir À Chaque Fois & Rendre Votre Partenaire Complètement Fou/Folle De Vous !</span>
+        La routine et la pudeur ont-elles refroidi votre chambre ?<br>
+        <span class="text-gradient-red">Transformez Votre Intimité En Un Sanctuaire De Désir Ardent & Sans Culpabilité</span>
       </h1>
 
-      <!-- Sous-titre -->
+      <!-- Empathic & Pain Subtitle -->
       <p class="hero-subtitle">
-        Même sans endurance masculine, même avec la fatigue des enfants ou après 20 ans de routine, et <strong>sans aucune position compliquée</strong>. Découvrez comment faire de votre chambre conjugale un lit de feu, sans honte, sans vulgarité et dans la pleine bénédiction de Dieu.
+        Même après 15 ans de mariage, même avec la fatigue des enfants ou le manque d'endurance, et <strong>sans aucune position compliquée</strong>. Découvrez le guide illustré qui déculpabilise votre sexualité et rend votre partenaire complètement fou/folle de vous.
       </p>
 
-      <!-- Carte centrale de présentation -->
-      <div class="hero-media-card">
-        
-        <div class="book-cover-3d-box" style="margin-bottom: 24px;">
-          <img src="/assets/images/couverture-fou-de-toi.jpg" alt="Livre FOU DE TOI, FOLLE DE TOI - Guide Officiel" class="book-cover-3d-img" fetchpriority="high" decoding="async">
-          <div style="font-size: 0.88rem; color: var(--color-burgundy); text-align: center; font-weight: 800; margin-top: 14px;">
-            📖 LE GUIDE MAÎTRE OFFICIEL DU COUPLE CHRÉTIEN (190 PAGES HD) • 18 POSITIONS • 6 BONUS INCLUS
+      <!-- Hero Visual 3D Book Presentation -->
+      <div class="hero-media-card" style="max-width: 520px; margin: 0 auto 28px auto;">
+        <div style="padding: 16px; text-align: center;">
+          <img src="/assets/images/couverture-fou-de-toi.jpg" alt="Livre FOU DE TOI, FOLLE DE TOI - Guide Officiel" class="book-cover-3d-img" fetchpriority="high" decoding="async" style="width: 100%; max-width: 380px; margin: 0 auto; display: block; border-radius: 12px; box-shadow: 0 20px 60px rgba(229, 9, 20, 0.45);">
+          <div style="font-size: 0.88rem; color: #FDA4AF; text-align: center; font-weight: 800; margin-top: 16px; letter-spacing: 0.04em;">
+            📖 LE GUIDE MAÎTRE DU COUPLE CHRÉTIEN (190 PAGES ILLUSTRÉES) • 18 POSITIONS • 6 BONUS INCLUS
           </div>
         </div>
+      </div>
 
-        <!-- Pastille de prix -->
+      <!-- Pricing Action Pill (9 500 FCFA) -->
+      <div style="display: flex; justify-content: center;">
         <div class="pricing-banner-pill">
           <div class="price-strike-group">
-            <div class="price-strike-label">Prix Normal</div>
+            <div class="price-strike-label">Valeur Normale</div>
             <div class="price-strike-val">25 000 FCFA</div>
           </div>
           <div class="price-main-group">
-            <div class="price-main-label">⚡ AUJOURD'HUI SEULEMENT (-62%)</div>
-            <div class="price-main-val">9 500 FCFA</div>
+            <div class="price-main-label">⚡ AUJOURD'HUI SEULEMENT</div>
+            <div class="price-main-val text-gradient-red">9 500 FCFA</div>
           </div>
         </div>
-
-        <!-- Bouton CTA principal -->
-        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="width: 100%;">
-          <span>🔥 OUI, JE VEUX NOTRE LIT DE FEU DÈS CE SOIR <span class="cta-arrow">→</span></span>
-          <span class="btn-cta-sub">Accès Immédiat pour 9 500 FCFA • Wave, Orange, MTN, Moov, Carte</span>
-        </a>
-
-        <!-- Rassurance sobre -->
-        <div class="hero-badges-row" style="margin-top: 20px;">
-          <div class="hero-badge-item">
-            <span style="color: var(--color-burgundy);">✓</span>
-            <span>100% Conforme aux Écritures</span>
-          </div>
-          <div class="hero-badge-item">
-            <span style="color: var(--color-burgundy);">✓</span>
-            <span>Téléchargement Immédiat</span>
-          </div>
-          <div class="hero-badge-item">
-            <span style="color: var(--color-burgundy);">✓</span>
-            <span>Discrétion 100% Anonyme</span>
-          </div>
-        </div>
-
       </div>
 
-    </div>
-      
-      <!-- Illustration 1 : Couple complice au réveil -->
-      <div class="book-illustration-box">
-        <img src="/assets/images/illustrations/intro-couple-reveil.jpg" alt="Couple complice au réveil - Amina et Kofi" class="book-illustration-img" loading="lazy">
-        <div class="book-illustration-caption">
-          <span class="book-illustration-tag">Introduction Officielle</span>
-          <span>Redécouvrez la complicité tendre et le sourire au réveil : la vision divine et bienveillante pour votre foyer.</span>
+      <!-- Main Intense Red Curvy & Vibrating CTA Button -->
+      <div style="display: flex; justify-content: center;">
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" target="_blank" rel="noopener" class="btn-cta btn-cta-intense-red">
+          <span>👉 COMMANDER LE GUIDE FOU DE TOI, FOLLE DE TOI</span>
+          <span class="btn-cta-sub">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/></svg>
+            Accès immédiat par email & WhatsApp • 9 500 FCFA au lieu de 25 000 FCFA
+          </span>
+        </a>
+      </div>
+
+      <!-- Hero Trust Badges -->
+      <div class="hero-badges-row">
+        <div class="hero-badge-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15.1 8H8.9V6C8.9 4.29 10.29 2.9 12 2.9C13.71 2.9 15.1 4.29 15.1 6V8Z"/></svg>
+          Paiement 100% Sécurisé (Mobile Money & Carte)
+        </div>
+        <div class="hero-badge-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2.05V4.07C16.39 4.58 19 7.47 19 11C19 12.65 18.39 14.16 17.38 15.32L18.8 16.74C20.17 15.17 21 13.18 21 11C21 5.76 17.04 1.41 12 1.05V2.05H13ZM12 21.95V19.93C8.61 19.42 6 16.53 6 13C6 11.35 6.61 9.84 7.62 8.68L6.2 7.26C4.83 8.83 4 10.82 4 13C4 18.24 7.96 22.59 13 22.95V21.95H12ZM12 6C9.24 6 7 8.24 7 11C7 13.76 9.24 16 12 16C14.76 16 17 13.76 17 11C17 8.24 14.76 6 12 6Z"/></svg>
+          Accès Immédiat (PDF Haute Définition + 6 Bonus)
+        </div>
+        <div class="hero-badge-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          Garantie 30 Jours Satisfait ou Remboursé
         </div>
       </div>
 
@@ -177,82 +194,78 @@
   <!-- =========================================================================
        3. SECTION : LE MIROIR DE LA DOULEUR & LES PENSÉES SECRÈTES
        ========================================================================= -->
-  <section class="section" id="probleme" style="background: #FFFFFF;">
+  <section class="section" id="probleme">
     <div class="container">
       
-      <div style="text-align: center; max-width: 760px; margin: 0 auto 36px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 10px;">SOYONS SINCÈRES ENTRE ÉPOUX CHRÉTIENS</div>
-        <h2 style="font-size: 2.1rem; line-height: 1.25; margin-bottom: 14px; color: var(--color-text-title);">
-          Vous dormez dans le même lit. Vous vous aimez sincèrement...<br>
-          <span class="title-burgundy">Mais la vérité, c'est que votre intimité ressemble à un feu qui s'éteint.</span>
+      <div style="text-align: center; margin-bottom: 30px;">
+        <div class="badge-pill badge-red" style="margin-bottom: 10px;">🛑 LA RÉALITÉ SILENCIEUSE DONT PERSONNE NE PARLE À L'ÉGLISE</div>
+        <h2 style="font-size: 1.95rem; margin-bottom: 12px;">
+          Vous vous aimez sincèrement devant Dieu... <br>
+          <span class="text-gradient-red">Mais dans le secret de la chambre, le feu s'est éteint.</span>
         </h2>
-        <p style="color: var(--color-text-muted); font-size: 1.05rem;">
-          À l'église, vous souriez. Aux réunions de famille, tout semble parfait. Mais dès que la porte de la chambre se referme le soir, un mur de silence et de déception s'installe.
+        <p style="color: var(--color-text-muted); max-width: 680px; margin: 0 auto;">
+          Vous priez ensemble, vous servez fidèlement, vous gérez le foyer. Mais quand vient la nuit, la gêne, la routine ou la frustration s'installent entre vos draps.
         </p>
       </div>
 
-      <!-- Deux colonnes de douleurs -->
-      <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 24px; margin-bottom: 30px;">
-        
-        <!-- Douleurs Lui -->
-        <div class="card-light" style="border-left: 4px solid var(--color-burgundy);">
-          <div style="margin-bottom: 14px;">
-            <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.1em;">CE QUE L'HOMME VIT EN SILENCE</div>
-            <h3 style="font-size: 1.25rem; color: var(--color-text-title); margin-top: 4px;">La terreur de ne pas assurer et le sentiment d'être un mendiant</h3>
-          </div>
-          <ul class="pain-list">
-            <li class="pain-item">
-              <span class="pain-icon" style="background: var(--color-burgundy-soft); color: var(--color-burgundy);">✕</span>
-              <span><strong>Le calvaire des 3 minutes :</strong> Tu es excité, elle est belle, et en quelques mouvements rapides, c'est déjà fini. Tu vois dans son regard qu'elle n'a rien ressenti de fort. Tu te sens nul, diminué, et cette angoisse accélère encore les choses au rapport suivant.</span>
-            </li>
-            <li class="pain-item">
-              <span class="pain-icon" style="background: var(--color-burgundy-soft); color: var(--color-burgundy);">✕</span>
-              <span><strong>L'érection qui faiblit au pire moment :</strong> Le stress du travail, le manque de sommeil, les soucis financiers... Tu veux être un roc pour elle, mais ton corps refuse d'obéir. La peur de la panne devient le premier voleur de virilité.</span>
-            </li>
-            <li class="pain-item">
-              <span class="pain-icon" style="background: var(--color-burgundy-soft); color: var(--color-burgundy);">✕</span>
-              <span><strong>L'humiliation de devoir quémander :</strong> Tu t'approches d'elle avec désir, et elle se retourne avec un soupir ou un « je suis fatiguée ». Tu te sens rejeté dans ton propre foyer, alors tu te tais et tu accumules de la rancune.</span>
-            </li>
-            <li class="pain-item">
-              <span class="pain-icon" style="background: var(--color-burgundy-soft); color: var(--color-burgundy);">✕</span>
-              <span><strong>Le piège empoisonné des écrans :</strong> La tentation honteuse de chercher du plaisir seul ou devant des images sur son téléphone... qui te laisse avec un dégoût profond de toi-même et brise la complicité sacrée.</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Douleurs Elle -->
-        <div class="card-light" style="border-left: 4px solid var(--color-burgundy);">
-          <div style="margin-bottom: 14px;">
-            <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.1em;">CE QUE LA FEMME ENDURE SANS OSER LE DIRE</div>
-            <h3 style="font-size: 1.25rem; color: var(--color-text-title); margin-top: 4px;">La frustration invisible, le devoir conjugal et la honte de son corps</h3>
-          </div>
-          <ul class="pain-list">
-            <li class="pain-item">
-              <span class="pain-icon" style="background: var(--color-burgundy-soft); color: var(--color-burgundy);">✕</span>
-              <span><strong>Le clitoris totalement oublié :</strong> Les études médicales le confirment : seulement 1 femme sur 5 jouit par la pénétration seule ! Les 4 autres ont impérativement besoin d'une stimulation précise du clitoris. Pourtant, il fonce tout droit sans préparation, te laissant frustrée.</span>
-            </li>
-            <li class="pain-item">
-              <span class="pain-icon" style="background: var(--color-burgundy-soft); color: var(--color-burgundy);">✕</span>
-              <span><strong>La douleur et la sécheresse :</strong> Faire l'amour devient une corvée où tu serres les dents. Simuler parfois un faux orgasme pour flatter son ego et abréger, en attendant qu'il s'endorme pour fixer le plafond avec tristesse.</span>
-            </li>
-            <li class="pain-item">
-              <span class="pain-icon" style="background: var(--color-burgundy-soft); color: var(--color-burgundy);">✕</span>
-              <span><strong>La honte de ton corps qui a changé :</strong> Après les enfants, le ventre rond, les vergetures... tu as peur de son regard. Alors tu éteins la lumière en hâte et tu restes sous le drap, incapable de lâcher prise.</span>
-            </li>
-            <li class="pain-item">
-              <span class="pain-icon" style="background: var(--color-burgundy-soft); color: var(--color-burgundy);">✕</span>
-              <span><strong>La charge mentale qui éteint tout :</strong> Travail, cuisine, enfants, vaisselle... Le désir féminin est réactif, pas spontané ! Comment avoir envie d'un rapport quand il ne t'a offert aucun baiser tendre ni mot doux de toute la journée ?</span>
-            </li>
-          </ul>
-        </div>
-
+      <!-- Real Symptoms List -->
+      <div class="card-dark card-dark-red" style="margin-bottom: 30px;">
+        <h3 style="font-size: 1.28rem; margin-bottom: 18px; color: #FF3340; display: flex; align-items: center; gap: 8px;">
+          <span>⚠️</span> Reconnaissez-vous l'un de ces signaux dans votre intimité ?
+        </h3>
+        <ul class="pain-list">
+          <li class="pain-item">
+            <span class="pain-icon">✕</span>
+            <span><strong>Les rapports sont devenus rares et mécaniques</strong> : L'union ressemble plus à un devoir conjugal rapide qu'à une communion amoureuse passionnée.</span>
+          </li>
+          <li class="pain-item">
+            <span class="pain-icon">✕</span>
+            <span><strong>L'épouse n'atteint presque jamais l'extase</strong> : Par pudeur, par peur de blesser son mari ou par manque de stimulation adéquate, elle simule ou attend que ça passe.</span>
+          </li>
+          <li class="pain-item">
+            <span class="pain-icon">✕</span>
+            <span><strong>L'homme souffre en silence de son endurance</strong> : La peur d'éjaculer trop vite ou de décevoir son épouse crée une angoisse qui bloque sa virilité.</span>
+          </li>
+          <li class="pain-item">
+            <span class="pain-icon">✕</span>
+            <span><strong>Les tabous religieux étouffent la créativité</strong> : Vous avez peur de pécher dès que vous voulez oser une caresse plus intime, une position nouvelle ou un mot sensuel.</span>
+          </li>
+          <li class="pain-item">
+            <span class="pain-icon">✕</span>
+            <span><strong>La frustration invisible crée des tensions le jour</strong> : Quand le lit est froid, les disputes éclatent pour un rien dans la cuisine ou sur les finances.</span>
+          </li>
+        </ul>
       </div>
 
-      <!-- Encadré citation du livre -->
-      <div class="callout-retenir">
-        <div class="callout-title-retenir">À R E T E N I R (PAGE 7 DU LIVRE)</div>
-        <p style="font-size: 0.95rem; line-height: 1.6; font-style: italic; color: var(--color-text-body);">
-          « Vous dormez dans le même lit. Vous vous aimez. Mais vous savez, tous les deux, que ça pourrait être beaucoup plus fort. Peut-être que tu te demandes pourquoi elle ferme les yeux et attend que ça passe. Peut-être que tu te demandes pourquoi il termine avant même que tu aies commencé à sentir quelque chose. Ce livre est là pour ça : pas de détour, pas de langage de médecin, pas de honte. »
+      <!-- Secret Thoughts Grid -->
+      <div style="text-align: center; margin-top: 36px;">
+        <h3 style="font-size: 1.38rem; margin-bottom: 8px;">Et tard le soir, ces questions silencieuses vous rongent le cœur...</h3>
+        <p style="color: var(--color-text-dim); font-size: 0.95rem;">Ces vérités intimes qu'aucun chrétien n'ose avouer lors d'un entretien pastoral :</p>
+      </div>
+
+      <div class="thoughts-grid">
+        <div class="thought-bubble">
+          <span class="quote-icon">“</span>
+          <span>« Est-ce que le mariage chrétien est condamné à être froid et platonique après quelques années ? »</span>
+        </div>
+        <div class="thought-bubble">
+          <span class="quote-icon">“</span>
+          <span>« Pourquoi est-ce que je n'arrive jamais à la faire jouir avec intensité malgré tout mon amour ? »</span>
+        </div>
+        <div class="thought-bubble">
+          <span class="quote-icon">“</span>
+          <span>« Est-ce un péché de vouloir du plaisir ardent, des caresses audacieuses et du renouveau dans notre chambre ? »</span>
+        </div>
+        <div class="thought-bubble">
+          <span class="quote-icon">“</span>
+          <span>« Comment protéger mon mari ou ma femme des tentations de ce monde si notre propre lit reste désert ? »</span>
+        </div>
+      </div>
+
+      <!-- Amplification Warning -->
+      <div class="card-dark" style="border-left: 4px solid var(--color-primary-red); background: rgba(30, 10, 16, 0.55); text-align: center; padding: 24px; margin-top: 24px;">
+        <p style="font-size: 1.05rem; font-weight: 600; color: #FFFFFF;">
+          🚨 <span class="highlight-red">Le danger invisible :</span> Croire que la prière seule remplace l'art d'aimer son conjoint dans la chair. Quand le lit conjugal se refroidit, l'adversaire trouve une brèche pour semer l'amertume et le doute.
         </p>
       </div>
 
@@ -262,255 +275,131 @@
   <div class="section-divider"></div>
 
   <!-- =========================================================================
-       4. SECTION : L'AGGRAVATION & L'ALERTE DE L'INFIDÉLITÉ
-       ========================================================================= -->
-  <section class="section" id="danger">
-    <div class="container">
-      
-      <div style="text-align: center; max-width: 820px; margin: 0 auto 36px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 12px;">L'ALERTE QUI PROTÈGE LE MARIAGE</div>
-        <h2 style="font-size: 2.2rem; line-height: 1.25; margin-bottom: 16px;">
-          Personne ne se réveille un matin en disant :<br>
-          <span class="title-burgundy">« Aujourd'hui, je détruis ma famille. »</span>
-        </h2>
-        <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.6;">
-          L'infidélité ne commence pas dehors. <strong>Elle se prépare lentement, goutte après goutte, dans le vide et la faim d'un lit conjugal tiède.</strong>
-        </p>
-      </div>
-
-      <div class="card-light" style="max-width: 860px; margin: 0 auto 32px auto; padding: 32px 24px;">
-        
-        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-body); margin-bottom: 20px;">
-          Beaucoup de prédicateurs condamnent l'adultère avec raison. Mais presque aucun ne vous donne les armes concrètes pour l'éviter ! À l'église, on vous répète : <em>« Résiste à la tentation »</em>. 
-          Mais <strong>comment résister quand on meurt de faim à la maison ?</strong>
-        </p>
-
-        <div style="background: var(--color-burgundy-soft); border-left: 4px solid var(--color-burgundy); padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 22px;">
-          <div style="font-weight: 800; color: var(--color-burgundy); font-size: 1.15rem; margin-bottom: 4px;">
-            « Le meilleur moyen de rester fidèle, c'est de n'avoir RIEN à chercher ailleurs. »
-          </div>
-          <div style="color: var(--color-text-muted); font-size: 0.88rem;">
-            — Chapitre 18 du livre : <em>Fidélité, les armes que personne ne vous donne</em> (Page 150)
-          </div>
-        </div>
-
-        <p style="font-size: 0.98rem; line-height: 1.65; color: var(--color-text-body); margin-bottom: 18px;">
-          Quand la tendresse et la passion désertent votre chambre, n'importe quelle attention extérieure devient une brèche fatale :
-        </p>
-
-        <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 12px; margin-bottom: 24px;">
-          <div style="display: flex; gap: 12px; align-items: flex-start; font-size: 0.92rem;">
-            <span style="color: var(--color-burgundy); font-weight: 900;">•</span>
-            <span><strong>Au bureau ou en déplacement :</strong> Un sourire chaleureux d'une collègue, un compliment innocent qui touche le cœur d'un homme qui se sent rejeté chez lui...</span>
-          </div>
-          <div style="display: flex; gap: 12px; align-items: flex-start; font-size: 0.92rem;">
-            <span style="color: var(--color-burgundy); font-weight: 900;">•</span>
-            <span><strong>Sur les réseaux & WhatsApp :</strong> Les messages privés tardifs, les confidences intimes à un « ami », le téléphone retourné face contre table...</span>
-          </div>
-          <div style="display: flex; gap: 12px; align-items: flex-start; font-size: 0.92rem;">
-            <span style="color: var(--color-burgundy); font-weight: 900;">•</span>
-            <span><strong>Pendant la grossesse ou après 50 ans :</strong> Les moments les plus fragiles où tant de foyers chrétiens se fissurent dans le silence parce que personne ne leur a appris à adapter l'intimité.</span>
-          </div>
-        </div>
-
-        <!-- Règle d'or de fidélité -->
-        <div class="callout-regle-dor" style="text-align: center;">
-          <div class="callout-title-regle-dor" style="justify-content: center; font-size: 1rem;">
-            L'ANTIDOTE DU LIVRE FOU DE TOI, FOLLE DE TOI :
-          </div>
-          <p style="font-size: 1.1rem; font-weight: 700; color: var(--color-burgundy); line-height: 1.6; margin: 8px 0;">
-            « Quand vous avez à la maison un plaisir que personne d'autre sur terre ne peut vous donner, rester fidèle ne sera plus jamais un effort pénible. Ce sera une évidence. »
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- =========================================================================
-       5. SECTION : LA RÉVÉLATION SACRÉE & DÉCULPABILISATION TOTALE
-       ========================================================================= -->
-  <section class="section" id="revelation" style="background: #FFFFFF;">
-    <div class="container">
-      
-      <div style="text-align: center; max-width: 820px; margin: 0 auto 36px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 12px;">LA VÉRITÉ BIBLIQUE QUI LIBÈRE</div>
-        <h2 style="font-size: 2.2rem; line-height: 1.25; margin-bottom: 16px;">
-          Dieu n'a pas honte de votre corps...<br>
-          <span class="title-burgundy">Le Plaisir Charnel a Été Conçu Par Le Créateur Avant Même La Chute !</span>
-        </h2>
-        <p style="color: var(--color-text-muted); font-size: 1.05rem;">
-          Voici ce que beaucoup de chrétiens croient suspect, alors que la Bible enseigne l'inverse :
-        </p>
-      </div>
-
-      <div class="card-light" style="max-width: 880px; margin: 0 auto; padding: 32px 24px;">
-        
-        <div style="display: flex; flex-direction: column; gap: 24px; text-align: left;">
-          
-          <div style="display: flex; gap: 16px; align-items: flex-start;">
-            <div style="background: var(--color-burgundy); color: #FFFFFF; font-weight: 900; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.95rem;">1</div>
-            <div>
-              <h3 style="font-size: 1.15rem; color: var(--color-text-title); margin-bottom: 4px;">« Nus et sans honte » (Genèse 2:25) : Le plan parfait de Dieu</h3>
-              <p style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6;">
-                Avant la chute, il y a un homme et une femme nus, libres et émerveillés l'un devant l'autre. Dieu a créé la peau, les nerfs, le désir ardent. La honte n'est pas le projet de Dieu pour le mariage.
-              </p>
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 16px; align-items: flex-start;">
-            <div style="background: var(--color-burgundy); color: #FFFFFF; font-weight: 900; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.95rem;">2</div>
-            <div>
-              <h3 style="font-size: 1.15rem; color: var(--color-text-title); margin-bottom: 4px;">Le chef-d'œuvre du Clitoris : Créé exclusivement pour le plaisir</h3>
-              <p style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6;">
-                Sur tous les organes du corps humain, le clitoris est le seul dont l'unique fonction est le plaisir de la femme. Ni reproduction, ni miction. <strong>Si le plaisir de la femme était une faute, cet organe n'existerait pas !</strong>
-              </p>
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 16px; align-items: flex-start;">
-            <div style="background: var(--color-burgundy); color: #FFFFFF; font-weight: 900; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.95rem;">3</div>
-            <div>
-              <h3 style="font-size: 1.15rem; color: var(--color-text-title); margin-bottom: 4px;">Un livre entier de la Bible dédié au désir charnel</h3>
-              <p style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6;">
-                Le Cantique des Cantiques parle d'un couple qui se désire, se caresse et se le dit sans fausse pudeur. La femme prend l'initiative, invite son époux dans son jardin (<em>« qu'il mange de ses fruits excellents »</em>), et l'homme célèbre son corps avec passion.
-              </p>
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 16px; align-items: flex-start;">
-            <div style="background: var(--color-burgundy); color: #FFFFFF; font-weight: 900; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.95rem;">4</div>
-            <div>
-              <h3 style="font-size: 1.15rem; color: var(--color-text-title); margin-bottom: 4px;">« Que sa tendresse t'enivre en tout temps » (Proverbes 5:19)</h3>
-              <p style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6;">
-                « En tout temps » : pas seulement pour avoir des enfants, pas du bout des lèvres. Le mot « enivrer » dit une chose claire : se laisser emporter et se perdre dans l'amour de son conjoint.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- CTA Intermédiaire : Bénédiction et Révélation -->
-      <div class="cta-inter-box reveal-on-scroll">
-        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
-          <span class="live-pulse-dot"></span> Entrez dans la liberté et la plénitude voulues par Dieu pour votre mariage
-        </div>
-        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 520px; margin: 0 auto;">
-          <span>📖 OBTENIR LE GUIDE BIBLIQUE ET PRATIQUE (9 500 FCFA) <span class="cta-arrow">→</span></span>
-          <span class="btn-cta-sub">Téléchargement Immédiat • 100% Conforme aux Écritures</span>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- =========================================================================
-       6. SECTION : LE CHOC VISUEL AVANT VS APRÈS
+       4. SECTION : AVANT VS APRÈS (LE CHOC VISUEL & LA TRANSFORMATION)
        ========================================================================= -->
   <section class="section" id="avant-apres">
     <div class="container">
       
-      <div style="text-align: center; max-width: 760px; margin: 0 auto 32px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 10px;">LA TRANSFORMATION DU FOYER</div>
-        <h2 style="font-size: 2.1rem; margin-bottom: 12px; color: var(--color-text-title);">
-          Reprenez Le Contrôle De Votre Chambre Conjugale
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="badge-pill badge-gold" style="margin-bottom: 10px;">👑 LA TRANSFORMATION DU COUPLE</div>
+        <h2 style="font-size: 2.05rem; margin-bottom: 12px;">
+          Faites De Votre Lit Conjugal <br>
+          <span class="text-gradient-red">Un Sanctuaire D'Extase & De Bénédiction</span>
         </h2>
-        <p style="color: var(--color-text-muted); font-size: 1.05rem;">
-          Voici ce qui se passe quand vous passez de l'ignorance douloureuse à la science divine de l'intimité :
+        <p style="color: var(--color-text-muted); max-width: 650px; margin: 0 auto;">
+          Ce n'est pas un don magique réservé aux autres. C'est la maîtrise sacrée de l'anatomie, des temps de l'union et de la déculpabilisation biblique.
         </p>
       </div>
 
-      <!-- Colonnes Comparatives -->
+      <!-- Visual Graphic Image (Ambiance Lit de Feu) -->
+      <div class="comparison-image-wrapper" style="max-width: 760px; margin: 0 auto 32px auto; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(229,9,20,0.35); box-shadow: 0 10px 40px rgba(229,9,20,0.25);">
+        <img src="/assets/images/illustrations/ambiance-lit-de-feu.jpg" alt="Ambiance Sanctuaire Lit de Feu - Amour et Désir" width="1200" height="700" loading="lazy" decoding="async">
+      </div>
+
+      <!-- Side by Side Comparative Grid -->
       <div class="compare-grid">
         
-        <!-- HIER -->
+        <!-- Avant -->
         <div class="compare-col compare-col-before">
-          <div class="compare-heading" style="color: #666666;">
-            <span>✕</span> SANS LE LIVRE (HIER)
+          <div class="compare-heading">
+            <span>❌</span> AVANT CE GUIDE MAÎTRE
           </div>
           <ul class="compare-list">
             <li class="compare-item">
-              <span style="color: #999;">✕</span>
-              <span>Rapport précipité en 3 minutes, frustration et honte silencieuse pour lui</span>
+              <span style="color: #ff4d58;">✕</span>
+              <span>Nuits courtes, timides et prévisibles</span>
             </li>
             <li class="compare-item">
-              <span style="color: #999;">✕</span>
-              <span>Elle ne jouit jamais ou simule pour abréger, douleurs et sécheresse</span>
+              <span style="color: #ff4d58;">✕</span>
+              <span>L'épouse reste sur sa faim et ne connaît pas l'extase</span>
             </li>
             <li class="compare-item">
-              <span style="color: #999;">✕</span>
-              <span>Rapports dans le noir complet sous le drap par honte de son corps</span>
+              <span style="color: #ff4d58;">✕</span>
+              <span>L'homme angoisse sur son endurance et termine trop vite</span>
             </li>
             <li class="compare-item">
-              <span style="color: #999;">✕</span>
-              <span>La routine des années, le sexe arrive en dernier quand on est épuisé</span>
+              <span style="color: #ff4d58;">✕</span>
+              <span>Peur constante de pécher ou d'être « impudique »</span>
             </li>
             <li class="compare-item">
-              <span style="color: #999;">✕</span>
-              <span>Tensions sourdes, rancune le soir, le lit devient un terrain de glace</span>
-            </li>
-            <li class="compare-item">
-              <span style="color: #999;">✕</span>
-              <span>La porte de l'infidélité reste entrouverte par manque de plaisir</span>
+              <span style="color: #ff4d58;">✕</span>
+              <span>Frustration accumulée qui crée des tensions dans la journée</span>
             </li>
           </ul>
         </div>
 
-        <!-- DÈS CE SOIR -->
+        <!-- Après -->
         <div class="compare-col compare-col-after">
-          <div class="compare-heading" style="color: var(--color-burgundy);">
-            <span>✓</span> AVEC LE LIVRE (DÈS CE SOIR)
+          <div class="compare-heading">
+            <span>✅</span> APRÈS LE GUIDE MAÎTRE
           </div>
           <ul class="compare-list">
             <li class="compare-item">
-              <span style="color: var(--color-burgundy); font-weight: 800;">✓</span>
-              <span><strong>Endurance de 15 à 20 minutes maîtrisée</strong> grâce au protocole 1-10 et au stop-start</span>
+              <span style="color: #34d399;">✓</span>
+              <span><strong>Des nuits intenses où le désir renaît spontanément</strong></span>
             </li>
             <li class="compare-item">
-              <span style="color: var(--color-burgundy); font-weight: 800;">✓</span>
-              <span><strong>Orgasmes multiples et intenses pour elle</strong> grâce aux 4 mouvements d'orfèvre du clitoris</span>
+              <span style="color: #34d399;">✓</span>
+              <span>L'épouse guidée vers des orgasmes profonds à chaque union</span>
             </li>
             <li class="compare-item">
-              <span style="color: var(--color-burgundy); font-weight: 800;">✓</span>
-              <span><strong>Corps célébrés à la bougie :</strong> elle se sent belle et désirée sans aucun complexe</span>
+              <span style="color: #34d399;">✓</span>
+              <span>L'homme maîtrise son souffle et dure 20 à 45 minutes</span>
             </li>
             <li class="compare-item">
-              <span style="color: var(--color-burgundy); font-weight: 800;">✓</span>
-              <span><strong>18 positions illustrées faciles</strong> adaptées aux ventres ronds, au dos et à chaque gabarit</span>
+              <span style="color: #34d399;">✓</span>
+              <span>Liberté totale, pureté et bénédiction divine dans la chambre</span>
             </li>
             <li class="compare-item">
-              <span style="color: var(--color-burgundy); font-weight: 800;">✓</span>
-              <span><strong>Complicité toute la journée :</strong> le baiser de 6 secondes, messages complices, rires à deux</span>
-            </li>
-            <li class="compare-item">
-              <span style="color: var(--color-burgundy); font-weight: 800;">✓</span>
-              <span><strong>Fidélité blindée :</strong> un tel festin à la maison que personne n'a envie de chercher ailleurs !</span>
+              <span style="color: #34d399;">✓</span>
+              <span><strong>Votre foyer redevient un havre de paix, de tendresse et de fidélité</strong></span>
             </li>
           </ul>
         </div>
 
       </div>
 
-      <!-- CTA Intermédiaire 1 : Transformation Immédiate -->
-      <div class="cta-inter-box reveal-on-scroll">
-        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
-          <span class="live-pulse-dot"></span> Ne laissez plus la routine et la frustration abîmer votre foyer
-        </div>
-        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 540px; margin: 0 auto;">
-          <span>🔥 OUI, JE PASSE À L'ACTION POUR MON FOYER (9 500 FCFA) <span class="cta-arrow">→</span></span>
-          <span class="btn-cta-sub">Accès Immédiat & Confidentiel • 190 Pages HD + 6 Bonus Inclus</span>
+      <!-- Quick CTA Button -->
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" target="_blank" rel="noopener" class="btn-cta btn-cta-intense-red" style="margin: 0 auto;">
+          <span>JE VEUX CETTE TRANSFORMATION DANS NOTRE FOYER</span>
+          <span class="btn-cta-sub">👉 Obtenir le guide complet pour 9 500 FCFA</span>
         </a>
-        <div class="hero-badges-row" style="margin-top: 14px; justify-content: center; gap: 16px; font-size: 0.82rem;">
-          <div class="hero-badge-item"><span>🔒 Paiement 100% Sécurisé</span></div>
-          <div class="hero-badge-item"><span>⚡ Téléchargement Direct</span></div>
-          <div class="hero-badge-item"><span>🛡️ Garantie 30 Jours</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- =========================================================================
+       5. SECTION : LA GRANDE RÉVÉLATION (LA VÉRITÉ BIBLIQUE & ANATOMIQUE)
+       ========================================================================= -->
+  <section class="section" id="revelation">
+    <div class="container">
+      
+      <div class="revelation-box" style="border: 1px solid rgba(229, 9, 20, 0.4); box-shadow: 0 10px 36px rgba(229, 9, 20, 0.2);">
+        <div class="badge-pill badge-red" style="margin-bottom: 16px;">💡 LA VÉRITÉ QUE 95% DES CROYANTS IGNORENT</div>
+        <h2 class="revelation-quote">
+          « Le plaisir dans le mariage n'est pas une concession charnelle : c'est un ordre divin et un bouclier pour votre foyer. »
+        </h2>
+        <p style="color: var(--color-text-body); font-size: 1.08rem; max-width: 680px; margin: 0 auto 20px; line-height: 1.65;">
+          Dieu a conçu l'anatomie féminine avec un organe entièrement dédié à la jouissance. Il a écrit dans Sa Parole que les caresses de votre conjoint doivent vous combler en tout temps. Quand vous déverrouillez la liberté dans votre chambre, vous scellez la fidélité de votre mariage pour toujours.
+        </p>
+        <p style="color: #FF8088; font-weight: 700; font-size: 1.12rem; max-width: 640px; margin: 0 auto 24px;">
+          Vous n'avez pas besoin d'imiter le monde profane. Vous avez besoin de comprendre l'art de vous donner l'un à l'autre dans la pureté, l'honneur et le feu sacré.
+        </p>
+
+        <!-- Method Steps -->
+        <div style="font-family: var(--font-heading); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; color: var(--color-gold); letter-spacing: 0.08em; margin-bottom: 12px;">
+          LES 3 PILIERS DE LA MÉTHODE SACRÉE :
+        </div>
+        <div class="revelation-method-steps">
+          <div class="method-step-pill">1. DÉCULPABILISER</div>
+          <span class="method-arrow">➔</span>
+          <div class="method-step-pill">2. MAÎTRISER L'ANATOMIE</div>
+          <span class="method-arrow">➔</span>
+          <div class="method-step-pill">3. ENFLAMMER LE LIT</div>
         </div>
       </div>
 
@@ -520,298 +409,168 @@
   <div class="section-divider"></div>
 
   <!-- =========================================================================
-       7. SECTION : PRÉSENTATION COMPLÈTE DU LIVRE (190 PAGES)
+       6. SECTION : PRÉSENTATION DU GUIDE MAÎTRE (LES CHAPITRES VISUELS AVEC IMAGES)
        ========================================================================= -->
-  <section class="section" id="programme" style="background: #FFFFFF;">
+  <section class="section" id="programme">
     <div class="container">
       
-      <div style="text-align: center; max-width: 820px; margin: 0 auto 36px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 12px;">DÉCOUVREZ L'INTÉGRALITÉ DU LIVRE</div>
-        <h2 style="font-size: 2.3rem; line-height: 1.25; margin-bottom: 14px;">
-          FOU DE TOI, FOLLE DE TOI<br>
-          <span class="title-burgundy">190 Pages Pratiques, Pas de Tabou, Des Résultats Immédiats !</span>
+      <div style="text-align: center; margin-bottom: 36px;">
+        <div class="badge-pill badge-red" style="margin-bottom: 10px;">📖 LE GUIDE DE RÉFÉRENCE DE 190 PAGES ILLUSTRÉES</div>
+        <h2 style="font-size: 2.15rem; margin-bottom: 14px;">
+          Fini La Théorie Abstraite <br>
+          <span class="text-gradient-red">Chaque Chapitre Illustré Pour Transformer Votre Intimité</span>
         </h2>
-        <p style="color: var(--color-text-muted); font-size: 1.05rem;">
-          Découpé en trois voix : une partie pour lui, une partie pour elle, et une grande partie pour vous deux :
+        <p style="color: var(--color-text-muted); max-width: 720px; margin: 0 auto;">
+          Voici concrètement ce que vous débloquerez dans ce manuel richement illustré, sans jargon médical incompréhensible et sans aucune vulgarité :
         </p>
       </div>
 
-      <!-- Grille des parties -->
-      
-      <!-- Illustrations Anatomie & Cartographie -->
-      <div class="illustrations-2col-grid">
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-3-anatomie-feminine.jpg" alt="Anatomie Féminine Schéma 3D" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 3 • Anatomie 3D</span>
-            <span>Schéma médical précis du clitoris & des bulbes vestibulaires : l'organe d'extase féminin démystifié.</span>
-          </div>
-        </div>
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-3-anatomie-masculine.jpg" alt="Anatomie Masculine Schéma 3D" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 3 • Anatomie 3D</span>
-            <span>Anatomie masculine & corps caverneux : les mécanismes physiologiques de l'érection ferme et durable.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-illustration-box">
-        <img src="/assets/images/illustrations/chapitre-4-cartes-zones-erogenes.jpg" alt="Carte des Zones Érogènes" class="book-illustration-img" loading="lazy">
-        <div class="book-illustration-caption">
-          <span class="book-illustration-tag">Chapitre 4 • Cartographie</span>
-          <span>La Carte des 7 zones érogènes majeures du corps : nuque, dos, lèvres, cuisses et points réflexes d'excitation.</span>
-        </div>
-      </div>
-
-      <div class="illustrations-2col-grid">
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-4-massage-cartographie.jpg" alt="Massage de cartographie" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 4 • Le Rituel</span>
-            <span>Le massage de cartographie à l'huile tiède : relâcher les tensions et reconnecter les corps sans pression.</span>
-          </div>
-        </div>
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-3-diversite-corps.jpg" alt="Diversité des corps" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 3 • Confiance</span>
-            <span>La diversité des morphologies : mince, ronde, après accouchement... chaque corps est digne et capable d'extase.</span>
-          </div>
-        </div>
-      </div>
-
-      
-      <!-- Illustrations Endurance Masculine -->
-      <div class="illustrations-2col-grid">
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-5-echelle-excitation.jpg" alt="Échelle d'excitation 1 à 10" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 5 • Endurance</span>
-            <span>L'infographie de l'Échelle 1 à 10 : identifier le palier 7 pour retarder l'éjaculation et durer 20 minutes sans forcer.</span>
-          </div>
-        </div>
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-5-plancher-pelvien.jpg" alt="Plancher pelvien masculin" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 5 • Muscle PC</span>
-            <span>Le plancher pelvien masculin : la gymnastique invisible pour verrouiller l'érection et stopper la fuite précoce.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-illustration-box">
-        <img src="/assets/images/illustrations/chapitre-5-pause-caline.jpg" alt="La pause câline" class="book-illustration-img" loading="lazy">
-        <div class="book-illustration-caption">
-          <span class="book-illustration-tag">Chapitre 5 • Technique Clé</span>
-          <span>La pause câline : comment reprendre son souffle et synchroniser les battements du cœur sans casser le rythme.</span>
-        </div>
-      </div>
-
-      
-      <!-- Illustrations Caresses & Signaux Féminins -->
-      <div class="illustrations-2col-grid">
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-7-mouvements-stimulation.jpg" alt="Mouvements de stimulation clitoridienne" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 7 • L'Orfèvrerie</span>
-            <span>Les 4 mouvements de caresse clitoridienne pour amener son épouse à l'orgasme avant la pénétration.</span>
-          </div>
-        </div>
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-7-lire-les-signaux.jpg" alt="Lire les signaux corporels" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 7 • Les Indices</span>
-            <span>Infographie : décoder les soupirs, contractions involontaires et mouvements du bassin de sa femme.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="illustrations-2col-grid">
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-7-cunnilingus.jpg" alt="Cunnilingus pudique et respectueux" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 7 • Offrande</span>
-            <span>La caresse orale langue à plat : l'art d'offrir le plaisir le plus pur sans précipitation.</span>
-          </div>
-        </div>
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-9-seduction-maison.jpg" alt="Séduction à la maison" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 9 • Séduction</span>
-            <span>Recréer l'ambiance et la tension amoureuse dans la maison dès 17h.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECTION VEDETTE : DEUX GUIDES ÉDUCATIFS ANATOMIQUES EXTRAITS DU LIVRE -->
-      <div style="background: #FFFFFF; border: 2px solid var(--color-burgundy); border-radius: var(--radius-lg); padding: 32px 24px; margin: 40px auto 30px auto; max-width: 920px; box-shadow: 0 10px 30px rgba(112, 9, 24, 0.08);">
+      <!-- 9 Visual Chapter Cards Grid (Each with Real Book Artwork) -->
+      <div class="chapters-visual-grid">
         
-        <div style="text-align: center; margin-bottom: 26px;">
-          <div class="badge-pill badge-burgundy" style="margin-bottom: 8px;">EXTRAITS VISUELS DU LIVRE • CLARTÉ PÉDAGOGIQUE</div>
-          <h3 style="font-size: 1.85rem; color: var(--color-text-title); margin-bottom: 10px; line-height: 1.3;">
-            Des Schémas Anatomiques & Pratiques Sans Équivoque :<br>
-            <span class="title-burgundy">Fini Les Doutes, Voici Exactement Quoi Faire et Comment Toucher</span>
-          </h3>
-          <p style="color: var(--color-text-muted); font-size: 0.98rem; max-width: 720px; margin: 0 auto;">
-            Dans <em>FOU DE TOI, FOLLE DE TOI</em>, chaque explication est appuyée par des infographies pas-à-pas d'une netteté absolue. Ni vulgarité ni théorie abstraite : vous apprenez la mécanique précise du plaisir avec respect, anatomie et méthode.
-          </p>
+        <!-- Chapter Card 1 -->
+        <div class="chapter-visual-card">
+          <div class="chapter-visual-img-box">
+            <img src="/assets/images/illustrations/chapitre-1-couple-bible.jpg" alt="Chapitre 1 : Le Sanctuaire Conjugal & Déculpabilisation" class="chapter-visual-img" loading="lazy" decoding="async">
+            <span class="chapter-visual-badge">CHAPITRE 1 & 2</span>
+          </div>
+          <div class="chapter-visual-body">
+            <h3 class="chapter-visual-title">La Déculpabilisation Biblique & Les Mots d'Éveil</h3>
+            <ul class="chapter-visual-bullets">
+              <li><span class="bullet-icon">➔</span> Briser définitivement la honte et la fausse pudeur dans le lit.</li>
+              <li><span class="bullet-icon">➔</span> Les 3 phrases puissantes à chuchoter pour faire monter le désir dès l'après-midi.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="illustrations-2col-grid" style="gap: 24px; align-items: start;">
-          
-          <!-- Guide Homme pour Elle (Chapitre 7) -->
-          <div class="book-illustration-box" style="margin: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; background: #FFFFFF;">
-            <div style="background: var(--color-bg-subtle); padding: 12px 16px; border-bottom: 1px solid var(--color-border); text-align: left;">
-              <span class="book-illustration-tag" style="background: #700918; color: #FFFFFF;">POUR LUI • CHAPITRE 7</span>
-              <strong style="display: block; font-size: 1.05rem; color: #141414; margin-top: 4px;">Anatomie Féminine & Les 4 Mouvements Clés</strong>
-            </div>
-            <div style="background: #FAF7F5; padding: 12px; text-align: center;">
-              <img src="/assets/images/illustrations/guide-educatif-stimulation-clitoris-femme.jpg" alt="Guide Éducatif : Anatomie Féminine & 4 Mouvements Clés" style="width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; object-fit: contain; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" loading="lazy">
-            </div>
-            <div class="book-illustration-caption" style="text-align: left; padding: 16px; background: #FFFFFF; border-top: 1px solid var(--color-border);">
-              <p style="font-size: 0.90rem; color: var(--color-text-body); line-height: 1.5; margin: 0;">
-                🎯 <strong>Ce que vous apprenez pas à pas :</strong> Localisation médicale du clitoris, des petites et grandes lèvres, et la maîtrise des 4 types de caresse (<strong>mouvements circulaires, caresse verticale, léger tapotement, pression vibratoire</strong>) pour conduire sa femme à l'orgasme sans précipitation.
-              </p>
-            </div>
+        <!-- Chapter Card 2 -->
+        <div class="chapter-visual-card">
+          <div class="chapter-visual-img-box">
+            <img src="/assets/images/illustrations/chapitre-3-anatomie-feminine.jpg" alt="Chapitre 3 : Cartographie Anatomique Féminine" class="chapter-visual-img" loading="lazy" decoding="async">
+            <span class="chapter-visual-badge">CHAPITRE 3</span>
           </div>
-
-          <!-- Guide Femme pour Lui (Chapitre 9) -->
-          <div class="book-illustration-box" style="margin: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; background: #FFFFFF;">
-            <div style="background: var(--color-bg-subtle); padding: 12px 16px; border-bottom: 1px solid var(--color-border); text-align: left;">
-              <span class="book-illustration-tag" style="background: #700918; color: #FFFFFF;">POUR ELLE • CHAPITRE 9</span>
-              <strong style="display: block; font-size: 1.05rem; color: #141414; margin-top: 4px;">Guide de Stimulation Main & Langue pour l'Homme</strong>
-            </div>
-            <div style="background: #FAF7F5; padding: 12px; text-align: center;">
-              <img src="/assets/images/illustrations/guide-educatif-stimulation-main-langue-homme.jpg" alt="Guide Éducatif : Intervalles de Stimulation de la Main et de la Langue" style="width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; object-fit: contain; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" loading="lazy">
-            </div>
-            <div class="book-illustration-caption" style="text-align: left; padding: 16px; background: #FFFFFF; border-top: 1px solid var(--color-border);">
-              <p style="font-size: 0.90rem; color: var(--color-text-body); line-height: 1.5; margin: 0;">
-                🎯 <strong>Ce que vous apprenez pas à pas :</strong> Cartographie des zones sensibles (gland, frein, prépuce, méat urétral, base et scrotum), maîtrise des <strong>intervalles de pression (délicate, ferme, continue)</strong>, du contact lèvres et langue, et des mouvements de va-et-vient fluides pour combler son mari sans fatigue.
-              </p>
-            </div>
+          <div class="chapter-visual-body">
+            <h3 class="chapter-visual-title">Cartographie Anatomique 3D & Zones Secrètes</h3>
+            <ul class="chapter-visual-bullets">
+              <li><span class="bullet-icon">➔</span> Schémas détaillés du réseau clitoridien et des points d'extase méconnus.</li>
+              <li><span class="bullet-icon">➔</span> Pourquoi 90% des hommes caressent au mauvais endroit et comment corriger le tir.</li>
+            </ul>
           </div>
-
         </div>
 
-        <div style="text-align: center; margin-top: 24px; padding-top: 16px; border-top: 1px dashed var(--color-border);">
-          <p style="font-size: 0.92rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 14px;">
-            📖 Retrouvez ces guides en pleine résolution (PDF HD prêt à l'emploi) immédiatement après paiement.
-          </p>
-          <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 480px; margin: 0 auto;">
-            <span>🔥 ACCÉDER AU LIVRE COMPLET & AUX GUIDES (9 500 FCFA) <span class="cta-arrow">→</span></span>
-            <span class="btn-cta-sub">Téléchargement Immédiat • 100% Discret</span>
-          </a>
+        <!-- Chapter Card 3 -->
+        <div class="chapter-visual-card">
+          <div class="chapter-visual-img-box">
+            <img src="/assets/images/illustrations/chapitre-4-cartes-zones-erogenes.jpg" alt="Chapitre 4 : Zones Érogènes et Massage" class="chapter-visual-img" loading="lazy" decoding="async">
+            <span class="chapter-visual-badge">CHAPITRE 4</span>
+          </div>
+          <div class="chapter-visual-body">
+            <h3 class="chapter-visual-title">Les Zones Érogènes & Le Massage de Réveil</h3>
+            <ul class="chapter-visual-bullets">
+              <li><span class="bullet-icon">➔</span> Le protocole en 5 étapes pour détendre le système nerveux de l'épouse.</li>
+              <li><span class="bullet-icon">➔</span> Les effleurements calculés qui déclenchent les premiers frissons involontaires.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Chapter Card 4 -->
+        <div class="chapter-visual-card">
+          <div class="chapter-visual-img-box">
+            <img src="/assets/images/illustrations/chapitre-5-echelle-excitation.jpg" alt="Chapitre 5 : Endurance et Échelle d'excitation" class="chapter-visual-img" loading="lazy" decoding="async">
+            <span class="chapter-visual-badge">CHAPITRE 5</span>
+          </div>
+          <div class="chapter-visual-body">
+            <h3 class="chapter-visual-title">L'Endurance Masculine & Le Contrôle du Souffle</h3>
+            <ul class="chapter-visual-bullets">
+              <li><span class="bullet-icon">➔</span> Comment durer 20 à 45 minutes sans pilule ni produit chimique dangereux.</li>
+              <li><span class="bullet-icon">➔</span> La technique de la « pause câline » pour prolonger l'excitation à deux.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Chapter Card 5 -->
+        <div class="chapter-visual-card">
+          <div class="chapter-visual-img-box">
+            <img src="/assets/images/illustrations/chapitre-6-aliments-vitalite.jpg" alt="Chapitre 6 : Aliments de la Vitalité Africaine" class="chapter-visual-img" loading="lazy" decoding="async">
+            <span class="chapter-visual-badge">CHAPITRE 6</span>
+          </div>
+          <div class="chapter-visual-body">
+            <h3 class="chapter-visual-title">La Vitalité Africaine & Potions Naturelles</h3>
+            <ul class="chapter-visual-bullets">
+              <li><span class="bullet-icon">➔</span> Les 10 super-aliments du marché local pour doper la vigueur érectile et l'appétit.</li>
+              <li><span class="bullet-icon">➔</span> Exercices physiques ciblés pour décupler le tonus du plancher pelvien.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Chapter Card 6 -->
+        <div class="chapter-visual-card">
+          <div class="chapter-visual-img-box">
+            <img src="/assets/images/illustrations/guide-educatif-stimulation-clitoris-femme.jpg" alt="Chapitre 7 : Guide 4 Mouvements et Orgasme" class="chapter-visual-img" loading="lazy" decoding="async">
+            <span class="chapter-visual-badge">CHAPITRE 7</span>
+          </div>
+          <div class="chapter-visual-body">
+            <h3 class="chapter-visual-title">L'Art des 4 Mouvements & L'Orgasme Féminin</h3>
+            <ul class="chapter-visual-bullets">
+              <li><span class="bullet-icon">➔</span> Guide visuel précis des 4 rythmes de caresses qui amènent la femme à l'extase.</li>
+              <li><span class="bullet-icon">➔</span> L'art pudique et respectueux des caresses orales dans la pleine bénédiction.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Chapter Card 7 -->
+        <div class="chapter-visual-card">
+          <div class="chapter-visual-img-box">
+            <img src="/assets/images/illustrations/chapitre-8-se-dire-les-choses.jpg" alt="Chapitre 8 : Se Dire les Choses avec Tendresse" class="chapter-visual-img" loading="lazy" decoding="async">
+            <span class="chapter-visual-badge">CHAPITRE 8 & 9</span>
+          </div>
+          <div class="chapter-visual-body">
+            <h3 class="chapter-visual-title">Communication Sans Honte & Séduction Maison</h3>
+            <ul class="chapter-visual-bullets">
+              <li><span class="bullet-icon">➔</span> Exprimer ses besoins profonds sans jamais blesser ni juger l'autre.</li>
+              <li><span class="bullet-icon">➔</span> Installer une tension magnétique naturelle dans les gestes du quotidien.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Chapter Card 8 -->
+        <div class="chapter-visual-card">
+          <div class="chapter-visual-img-box">
+            <img src="/assets/images/illustrations/chapitre-10-rendez-vous.jpg" alt="Chapitre 10 : Rendez-vous Sanctuarisés" class="chapter-visual-img" loading="lazy" decoding="async">
+            <span class="chapter-visual-badge">CHAPITRE 10</span>
+          </div>
+          <div class="chapter-visual-body">
+            <h3 class="chapter-visual-title">Sanctualiser Ses Rendez-Vous Face à la Routine</h3>
+            <ul class="chapter-visual-bullets">
+              <li><span class="bullet-icon">➔</span> Protéger votre bulle amoureuse des enfants, des écrans et du travail.</li>
+              <li><span class="bullet-icon">➔</span> Rituels hebdomadaires pour maintenir la flamme active tout au long de l'année.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Chapter Card 9 -->
+        <div class="chapter-visual-card">
+          <div class="chapter-visual-img-box">
+            <img src="/assets/images/illustrations/chapitre-11-six-temps.jpg" alt="Chapitre 11 : Déroulé en 6 Temps et Positions" class="chapter-visual-img" loading="lazy" decoding="async">
+            <span class="chapter-visual-badge">CHAPITRE 11</span>
+          </div>
+          <div class="chapter-visual-body">
+            <h3 class="chapter-visual-title">Le Déroulé en 6 Temps & Les 18 Positions Clés</h3>
+            <ul class="chapter-visual-bullets">
+              <li><span class="bullet-icon">➔</span> Le cheminement d'une nuit mémorable : de l'approche lente jusqu'à l'étreinte d'après.</li>
+              <li><span class="bullet-icon">➔</span> 18 positions illustrées faciles, confortables et adaptées à chaque corps.</li>
+            </ul>
+          </div>
         </div>
 
       </div>
 
-      <div class="parts-grid">
-        
-        <!-- PART 1 -->
-        <div class="part-card" style="border-left: 4px solid var(--color-burgundy);">
-          <div class="part-tag">PARTIE 1 • PAGES 11 À 17</div>
-          <h3 class="part-title">Le Plaisir a Été Créé Par Dieu</h3>
-          <ul class="part-chapters">
-            <li><strong>Chapitre 1 : Foi chrétienne, plaisir et discernement</strong> — Pourquoi la Bible invite à s'enivrer d'amour (Proverbes 5:19), pourquoi Dieu a créé le clitoris uniquement pour le plaisir, et comment aborder le sexe oral (cunnilingus & fellation) avec une conscience libre et éclairée.</li>
-            <li><strong>Le jardin fermé</strong> — Ce que le plaisir protège : bâtir une intimité si forte que l'infidélité devient impensable.</li>
-          </ul>
-        </div>
-
-        <!-- PART 2 -->
-        <div class="part-card" style="border-left: 4px solid var(--color-burgundy);">
-          <div class="part-tag">PARTIE 2 • PAGES 18 À 36</div>
-          <h3 class="part-title">Votre Point de Départ & Diagnostic Intime</h3>
-          <ul class="part-chapters">
-            <li><strong>Chapitre 2 : Faire le test de votre couple</strong> — Le questionnaire des 10 phrases sur 50 pour faire le bilan honnêtement et sans reproche.</li>
-            <li><strong>Les 5 blocages déracinés</strong> — Fatigue/routine, rapidité masculine, honte du corps, silence et blessures du passé.</li>
-            <li><strong>L'exercice des 3 phrases & Le contrat des 30 jours</strong> — La sécurité indispensable pour oser.</li>
-            <li><strong>Chapitre 3 : Les vrais chiffres pour arrêter de se comparer</strong> — Anatomie secrète du clitoris (bulbes et branches de 10 cm) et adaptations aux morphologies (minces, fortes, grand ventre).</li>
-            <li><strong>Chapitre 4 : La carte des zones érogènes</strong> — La règle d'intensité de 1 à 10 et l'exercice de cartographie en 40 min à la bougie.</li>
-          </ul>
-        </div>
-
-        <!-- PART 3 -->
-        <div class="part-card" style="border-left: 4px solid var(--color-burgundy);">
-          <div class="part-tag">PARTIE 3 • POUR LUI • PAGES 37 À 62</div>
-          <h3 class="part-title">Devenir le Maître du Plaisir & Tenir Plus Longtemps</h3>
-          <ul class="part-chapters">
-            <li><strong>Chapitre 5 : Tenir plus longtemps sans effort</strong> — L'échelle d'excitation 1 à 10 (la zone 5-7), la respiration ventrale, la méthode Stop-Start à deux, la technique du Squeeze sous la couronne et les exercices de Kegel masculins.</li>
-            <li><strong>Le truc des hommes expérimentés : Le deuxième tour</strong> — Comment transformer sa nuit en marathon sans frustration.</li>
-            <li><strong>Chapitre 6 : Une érection plus dure et plus durable</strong> — Neutraliser les 7 ennemis de la verge + Les 10 trésors du marché africain (gingembre, bissap, pastèque citrulline, moringa, graines de courge au zinc, arachide, dattes) + 5 recettes de potions maison.</li>
-            <li><strong>Chapitre 7 : Savoir faire jouir une femme à chaque fois</strong> — Ce qu'elle n'ose pas te dire, les 4 mouvements d'orfèvre du clitoris (cercles, haut-bas, tapotements, pression fixe) et <strong>LA RÈGLE D'OR : quand elle monte, ne change rien !</strong></li>
-            <li><strong>Le Cunnilingus pas à pas</strong> — Technique de la langue à plat, stimulation du Point G (doigts en crochet à 3-4 cm) et orgasmes multiples.</li>
-          </ul>
-
-          <div style="margin-top: 14px; border-radius: 8px; overflow: hidden; border: 1px solid var(--color-border); background: #FAF7F5; text-align: center;">
-            <img src="/assets/images/illustrations/guide-educatif-stimulation-clitoris-femme.jpg" alt="Extrait Chapitre 7 : Guide des 4 Mouvements et Anatomie Féminine" style="width: 100%; max-height: 280px; object-fit: contain; display: block; margin: 0 auto; background: #FAF7F5; padding: 8px 0;" loading="lazy">
-            <div style="padding: 8px 12px; font-size: 0.8rem; color: var(--color-burgundy); font-weight: 700; background: #FFFFFF; border-top: 1px solid var(--color-border);">
-              🔎 Extrait Inclus : L'Anatomie Féminine & Les 4 Mouvements Clés du Clitoris
-            </div>
-          </div>
-        </div>
-
-        <!-- PART 4 -->
-        <div class="part-card" style="border-left: 4px solid var(--color-burgundy);">
-          <div class="part-tag">PARTIE 4 • POUR ELLE • PAGES 63 À 76</div>
-          <h3 class="part-title">Son Corps, Son Plaisir & Faire Perdre la Tête À Son Mari</h3>
-          <ul class="part-chapters">
-            <li><strong>Chapitre 8 : Son corps, son plaisir</strong> — Réconciliation avec son image devant le miroir, éliminer la sécheresse et la douleur, comprendre son désir réactif et maîtriser les 4 types d'orgasmes (clitoridien, point G, mixte, montée lente).</li>
-            <li><strong>Chapitre 9 : Faire perdre la tête à son mari</strong> — Ce que l'homme attend en secret : se sentir désiré ! Le regard de 5 secondes, le pagne noué, les perles de reins, la voix basse.</li>
-            <li><strong>La fellation douce pas à pas sans fatigue</strong> — Éviter le réflexe nauséeux, mouvements lèvres et main, et mots qui le rendent fou.</li>
-            <li><strong>Prendre l'initiative : La soirée « Il ne fait rien »</strong> — 30 minutes où il s'abandonne entièrement entre vos mains.</li>
-          </ul>
-
-          <div style="margin-top: 14px; border-radius: 8px; overflow: hidden; border: 1px solid var(--color-border); background: #FAF7F5; text-align: center;">
-            <img src="/assets/images/illustrations/guide-educatif-stimulation-main-langue-homme.jpg" alt="Extrait Chapitre 9 : Guide des Intervalles de Stimulation de la Main et de la Langue" style="width: 100%; max-height: 280px; object-fit: contain; display: block; margin: 0 auto; background: #FAF7F5; padding: 8px 0;" loading="lazy">
-            <div style="padding: 8px 12px; font-size: 0.8rem; color: var(--color-burgundy); font-weight: 700; background: #FFFFFF; border-top: 1px solid var(--color-border);">
-              🔎 Extrait Inclus : Guide des Intervalles de Stimulation (Main & Langue)
-            </div>
-          </div>
-        </div>
-
-        <!-- PART 5 -->
-        <div class="part-card" style="border-left: 4px solid var(--color-burgundy);">
-          <div class="part-tag">PARTIE 5 • POUR VOUS DEUX • PAGES 77 À 129</div>
-          <h3 class="part-title">L'Alchimie Conjugale & Le Kama Sutra Chrétien</h3>
-          <ul class="part-chapters">
-            <li><strong>Chapitre 10 : Préparer le terrain toute la journée</strong> — Le baiser de 6 secondes, les 6 touchers non sexuels par jour, les messages courts et désamorcer les rancunes du soir.</li>
-            <li><strong>Chapitre 11 : Le rapport parfait du début à la fin en 6 temps</strong> — Transition (10 min), Préliminaires (20 min), Montée (5 min), Pénétration (10-15 min), Orgasme, L'Après (10 min câlins). Code des signaux discrets par les mains.</li>
-            <li><strong>Chapitre 12 : Les 18 Positions qui marchent</strong> — Silhouettes pudiques sans visage adaptées aux corps réels avec des coussins.</li>
-            <li><strong>Chapitre 13 : Sexe oral (69 complice), massages aux huiles maison</strong> — Huile coco tiède, karité, amande douce, vanille.</li>
-            <li><strong>Chapitre 14 : Fantasmes & Explorer sans trahir sa foi</strong> — La grille des 3 cercles (Vert, Orange, Rouge) et le jeu des 15 cartes amoureuses.</li>
-          </ul>
-        </div>
-
-        <!-- PART 6 -->
-        <div class="part-card" style="border-left: 4px solid var(--color-burgundy);">
-          <div class="part-tag">PARTIE 6 & ANNEXES • PAGES 130 À 190</div>
-          <h3 class="part-title">Saisons de Vie, Forteresse de Fidélité & Plan 30 Jours</h3>
-          <ul class="part-chapters">
-            <li><strong>Chapitre 15 : Quand la femme est enceinte</strong> — Protéger le couple contre les dérapages, positions adaptées trimestre par trimestre.</li>
-            <li><strong>Chapitre 16 : Après 50 ans, la ménopause et la routine</strong> — La saison dorée du plaisir plus profond, rapports matinaux, redraguer son conjoint.</li>
-            <li><strong>Chapitre 17 : Quand ça coince</strong> — Vaincre les peurs, le vaginisme et les pièges des écrans.</li>
-            <li><strong>Chapitre 18 : Fidélité, les armes que personne ne vous donne</strong> — Les 7 armes inviolables, pacte du regard, règle des portes, transparence.</li>
-            <li><strong>Chapitre 19 : Le plan transformationnel sur 30 jours</strong> — Un geste concret par jour, semaine par semaine, pour renouveler votre alliance.</li>
-            <li><strong>Annexes :</strong> Recettes d'Afrique de l'Ouest, exercices pelviens de 15 min, lexique des phrases douces et 4 fiches prêtes à imprimer !</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- CTA Intermédiaire 2 : Table des Matières Complète -->
-      <div class="cta-inter-box reveal-on-scroll">
-        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
-          <span class="live-pulse-dot"></span> Tout ce savoir concret et bienveillant accessible sur votre téléphone dans 2 minutes
-        </div>
-        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 540px; margin: 0 auto;">
-          <span>⚡ ACCÉDER AUX 190 PAGES DU GUIDE MAÎTRE (9 500 FCFA) <span class="cta-arrow">→</span></span>
-          <span class="btn-cta-sub">Format PDF Haute Définition • Lisible sur Smartphone, PC & Tablette</span>
+      <!-- Quick CTA Button -->
+      <div style="text-align: center; margin-top: 24px;">
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" target="_blank" rel="noopener" class="btn-cta btn-cta-intense-red" style="margin: 0 auto;">
+          <span>👉 DÉBLOQUER LES 190 PAGES & TOUTES LES ILLUSTRATIONS</span>
+          <span class="btn-cta-sub">Accès immédiat sur smartphone & tablette • 9 500 FCFA</span>
         </a>
-        <div class="hero-badges-row" style="margin-top: 14px; justify-content: center; gap: 16px; font-size: 0.82rem;">
-          <div class="hero-badge-item"><span>✓ Wave, Orange Money, MTN, Moov, Carte</span></div>
-          <div class="hero-badge-item"><span>✓ Reçu & Accès Immédiat par Email</span></div>
-        </div>
       </div>
 
     </div>
@@ -820,449 +579,146 @@
   <div class="section-divider"></div>
 
   <!-- =========================================================================
-       8. SECTION : LES 18 POSITIONS & LE DÉROULÉ EN 6 TEMPS
+       7. SECTION : LES 6 BONUS STRATÉGIQUES OFFERTS (VALEUR > 35 000 FCFA)
        ========================================================================= -->
-  <section class="section" id="positions">
+  <section class="section" id="bonus">
     <div class="container">
       
-      <div style="text-align: center; max-width: 800px; margin: 0 auto 30px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 10px;">LE KAMA SUTRA CHRÉTIEN PUDIQUE</div>
-        <h2 style="font-size: 2.1rem; margin-bottom: 12px; color: var(--color-text-title);">
-          18 Positions Conçues Pour Tous Les Corps Réels
+      <div style="text-align: center; margin-bottom: 36px;">
+        <div class="badge-pill badge-gold" style="margin-bottom: 10px;">🎁 L'ARSENAL COMPLET DU COUPLE ÉPANOUI</div>
+        <h2 style="font-size: 2.15rem; margin-bottom: 14px;">
+          En Plus Du Guide Maître, Recevez Immédiatement <br>
+          <span class="text-gradient-gold">6 Bonus Pratiques D'Une Valeur Totale De 35 000 FCFA</span>
         </h2>
-        <p style="color: var(--color-text-muted); font-size: 1rem;">
-          Pas d'acrobaties impossibles. Des silhouettes discrètes sans visage, des angles précis au coussin près, adaptées aux ventres ronds, au dos sensible, à la fatigue et à la grossesse :
+        <p style="color: var(--color-text-muted); max-width: 680px; margin: 0 auto;">
+          Des outils concrets conçus pour vous donner des résultats visibles dès ce soir, sans détour :
         </p>
       </div>
 
-      <!-- Grille des 18 Positions -->
-      <div class="positions-grid">
-        
-        <div class="position-card">
-          <div class="position-card-header">
-            <span class="position-num">POSITION 1</span>
-            <span class="position-stars">★ FACILE</span>
-          </div>
-          <div class="position-title">La Cuillère</div>
-          <div class="position-ideal">Fatigue, ventre, dos fragile, grossesse, +50 ans</div>
-          <div class="position-desc">On dort dans le même sens, on s'aime dans le même sens. Pénétration par derrière tout en douceur, mains totalement libres pour stimuler le clitoris en continu.</div>
-        </div>
-
-        <div class="position-card">
-          <div class="position-card-header">
-            <span class="position-num">POSITION 2</span>
-            <span class="position-stars">★ FACILE</span>
-          </div>
-          <div class="position-title">Le Coussin d'Or</div>
-          <div class="position-ideal">Friction clitoridienne continue, face à face</div>
-          <div class="position-desc">Le missionnaire réinventé. Un coussin ferme sous son bassin : son pubis appuie directement sur son clitoris en un balancement lent qui la fait jouir à coup sûr.</div>
-        </div>
-
-        <div class="position-card">
-          <div class="position-card-header">
-            <span class="position-num">POSITION 3</span>
-            <span class="position-stars">★ FACILE</span>
-          </div>
-          <div class="position-title">Le Trône</div>
-          <div class="position-ideal">Corps forts, grand ventre, yeux dans les yeux</div>
-          <div class="position-desc">Assis sur le bord du lit ou une chaise solide, elle sur ses cuisses enlacés. Le tronc n'est pas écrasé, baisers sans fin et balancement circulaire du bassin.</div>
-        </div>
-
-        <div class="position-card">
-          <div class="position-card-header">
-            <span class="position-num">POSITION 4</span>
-            <span class="position-stars">★★ MOYEN</span>
-          </div>
-          <div class="position-title">La Reine</div>
-          <div class="position-ideal">Elle mène, lui contrôle son excitation</div>
-          <div class="position-desc">Lui allongé sur le dos, elle au-dessus qui règle profondeur et rythme. La meilleure position pour l'homme pour durer 20 minutes en respirant calmement.</div>
-        </div>
-
-        <div class="position-card">
-          <div class="position-card-header">
-            <span class="position-num">POSITION 6</span>
-            <span class="position-stars">★★ MOYEN</span>
-          </div>
-          <div class="position-title">Le Pont des Délices</div>
-          <div class="position-ideal">Point G, mains libres pour le clitoris</div>
-          <div class="position-desc">Deux coussins sous son bassin, lui à genoux. L'angle parfait qui cible la paroi avant du vagin tout en gardant une main active sur le clitoris.</div>
-        </div>
-
-        <div class="position-card">
-          <div class="position-card-header">
-            <span class="position-num">POSITION 8</span>
-            <span class="position-stars">★★ MOYEN</span>
-          </div>
-          <div class="position-title">Le Bord du Lit</div>
-          <div class="position-ideal">Grands ventres, liberté de mouvement totale</div>
-          <div class="position-desc">Elle allongée fesses au bord du matelas, lui debout. La hauteur du lit fait tout le travail sans aucun écrasement du ventre ou fatigue articulaire.</div>
-        </div>
-
-        <div class="position-card">
-          <div class="position-card-header">
-            <span class="position-num">POSITION 9</span>
-            <span class="position-stars">★ FACILE</span>
-          </div>
-          <div class="position-title">Le Seuil (La Lenteur)</div>
-          <div class="position-ideal">Durer longtemps, maîtriser l'excitation</div>
-          <div class="position-desc">Pénétration des premiers centimètres seulement avec la méthode « 9 puis 1 ». Elle ressent un maximum de sensations, lui garde le contrôle absolu de son érection.</div>
-        </div>
-
-        <div class="position-card">
-          <div class="position-card-header">
-            <span class="position-num">POSITION 11</span>
-            <span class="position-stars">★ FACILE</span>
-          </div>
-          <div class="position-title">Le Papillon</div>
-          <div class="position-ideal">Genoux et dos fragiles, accès parfait au clitoris</div>
-          <div class="position-desc">Elle allongée pieds à plat au bord du lit, genoux ouverts comme des ailes. Aucun effort musculaire pour elle, vue complice et caresses simultanées pour lui.</div>
-        </div>
-
-        <div class="position-card">
-          <div class="position-card-header">
-            <span class="position-num">POSITION 12</span>
-            <span class="position-stars">★ FACILE</span>
-          </div>
-          <div class="position-title">Les Ciseaux</div>
-          <div class="position-ideal">Tendresse infinie, fatigue, après accouchement</div>
-          <div class="position-desc">Allongés sur le côté face à face, jambes entrelacées en croix. Frottement intime des pubis sans effort physique, murmures et câlins prolongés.</div>
-        </div>
-
-      </div>
-
-      <div style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: var(--color-burgundy); font-weight: 700;">
-        + 9 autres positions détaillées dans le livre : <em>L'Amazone, Le Jardin, Le Palmier, L'Équerre, Le Genou levé, La Bascule, La Chaise inversée, La Cuillère profonde, Le Balcon !</em>
-      </div>
-
-      <!-- Le Déroulé en 6 Temps -->
-      <div style="margin-top: 50px; text-align: center;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 10px;">⏱️ LA CARTE DU RAPPORT PARFAIT</div>
-        <h3 style="font-size: 1.8rem; color: var(--color-text-title); margin-bottom: 8px;">Le Déroulé d'Un Rapport Réussi En 6 Temps</h3>
-        <p style="color: var(--color-text-muted); font-size: 0.95rem; max-width: 680px; margin: 0 auto 24px auto;">
-          Voici comment se déroule, minute par minute, une nuit d'intimité épanouie dans le couple :
-        </p>
-
-        
-      <!-- Illustrations Le Déroulé en 6 Temps -->
-      <div class="illustrations-2col-grid">
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-8-se-dire-les-choses.jpg" alt="Se dire les choses avec tendresse" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 8 • Paroles Douces</span>
-            <span>Les mots murmurés à l'oreille qui embrasent l'imagination sans aucune vulgarité.</span>
-          </div>
-        </div>
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-10-rendez-vous.jpg" alt="Rendez-vous à deux sanctuarisé" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 10 • Le Sanctuaire</span>
-            <span>Comment sanctuariser un rendez-vous hebdomadaire intime sans interruption des enfants.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-illustration-box">
-        <img src="/assets/images/illustrations/chapitre-11-six-temps.jpg" alt="Le déroulé en six temps d'une union" class="book-illustration-img" loading="lazy">
-        <div class="book-illustration-caption">
-          <span class="book-illustration-tag">Chapitre 11 • La Partition</span>
-          <span>L'infographie officielle du Déroulé en 6 Temps : de la mise en condition matinale jusqu'à l'extase partagée.</span>
-        </div>
-      </div>
-
-      <div class="book-illustration-box">
-        <img src="/assets/images/illustrations/chapitre-11-tendresse-apres.jpg" alt="Tendresse après le rapport" class="book-illustration-img" loading="lazy">
-        <div class="book-illustration-caption">
-          <span class="book-illustration-tag">Chapitre 11 • L'Atterrissage</span>
-          <span>Le rituel d'après-rapport : les caresses d'atterrissage pour sceller l'attachement émotionnel et la paix du cœur.</span>
-        </div>
-      </div>
-
-      <div class="timeline-roadmap">
-          
-          <div class="time-step-card">
-            <div class="time-step-header">
-              <span class="time-step-badge">TEMPS 1</span>
-              <span class="time-step-duration">5 à 10 min</span>
-            </div>
-            <div class="time-step-title">La Transition</div>
-            <div class="time-step-text">On quitte la journée : douche, parfum, lumière douce de bougie, téléphones branchés hors de la chambre. Un baiser lent debout avant de s'allonger.</div>
-          </div>
-
-          <div class="time-step-card">
-            <div class="time-step-header">
-              <span class="time-step-badge">TEMPS 2</span>
-              <span class="time-step-duration">15 à 25 min</span>
-            </div>
-            <div class="time-step-title">Les Préliminaires</div>
-            <div class="time-step-text">Le cœur du livre : elle doit être excitée avant d'être pénétrée. Baisers sur la nuque, dos, intérieur des cuisses. Bouche et mains douces, reculer pour faire monter l'attente.</div>
-          </div>
-
-          <div class="time-step-card">
-            <div class="time-step-header">
-              <span class="time-step-badge">TEMPS 3</span>
-              <span class="time-step-duration">5 min</span>
-            </div>
-            <div class="time-step-title">La Montée</div>
-            <div class="time-step-text">Les 3 feux verts : elle est humide, il est ferme, le « oui » est clair dans le regard. Les zones sensibles vibrent d'impatience.</div>
-          </div>
-
-          <div class="time-step-card">
-            <div class="time-step-header">
-              <span class="time-step-badge">TEMPS 4</span>
-              <span class="time-step-duration">7 à 15 min</span>
-            </div>
-            <div class="time-step-title">La Pénétration</div>
-            <div class="time-step-text">Entrée lente, pause yeux dans les yeux. Mouvements courts, puis profonds. Clitoris toujours stimulé par la main ou le pubis, changements de position harmonieux.</div>
-          </div>
-
-          <div class="time-step-card">
-            <div class="time-step-header">
-              <span class="time-step-badge">TEMPS 5</span>
-              <span class="time-step-duration">Variable</span>
-            </div>
-            <div class="time-step-title">L'Orgasme</div>
-            <div class="time-step-text">Elle d'abord si possible, pour enlever toute pression. Pas de course à la simultanéité. Enchaînement possible d'orgasmes multiples pour elle !</div>
-          </div>
-
-          <div class="time-step-card">
-            <div class="time-step-header">
-              <span class="time-step-badge">TEMPS 6</span>
-              <span class="time-step-duration">10 min</span>
-            </div>
-            <div class="time-step-title">L'Après & Tendresse</div>
-            <div class="time-step-text">L'étape la plus oubliée : câlins serrés, mots doux, verre d'eau partagé et rires complices. C'est ici que l'autre se sent aimé et non utilisé.</div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Pharmacie du marché ouest-africain -->
-      <div style="margin-top: 50px; text-align: center;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 10px;">🌿 LES BIENFAITS NATURELS</div>
-        <h3 style="font-size: 1.8rem; color: var(--color-text-title); margin-bottom: 8px;">La Pharmacie Naturelle d'Afrique de l'Ouest</h3>
-        <p style="color: var(--color-text-muted); font-size: 0.95rem; max-width: 680px; margin: 0 auto 20px auto;">
-          Ce que vous trouvez au marché pour soutenir la circulation sanguine, l'endurance masculine et la lubrification :
-        </p>
-
-        
-      <!-- Illustrations Pharmacie & Vitalité -->
-      <div class="illustrations-2col-grid">
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-6-aliments-vitalite.jpg" alt="Aliments de la vitalité africaine" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 6 • Pharmacie Africaine</span>
-            <span>Les super-aliments d'énergie sexuelle : gingembre frais, bissap, pastèque citrulline, moringa, dattes.</span>
-          </div>
-        </div>
-        <div class="book-illustration-box" style="margin: 0;">
-          <img src="/assets/images/illustrations/chapitre-6-exercices-endurance.jpg" alt="Exercices physiques pour l'endurance" class="book-illustration-img" loading="lazy">
-          <div class="book-illustration-caption">
-            <span class="book-illustration-tag">Chapitre 6 • Routine 15 Min</span>
-            <span>Les 3 exercices simples de renforcement : squats, pont fessier et gainage pour un bassin puissant.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="market-pharmacy-grid">
-          
-          <div class="food-card">
-            <div class="food-icon">🫚</div>
-            <div class="food-name">Gingembre Frais</div>
-            <div class="food-benefit">Réchauffe et favorise la circulation sanguine globale</div>
-          </div>
-
-          <div class="food-card">
-            <div class="food-icon">🌺</div>
-            <div class="food-name">Bissap (Hibiscus)</div>
-            <div class="food-benefit">Riche en nitrates et antioxydants bénéfiques pour la tension</div>
-          </div>
-
-          <div class="food-card">
-            <div class="food-icon">🍉</div>
-            <div class="food-name">Pastèque Fraîche</div>
-            <div class="food-benefit">Riche en citrulline qui détend naturellement les artères</div>
-          </div>
-
-          <div class="food-card">
-            <div class="food-icon">🍃</div>
-            <div class="food-name">Moringa</div>
-            <div class="food-benefit">Fer, vitamines et tonus durable pour le corps</div>
-          </div>
-
-          <div class="food-card">
-            <div class="food-icon">🎃</div>
-            <div class="food-name">Graines de Courge</div>
-            <div class="food-benefit">Source de zinc, nutriment clé pour la testostérone</div>
-          </div>
-
-          <div class="food-card">
-            <div class="food-icon">🥜</div>
-            <div class="food-name">Arachides Crues</div>
-            <div class="food-benefit">Arginine pure : précurseur naturel d'oxyde nitrique</div>
-          </div>
-
-          <div class="food-card">
-            <div class="food-icon">🌴</div>
-            <div class="food-name">Dattes</div>
-            <div class="food-benefit">Énergie rapide, fer et vitalité pour le couple</div>
-          </div>
-
-          <div class="food-card">
-            <div class="food-icon">🥑</div>
-            <div class="food-name">Avocat</div>
-            <div class="food-benefit">Bonnes graisses et potassium soutenant la lubrification</div>
-          </div>
-
-        </div>
-
-        <div style="font-size: 0.85rem; color: var(--color-text-muted); font-style: italic; margin-top: 10px;">
-          + Les 5 recettes détaillées au Chapitre 6 (Jus gingembre-ananas, Bissap épicé, Salade pastèque-avocat, Bouillie de mil aux dattes, Poisson braisé à l'ail).
-        </div>
-      </div>
-
-      <!-- CTA Intermédiaire 3 : 18 Positions & Nutrition -->
-      <div class="cta-inter-box reveal-on-scroll">
-        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
-          <span class="live-pulse-dot"></span> Pratiquez ces positions dès ce soir sans aucune gêne ni acrobatie
-        </div>
-        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 540px; margin: 0 auto;">
-          <span>🔥 RECEVOIR LES 18 POSITIONS & LES SCHÉMAS (9 500 FCFA) <span class="cta-arrow">→</span></span>
-          <span class="btn-cta-sub">Croquis Clairs & Pudiques • Angles au Coussin Près • Plaisir Partagé</span>
-        </a>
-        <div class="hero-badges-row" style="margin-top: 14px; justify-content: center; gap: 16px; font-size: 0.82rem;">
-          <div class="hero-badge-item"><span>🔒 Discrétion Absolue (Libellé Neutre)</span></div>
-          <div class="hero-badge-item"><span>⚡ Disponibilité Immédiate</span></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- =========================================================================
-       9. SECTION : LES 6 BONUS INCLUS
-       ========================================================================= -->
-  <section class="section" id="bonus" style="background: #FFFFFF;">
-    <div class="container">
-      
-      <div style="text-align: center; max-width: 820px; margin: 0 auto 36px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 12px;">LE PACK COMPLET</div>
-        <h2 style="font-size: 2.2rem; line-height: 1.25; margin-bottom: 14px;">
-          En Plus Du Guide Maître de 190 Pages,<br>
-          <span class="title-burgundy">Recevez Ces 6 Bonus Exclusifs Inclus Dans Votre Commande !</span>
-        </h2>
-        <p style="color: var(--color-text-muted); font-size: 1.05rem;">
-          Des fiches et guides pratiques d'une valeur totale de 35 000 FCFA inclus sans supplément :
-        </p>
-      </div>
-
-      <!-- Bundle Mockup Image -->
-      <div style="max-width: 580px; margin: 0 auto 36px auto; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-md);">
+      <!-- Bundle Mockup Showcase -->
+      <div style="max-width: 580px; margin: 0 auto 36px auto; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(229, 9, 20, 0.35); box-shadow: 0 10px 40px rgba(229, 9, 20, 0.25);">
         <img src="/assets/images/pack-bundle-mockup.jpg" alt="Pack Complet FOU DE TOI, FOLLE DE TOI" style="width: 100%; display: block;" loading="lazy" decoding="async">
       </div>
 
-      <!-- Grille de Bonus -->
+      <!-- Bonus Grid -->
       <div class="bonus-grid">
         
-        <div class="bonus-card" style="border-top: 3px solid var(--color-burgundy);">
-          <div class="bonus-badge-top">BONUS #1 • INCLUS</div>
-          <div class="bonus-header">
-            <div class="bonus-icon-wrapper">🌿</div>
-            <h3 class="bonus-title">La Pharmacie du Marché Ouest-Africain pour l'Énergie & la Vitalité</h3>
+        <!-- Bonus 1 -->
+        <div class="bonus-card bonus-featured" style="border-top: 3px solid #FF1A26;">
+          <div class="bonus-badge-top">🔥 BONUS MAJEUR #1</div>
+          <div>
+            <div class="bonus-header">
+              <div class="bonus-icon-wrapper">🌿</div>
+              <div>
+                <h3 class="bonus-title">La Pharmacie du Marché Ouest-Africain</h3>
+                <span style="color: var(--color-gold); font-size: 0.8rem; font-weight: 700;">ÉNERGIE & VIGUEUR NATURELLE</span>
+              </div>
+            </div>
+            <p class="bonus-desc">
+              Les 10 super-aliments et recettes de potions maison pour soutenir la puissance érectile de l'homme et l'appétit sensuel de la femme sans aucun produit chimique.
+            </p>
           </div>
-          <p class="bonus-desc">
-            Le guide des 10 super-aliments et 5 recettes de potions maison pour soutenir la puissance érectile de l'homme et l'appétit sensuel de la femme.
-          </p>
           <div class="bonus-value-row">
-            <span class="bonus-val-strike">Valeur : 7 500 FCFA</span>
-            <span class="bonus-val-free">OFFERT DANS LE PACK</span>
+            <span class="bonus-val-strike">Valeur : 7 000 FCFA</span>
+            <span class="bonus-val-free">OFFERT AUJOURD'HUI</span>
           </div>
         </div>
 
-        <div class="bonus-card" style="border-top: 3px solid var(--color-burgundy);">
-          <div class="bonus-badge-top">BONUS #2 • INCLUS</div>
-          <div class="bonus-header">
-            <div class="bonus-icon-wrapper">📐</div>
-            <h3 class="bonus-title">Le Mémo Visuel des 18 Positions pour Toutes les Silhouettes</h3>
+        <!-- Bonus 2 -->
+        <div class="bonus-card">
+          <div>
+            <div class="bonus-header">
+              <div class="bonus-icon-wrapper">📖</div>
+              <div>
+                <h3 class="bonus-title">Le Guide Illustré des 18 Positions</h3>
+              </div>
+            </div>
+            <p class="bonus-desc">
+              Fiches visuelles grand format avec schémas anatomiques, coussins de soutien et niveau de confort pour renouveler votre intimité en toute sérénité.
+            </p>
           </div>
-          <p class="bonus-desc">
-            Un fichier PDF pratique avec toutes les silhouettes, les angles au coussin près et les adaptations pour ventres ronds, grossesse et dos sensible.
-          </p>
+          <div class="bonus-value-row">
+            <span class="bonus-val-strike">Valeur : 8 000 FCFA</span>
+            <span class="bonus-val-free">OFFERT</span>
+          </div>
+        </div>
+
+        <!-- Bonus 3 -->
+        <div class="bonus-card">
+          <div>
+            <div class="bonus-header">
+              <div class="bonus-icon-wrapper">👅</div>
+              <div>
+                <h3 class="bonus-title">Le Guide du Cunnilingus Pudique</h3>
+              </div>
+            </div>
+            <p class="bonus-desc">
+              Le protocole d'hygiène, de respect et de technique pour offrir à son épouse une extase totale sans aucune vulgarité ni inconfort.
+            </p>
+          </div>
           <div class="bonus-value-row">
             <span class="bonus-val-strike">Valeur : 6 000 FCFA</span>
-            <span class="bonus-val-free">OFFERT DANS LE PACK</span>
+            <span class="bonus-val-free">OFFERT</span>
           </div>
         </div>
 
-        <div class="bonus-card" style="border-top: 3px solid var(--color-burgundy);">
-          <div class="bonus-badge-top">BONUS #3 • INCLUS</div>
-          <div class="bonus-header">
-            <div class="bonus-icon-wrapper">👄</div>
-            <h3 class="bonus-title">Le Répertoire des Mots & Phrases Douces sans Vulgarité</h3>
+        <!-- Bonus 4 -->
+        <div class="bonus-card">
+          <div>
+            <div class="bonus-header">
+              <div class="bonus-icon-wrapper">💬</div>
+              <div>
+                <h3 class="bonus-title">50 Compliments & Paroles d'Éveil Érotique</h3>
+              </div>
+            </div>
+            <p class="bonus-desc">
+              Le répertoire des mots justes pour valoriser son corps, attiser son esprit et faire naître le frisson au fil des heures.
+            </p>
           </div>
-          <p class="bonus-desc">
-            Le lexique des mots qui rapprochent, guident et allument. Quoi murmurer le matin, à midi par message, et pendant le rapport pour guider sans blesser.
-          </p>
           <div class="bonus-value-row">
             <span class="bonus-val-strike">Valeur : 5 000 FCFA</span>
-            <span class="bonus-val-free">OFFERT DANS LE PACK</span>
+            <span class="bonus-val-free">OFFERT</span>
           </div>
         </div>
 
-        <div class="bonus-card" style="border-top: 3px solid var(--color-burgundy);">
-          <div class="bonus-badge-top">BONUS #4 • INCLUS</div>
-          <div class="bonus-header">
-            <div class="bonus-icon-wrapper">📄</div>
-            <h3 class="bonus-title">Le Kit des 4 Fiches Secrètes à Imprimer pour la Chambre</h3>
+        <!-- Bonus 5 -->
+        <div class="bonus-card">
+          <div>
+            <div class="bonus-header">
+              <div class="bonus-icon-wrapper">🌙</div>
+              <div>
+                <h3 class="bonus-title">Le Protocole Anti-Routine Conjugale</h3>
+              </div>
+            </div>
+            <p class="bonus-desc">
+              Comment sanctuariser deux nuits par mois totalement coupées du monde pour faire renaître l'intensité des premiers jours.
+            </p>
           </div>
-          <p class="bonus-desc">
-            4 fiches prêtes à imprimer pour la table de nuit : Carte des zones érogènes, Liste Oui / Peut-être / Non, Rendez-vous de la semaine, et Point couple du dimanche.
-          </p>
           <div class="bonus-value-row">
-            <span class="bonus-val-strike">Valeur : 4 500 FCFA</span>
-            <span class="bonus-val-free">OFFERT DANS LE PACK</span>
+            <span class="bonus-val-strike">Valeur : 5 000 FCFA</span>
+            <span class="bonus-val-free">OFFERT</span>
           </div>
         </div>
 
-        <div class="bonus-card" style="border-top: 3px solid var(--color-burgundy);">
-          <div class="bonus-badge-top">BONUS #5 • INCLUS</div>
-          <div class="bonus-header">
-            <div class="bonus-icon-wrapper">🕊️</div>
-            <h3 class="bonus-title">Le Protocole Grossesse & Après 50 Ans Serein</h3>
+        <!-- Bonus 6 -->
+        <div class="bonus-card">
+          <div>
+            <div class="bonus-header">
+              <div class="bonus-icon-wrapper">📜</div>
+              <div>
+                <h3 class="bonus-title">Le Contrat Secret d'Intimité du Couple</h3>
+              </div>
+            </div>
+            <p class="bonus-desc">
+              Une charte complice à signer à deux pour sceller la bienveillance, la fidélité inébranlable et l'écoute mutuelle sous le regard de Dieu.
+            </p>
           </div>
-          <p class="bonus-desc">
-            Comment préserver une intimité complice pendant la grossesse (trimestre par trimestre, positions sûres) et après la ménopause. L'armure contre l'éloignement.
-          </p>
           <div class="bonus-value-row">
-            <span class="bonus-val-strike">Valeur : 6 500 FCFA</span>
-            <span class="bonus-val-free">OFFERT DANS LE PACK</span>
+            <span class="bonus-val-strike">Valeur : 4 000 FCFA</span>
+            <span class="bonus-val-free">OFFERT</span>
           </div>
         </div>
 
-        <div class="bonus-card" style="border-top: 3px solid var(--color-burgundy);">
-          <div class="bonus-badge-top">BONUS #6 • INCLUS</div>
-          <div class="bonus-header">
-            <div class="bonus-icon-wrapper">💪</div>
-            <h3 class="bonus-title">La Routine Pelvienne de 15 Minutes sans Matériel (Kegel)</h3>
-          </div>
-          <p class="bonus-desc">
-            Programme sportif express pour lui (muscler le plancher pelvien pour retenir l'éjaculation) et pour elle (tonifier le vagin pour des sensations amplifiées).
-          </p>
-          <div class="bonus-value-row">
-            <span class="bonus-val-strike">Valeur : 5 500 FCFA</span>
-            <span class="bonus-val-free">OFFERT DANS LE PACK</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Bouton intermédiaire -->
-      <div style="text-align: center; margin-top: 30px;">
-        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 480px; margin: 0 auto;">
-          <span>🔥 COMMANDER LE LIVRE & LES 6 BONUS (9 500 FCFA) <span class="cta-arrow">→</span></span>
-          <span class="btn-cta-sub">Téléchargement Immédiat & Accès à Vie</span>
-        </a>
       </div>
 
     </div>
@@ -1271,79 +727,69 @@
   <div class="section-divider"></div>
 
   <!-- =========================================================================
-       10. SECTION : PREUVES SOCIALES & TÉMOIGNAGES AUTHENTIQUES
+       8. SECTION : PREUVES SOCIALES RÉELLES (CAPTURES WHATSAPP & DASHBOARD)
        ========================================================================= -->
   <section class="section" id="temoignages">
     <div class="container">
       
-      <div style="text-align: center; max-width: 780px; margin: 0 auto 36px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 10px;">TÉMOIGNAGES AUTHENTIQUES</div>
-        <h2 style="font-size: 2.1rem; margin-bottom: 12px; color: var(--color-text-title);">
-          Ils Ont Osé Rallumer La Flamme...<br>
-          <span class="title-burgundy">Voici Leurs Retours En Toute Sincérité</span>
+      <div style="text-align: center; margin-bottom: 36px;">
+        <div class="badge-pill badge-green" style="margin-bottom: 10px;">💬 PREUVES SOCIALES & AVIS CLIENTS VÉRIFIÉS</div>
+        <h2 style="font-size: 2.15rem; margin-bottom: 14px;">
+          Ils Ont Allumé Le Feu Dans Leur Foyer... <br>
+          <span class="text-gradient-red">Voici Leurs Retours Spontanés Sur WhatsApp</span>
         </h2>
-        <p style="color: var(--color-text-muted); font-size: 1rem;">
-          Des couples chrétiens, des hommes restaurés et des femmes enfin épanouies partagent leur expérience sur WhatsApp :
+        <p style="color: var(--color-text-muted); max-width: 650px; margin: 0 auto;">
+          Des témoignages réels, sans trucage, de couples chrétiens et d'époux ayant appliqué les clés du guide.
         </p>
       </div>
 
-      <!-- Captures WhatsApp -->
+      <!-- Real Screenshots WhatsApp Grid -->
       <div class="screenshots-grid">
         
+        <!-- Screenshot 1: Guy Adolphe -->
         <div class="screenshot-card">
-          <img src="/assets/images/testimonials/temoignage-guy-adolphe.jpg" alt="Témoignage WhatsApp Guy Adolphe" loading="lazy" decoding="async">
+          <img src="/assets/images/testimonials/temoignage-guy-adolphe.jpg" alt="Témoignage WhatsApp Guy Adolphe" width="600" height="1200" loading="lazy" decoding="async">
           <div class="screenshot-caption">
-            <span class="screenshot-client-name">Guy-Adolphe (Abidjan)</span>
-            <span class="screenshot-badge">Marié depuis 6 ans</span>
+            <span class="screenshot-client-name">👤 Guy-Adolphe (Abidjan)</span>
+            <span class="screenshot-badge">✓ Marié depuis 6 ans</span>
           </div>
         </div>
 
+        <!-- Screenshot 2: Rosemonde -->
         <div class="screenshot-card">
-          <img src="/assets/images/testimonials/temoignage-rosemonde.jpg" alt="Témoignage WhatsApp Rosemonde" loading="lazy" decoding="async">
+          <img src="/assets/images/testimonials/temoignage-rosemonde.jpg" alt="Témoignage WhatsApp Rosemonde" width="600" height="1200" loading="lazy" decoding="async">
           <div class="screenshot-caption">
-            <span class="screenshot-client-name">Rosemonde (Cotonou)</span>
-            <span class="screenshot-badge">Femme comblée</span>
+            <span class="screenshot-client-name">👤 Rosemonde (Cotonou)</span>
+            <span class="screenshot-badge">✓ Femme comblée</span>
           </div>
         </div>
 
+        <!-- Screenshot 3: Rivaldo -->
         <div class="screenshot-card">
-          <img src="/assets/images/testimonials/temoignage-rivaldo.jpg" alt="Témoignage WhatsApp Rivaldo" loading="lazy" decoding="async">
+          <img src="/assets/images/testimonials/temoignage-rivaldo.jpg" alt="Témoignage WhatsApp Rivaldo" width="600" height="1200" loading="lazy" decoding="async">
           <div class="screenshot-caption">
-            <span class="screenshot-client-name">Rivaldo (Pointe-Noire)</span>
-            <span class="screenshot-badge">Mariage renouvelé</span>
+            <span class="screenshot-client-name">👤 Rivaldo (Pointe-Noire)</span>
+            <span class="screenshot-badge">✓ Mariage renouvelé</span>
           </div>
         </div>
 
+        <!-- Screenshot 4: Thibaut -->
         <div class="screenshot-card">
-          <img src="/assets/images/testimonials/temoignage-thibaut.jpg" alt="Témoignage WhatsApp Thibaut" loading="lazy" decoding="async">
+          <img src="/assets/images/testimonials/temoignage-thibaut.jpg" alt="Témoignage WhatsApp Thibaut" width="600" height="1200" loading="lazy" decoding="async">
           <div class="screenshot-caption">
-            <span class="screenshot-client-name">Thibaut (Kinshasa)</span>
-            <span class="screenshot-badge">Fidélité préservée</span>
+            <span class="screenshot-client-name">👤 Thibaut (Kinshasa)</span>
+            <span class="screenshot-badge">✓ Fidélité préservée</span>
           </div>
         </div>
 
       </div>
 
-      <!-- Dashboard Ventes -->
-      <div style="max-width: 680px; margin: 30px auto; border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); background: #FFFFFF;">
-        <img src="/assets/images/testimonials/preuve-ventes-dashboard.png" alt="Preuve des ventes" loading="lazy" decoding="async">
-        <div style="padding: 14px; font-size: 0.85rem; color: var(--color-burgundy); text-align: center; font-weight: 700; background: var(--color-bg-subtle);">
-          📊 Plus de 3 850 commandes enregistrées • 98,7% de couples déclarant un renouveau intime dès la 1ère semaine
-        </div>
-      </div>
-
-      <!-- CTA Intermédiaire 4 : Témoignages & Preuve Sociale -->
-      <div class="cta-inter-box reveal-on-scroll">
-        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
-          <span class="live-pulse-dot"></span> Rejoignez plus de 3 850 couples chrétiens épanouis dès ce soir
-        </div>
-        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 540px; margin: 0 auto;">
-          <span>💬 COMMENCER NOTRE RENOUVEAU CONJUGAL (9 500 FCFA) <span class="cta-arrow">→</span></span>
-          <span class="btn-cta-sub">Tarif de Lancement à -62% • Paiement Mobile Sécurisé • Accès Immédiat</span>
-        </a>
-        <div class="hero-badges-row" style="margin-top: 14px; justify-content: center; gap: 16px; font-size: 0.82rem;">
-          <div class="hero-badge-item"><span>⭐️ Note Moyenne : 4.9/5 (1 420+ avis)</span></div>
-          <div class="hero-badge-item"><span>🛡️ 30 Jours Satisfait ou Remboursé</span></div>
+      <!-- Real Orders Proof Dashboard Banner -->
+      <div style="margin-top: 36px; text-align: center;">
+        <div class="badge-pill badge-red" style="margin-bottom: 12px;">📊 PREUVE DE VENTES EN TEMPS RÉEL</div>
+        <h3 style="font-size: 1.35rem; margin-bottom: 16px;">Plus de 3 850 couples chrétiens ont déjà fait le pas :</h3>
+        <div class="proof-banner-card" style="border: 1px solid rgba(229, 9, 20, 0.35); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);">
+          <img src="/assets/images/testimonials/preuve-ventes-dashboard.png" alt="Preuve des ventes Amour et Désir" width="1200" height="300" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -1353,131 +799,119 @@
   <div class="section-divider"></div>
 
   <!-- =========================================================================
-       11. SECTION : L'OFFRE IRRÉSISTIBLE & STACK DE PRIX (LE COEUR DU TUNNEL)
+       9. SECTION : L'OFFRE IRRÉSISTIBLE & STACK DE PRIX (LE COEUR DU TUNNEL)
        ========================================================================= -->
-  <section class="section section-immersive" id="offre" style="background: #FFFFFF;">
-    <div class="section-immersive-bg" style="background-image: url('/assets/images/illustrations/ambiance-couple-intime.jpg');"></div>
+  <section class="section" id="offre">
     <div class="container">
       
-      <div style="text-align: center; max-width: 780px; margin: 0 auto 30px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 12px;">OFFRE SPÉCIALE LIMITÉE DANS LE TEMPS</div>
-        <h2 style="font-size: 2.3rem; line-height: 1.25; margin-bottom: 12px; color: var(--color-text-title);">
-          Récapitulatif De Votre Pack Intégral :<br>
-          <span class="title-burgundy">Tout Ce Que Vous Débloquez Immédiatement</span>
+      <div class="offer-box-master" style="border: 2px solid #FF1A26; box-shadow: 0 16px 50px rgba(229, 9, 20, 0.35);">
+        <div class="offer-ribbon" style="background: linear-gradient(135deg, #FF1A26 0%, #B8000B 100%);">🔥 OFFRE SPÉCIALE • DERNIÈRE CHANCE</div>
+
+        <h2 style="font-size: 2.2rem; margin-top: 10px; margin-bottom: 8px;">
+          RÉCAPITULATIF DE VOTRE COMMANDE
         </h2>
-        <p style="color: var(--color-text-muted); font-size: 1rem;">
-          Voici l'ensemble des trésors qui vont transformer votre lit dès ce soir :
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 24px;">
+          Voici tout ce que vous débloquez immédiatement après validation :
         </p>
-      </div>
 
-      <!-- Boîte d'Offre Maître -->
-      <div class="offer-box-master">
-        
-        <div class="offer-ribbon">
-          -62% DE RÉDUCTION IMMÉDIATE (-15 500 FCFA D'ÉCONOMIE)
-        </div>
-
-        <div style="text-align: center; margin-bottom: 24px;">
-          <h3 style="font-size: 1.6rem; color: var(--color-text-title); margin-bottom: 4px;">PACK COMPLET : FOU DE TOI, FOLLE DE TOI</h3>
-          <p style="color: var(--color-burgundy); font-size: 0.92rem; font-style: italic;">Le Guide du Couple Chrétien Qui Veut Un Lit de Feu</p>
-        </div>
-
-        <!-- Stack List -->
-        <div class="offer-stack-items">
-          
-          <div class="offer-stack-item">
+        <!-- Stack Checklist -->
+        <ul class="offer-stack-items">
+          <li class="offer-stack-item">
             <div class="offer-item-name">
-              <span style="color: var(--color-burgundy); font-weight: 900;">✓</span>
-              <span><strong>Livre Maître : FOU DE TOI, FOLLE DE TOI</strong> (190 pages PDF HD illustrées)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/></svg>
+              <span><strong>Le Guide Maître : FOU DE TOI, FOLLE DE TOI</strong> (190 pages illustrées)</span>
             </div>
-            <div class="offer-item-val">15 000 FCFA</div>
-          </div>
-
-          <div class="offer-stack-item">
+            <span class="offer-item-val">25 000 FCFA</span>
+          </li>
+          <li class="offer-stack-item">
             <div class="offer-item-name">
-              <span style="color: var(--color-burgundy); font-weight: 900;">✓</span>
-              <span><strong>Bonus #1 :</strong> La Pharmacie Ouest-Africaine (10 Super-Aliments & 5 Recettes)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/></svg>
+              <span>Bonus #1 : La Pharmacie du Marché Ouest-Africain pour l'Énergie</span>
             </div>
-            <div class="offer-item-val">7 500 FCFA</div>
-          </div>
-
-          <div class="offer-stack-item">
+            <span class="offer-item-val">7 000 FCFA</span>
+          </li>
+          <li class="offer-stack-item">
             <div class="offer-item-name">
-              <span style="color: var(--color-burgundy); font-weight: 900;">✓</span>
-              <span><strong>Bonus #2 :</strong> Le Mémo Visuel des 18 Positions pour Toutes les Silhouettes</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/></svg>
+              <span>Bonus #2 : Le Guide Illustré des 18 Positions Conjugales</span>
             </div>
-            <div class="offer-item-val">6 000 FCFA</div>
-          </div>
-
-          <div class="offer-stack-item">
+            <span class="offer-item-val">8 000 FCFA</span>
+          </li>
+          <li class="offer-stack-item">
             <div class="offer-item-name">
-              <span style="color: var(--color-burgundy); font-weight: 900;">✓</span>
-              <span><strong>Bonus #3 :</strong> Le Répertoire des Mots & Phrases Douces à l'Oreille</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/></svg>
+              <span>Bonus #3 : Le Guide Pratique du Cunnilingus Pudique & Respectueux</span>
             </div>
-            <div class="offer-item-val">5 000 FCFA</div>
-          </div>
-
-          <div class="offer-stack-item">
+            <span class="offer-item-val">6 000 FCFA</span>
+          </li>
+          <li class="offer-stack-item">
             <div class="offer-item-name">
-              <span style="color: var(--color-burgundy); font-weight: 900;">✓</span>
-              <span><strong>Bonus #4 :</strong> Le Kit des 4 Fiches Secrètes à Imprimer pour la Chambre</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/></svg>
+              <span>Bonus #4 : 50 Compliments & Paroles d'Éveil Érotique au Quotidien</span>
             </div>
-            <div class="offer-item-val">4 500 FCFA</div>
-          </div>
-
-          <div class="offer-stack-item">
+            <span class="offer-item-val">5 000 FCFA</span>
+          </li>
+          <li class="offer-stack-item">
             <div class="offer-item-name">
-              <span style="color: var(--color-burgundy); font-weight: 900;">✓</span>
-              <span><strong>Bonus #5 :</strong> Le Guide Grossesse & Après 50 Ans Serein</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/></svg>
+              <span>Bonus #5 : Le Protocole Anti-Routine & Nuits Sanctuarisées</span>
             </div>
-            <div class="offer-item-val">6 500 FCFA</div>
-          </div>
-
-          <div class="offer-stack-item">
+            <span class="offer-item-val">5 000 FCFA</span>
+          </li>
+          <li class="offer-stack-item">
             <div class="offer-item-name">
-              <span style="color: var(--color-burgundy); font-weight: 900;">✓</span>
-              <span><strong>Bonus #6 :</strong> Le Protocole Sportif Pelvien de 15 Min (Kegel Homme & Femme)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/></svg>
+              <span>Bonus #6 : Le Contrat Secret d'Intimité du Couple Chrétien</span>
             </div>
-            <div class="offer-item-val">5 500 FCFA</div>
-          </div>
+            <span class="offer-item-val">4 000 FCFA</span>
+          </li>
+        </ul>
 
-        </div>
-
-        <!-- Calcul du Total -->
+        <!-- Price Stack Calc (9 500 FCFA) -->
         <div class="offer-total-calc">
-          <div>
-            <div style="font-size: 0.8rem; color: var(--color-text-dim); text-transform: uppercase;">Valeur Totale Réelle</div>
-            <div class="offer-total-old">25 000 FCFA</div>
+          <div class="offer-total-old">Valeur totale cumulée : <span class="highlight-strike">60 000 FCFA</span></div>
+          <div style="font-size: 1.05rem; color: var(--color-gold); font-weight: 800; text-transform: uppercase;">
+            ⏰ TARIF PROMOTIONNEL JUSQU'À CE SOIR 23H59 :
           </div>
-          <div style="text-align: right;">
-            <div style="font-size: 0.8rem; color: var(--color-burgundy); text-transform: uppercase; font-weight: 800;">⚡ AUJOURD'HUI SEULEMENT</div>
-            <div class="offer-total-new">9 500 FCFA</div>
+          <div class="offer-total-new text-gradient-red" style="font-size: 2.8rem;">
+            9 500 FCFA
           </div>
-        </div>
-
-        <!-- Bouton CTA Commande -->
-        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="width: 100%; margin-top: 20px;">
-          <span>🔒 COMMANDER MAINTENANT POUR 9 500 FCFA <span class="cta-arrow">→</span></span>
-          <span class="btn-cta-sub">Accès Immédiat 24h/24 • Orange, MTN, Wave, Moov, Carte</span>
-        </a>
-
-        <!-- Moyens de paiement -->
-        <div class="payment-methods-box">
-          <div class="payment-label">Moyens de paiement acceptés en Afrique & dans le monde entier :</div>
-          <div class="payment-logos-row">
-            <span class="pay-pill">🟠 Orange Money</span>
-            <span class="pay-pill">🟡 MTN Mobile Money</span>
-            <span class="pay-pill">🌊 Wave</span>
-            <span class="pay-pill">🔵 Moov Money</span>
-            <span class="pay-pill">💳 Carte Visa / Mastercard</span>
+          <div style="font-size: 0.88rem; color: var(--color-text-muted);">
+            (Paiement unique en une seule fois • Aucun abonnement caché • Facturation confidentielle)
           </div>
         </div>
 
-        <!-- Boîte de Garantie -->
+        <!-- Master Guarantee Box -->
         <div class="guarantee-box">
-          <div class="guarantee-title">🛡️ Garantie Inconditionnelle 30 Jours : Lit de Feu ou 100% Remboursé</div>
-          <div class="guarantee-text">
-            Téléchargez le livre ce soir. Lisez les chapitres, essayez les techniques de l'échelle 1-10, les 4 mouvements du clitoris et les positions adaptées avec un coussin. Si d'ici 30 jours, votre vie intime n'a pas été profondément enrichie de joie et de complicité, envoyez-nous simplement un message sur WhatsApp : <strong>nous vous remboursons intégralement vos 9 500 FCFA sans poser la moindre question.</strong> Vous ne prenez aucun risque.
+          <div class="guarantee-badge-icon">🛡️</div>
+          <div>
+            <div class="guarantee-title">GARANTIE 30 JOURS « SATISFAIT OU INTÉGRALEMENT REMBOURSÉ »</div>
+            <p class="guarantee-text">
+              Téléchargez le guide, lisez-le avec votre conjoint et appliquez les conseils dès ce soir. Si au cours des 30 prochains jours vous n'observez pas une transformation radicale dans votre intimité, envoyez-nous un simple message et nous vous remboursons intégralement. <strong>Zéro risque pour vous.</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Master Intense Red Order CTA Button -->
+        <div style="display: flex; justify-content: center; margin: 30px 0 18px;">
+          <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" target="_blank" rel="noopener" class="btn-cta btn-cta-intense-red">
+            <span>🔥 OUI ! JE COMMANDE LE GUIDE FOU DE TOI, FOLLE DE TOI (9 500 FCFA)</span>
+            <span class="btn-cta-sub">
+              ⚡ Accès immédiat envoyé par email & WhatsApp en 30 secondes
+            </span>
+          </a>
+        </div>
+
+        <!-- Payment Methods Supported -->
+        <div class="payment-methods-box">
+          <div class="payment-label">Moyens de paiement sécurisés acceptés en Afrique (CI 🇨🇮, SN 🇸🇳, BJ 🇧🇯, CM 🇨🇲, CG 🇨🇬, CD 🇨🇩) & Diaspora :</div>
+          <div class="payment-logos-row">
+            <span class="pay-pill">🌊 Wave</span>
+            <span class="pay-pill">🟧 Orange Money</span>
+            <span class="pay-pill">🟨 MTN MoMo</span>
+            <span class="pay-pill">🟦 Moov Money</span>
+            <span class="pay-pill">💳 Carte Visa</span>
+            <span class="pay-pill">💳 Mastercard</span>
           </div>
         </div>
 
@@ -1489,108 +923,121 @@
   <div class="section-divider"></div>
 
   <!-- =========================================================================
-       12. SECTION : FAQ STRATÉGIQUE ANTI-OBJECTIONS
+       10. SECTION : FAQ STRATÉGIQUE ANTI-OBJECTIONS
        ========================================================================= -->
   <section class="section" id="faq">
-    <div class="container" style="max-width: 820px;">
+    <div class="container">
       
       <div style="text-align: center; margin-bottom: 36px;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 10px;">QUESTIONS FRÉQUENTES</div>
-        <h2 style="font-size: 2.1rem; margin-bottom: 12px; color: var(--color-text-title);">
-          Des Réponses Claires À Toutes Vos Interrogations
+        <div class="badge-pill badge-red" style="margin-bottom: 10px;">❓ QUESTIONS FRÉQUENTES</div>
+        <h2 style="font-size: 2.15rem; margin-bottom: 14px;">
+          Vous Avez Des Questions ? <br>
+          <span class="text-gradient-red">Voici Des Réponses Franches & Sans Détour.</span>
         </h2>
-        <p style="color: var(--color-text-muted); font-size: 0.95rem;">
-          Tout ce que vous devez savoir avant de débloquer votre guide en toute sérénité :
+        <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">
+          Cliquez sur chaque question pour afficher la réponse détaillée.
         </p>
       </div>
 
+      <!-- FAQ Accordion List -->
       <div class="faq-list">
         
+        <!-- Q1 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            <span>Est-ce un péché pour un chrétien de lire un guide intime illustré ?</span>
+          <div class="faq-trigger">
+            <span>❓ Est-ce compatible avec ma foi chrétienne et les valeurs bibliques ?</span>
             <span class="faq-icon">+</span>
-          </button>
+          </div>
           <div class="faq-content">
-            <p><strong>Absolument pas !</strong> C'est tout le contraire. La Bible dit dans Genèse 2:25 : <em>« L'homme et sa femme étaient nus, et ils n'avaient point honte l'un devant l'autre. »</em> Dieu a créé le corps, les zones érogènes et le clitoris avec une intention divine de joie et de complicité dans le mariage. Ce livre ne contient aucune vulgarité, aucune pornographie. Les illustrations sont des silhouettes sobres et pudiques sans visage qui montrent les angles pratiques, et le texte honore le Créateur à chaque page.</p>
+            <p>
+              <strong>Absolument.</strong> C'est même l'essence de ce guide ! Le livre s'appuie directement sur les Écritures (Proverbes 5, Cantique des Cantiques, 1 Corinthiens 7) pour rappeler que Dieu est le créateur de l'intimité conjugale. Il ne s'agit pas de mondanité, mais d'honorer son corps et celui de son conjoint dans la pureté, l'amour et la fidélité.
+            </p>
           </div>
         </div>
 
+        <!-- Q2 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            <span>Mon conjoint est très pudique ou réticent, comment lui présenter ce livre ?</span>
+          <div class="faq-trigger">
+            <span>❓ Est-ce vulgaire, pornographique ou gênant à lire ?</span>
             <span class="faq-icon">+</span>
-          </button>
+          </div>
           <div class="faq-content">
-            <p>Le livre est pensé précisément pour les personnes pudiques ! Le Chapitre 2 propose <em>« L'exercice des 3 phrases »</em> et <em>« Le contrat des 30 jours »</em> qui désamorcent toute pression : aucun reproche au lit, pas de comparaison, et un mot d'arrêt respecté à la seconde. Vous pouvez lui proposer simplement en disant : <em>« J'ai trouvé ce guide chrétien pour notre couple, j'aimerais qu'on lise juste l'introduction ensemble ce soir. »</em> La bienveillance et la douceur du livre feront le reste.</p>
+            <p>
+              <strong>Non, jamais.</strong> Le livre a été rédigé avec une profonde pudeur et une noblesse littéraire remarquable. Les schémas sont éducatifs, scientifiques et clairs. Il n'y a aucune vulgarité ni terme choquant : c'est un manuel d'art conjugal que l'on peut poser sur sa table de nuit sans rougir.
+            </p>
           </div>
         </div>
 
+        <!-- Q3 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            <span>Est-ce que mes proches ou ma banque verront ce que j'ai acheté ? (Discrétion)</span>
+          <div class="faq-trigger">
+            <span>❓ Les 18 positions nécessitent-elles de la souplesse ou des acrobaties ?</span>
             <span class="faq-icon">+</span>
-          </button>
+          </div>
           <div class="faq-content">
-            <p><strong>Discrétion totale et absolue.</strong> La transaction bancaire ou Mobile Money apparaîtra sous l'intitulé neutre <strong>« Éditions Éveil »</strong>. Aucun mot embarrassant n'apparaît sur vos relevés ou notifications. Vos données personnelles restent 100% confidentielles.</p>
+            <p>
+              <strong>Pas du tout.</strong> Ce ne sont pas des poses de cirque irréalistes ! Chaque position est expliquée avec des adaptations simples, l'utilisation de coussins ordinaires pour soulager les lombaires et respecter chaque morphologie, même avec la fatigue ou après un accouchement.
+            </p>
           </div>
         </div>
 
+        <!-- Q4 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            <span>Sous quel format vais-je recevoir le livre et les bonus ?</span>
+          <div class="faq-trigger">
+            <span>❓ Que faire si mon mari a un problème d'endurance ou si je n'ai jamais eu d'orgasme ?</span>
             <span class="faq-icon">+</span>
-          </button>
+          </div>
           <div class="faq-content">
-            <p>Dès votre paiement validé, vous accédez directement à votre <strong>Dashboard client sécurisé</strong>. Vous pouvez y lire le livre en ligne dans notre visionneuse intégrée, ou le télécharger en <strong>format PDF Haute Définition (1,1 Mo)</strong> sur votre téléphone, tablette ou ordinateur. Vous pouvez aussi demander à le recevoir directement sur WhatsApp.</p>
+            <p>
+              C'est précisément la raison d'être des chapitres 5 et 7 ! L'homme y apprend la maîtrise respiratoire et le contrôle du plancher pelvien sans aucune pilule dangereuse. Et la femme découvre avec précision la cartographie de ses 4 zones d'extase pour ne plus jamais simuler.
+            </p>
           </div>
         </div>
 
+        <!-- Q5 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            <span>Nous avons des rondeurs, des douleurs au dos ou plus de 50 ans : est-ce adapté ?</span>
+          <div class="faq-trigger">
+            <span>❓ Comment vais-je recevoir le guide après le paiement ?</span>
             <span class="faq-icon">+</span>
-          </button>
+          </div>
           <div class="faq-content">
-            <p><strong>Oui, à 100% !</strong> Le Chapitre 12 et le Chapitre 16 sont spécialement consacrés aux corps ronds, aux ventres forts, au dos fragile et aux couples après 50 ans ou après l'accouchement. Chaque position est expliquée avec des coussins d'angle qui soulagent les articulations et permettent une intimité profonde sans essoufflement ni acrobatie.</p>
+            <p>
+              Dès validation de votre paiement de 9 500 FCFA, vous êtes immédiatement redirigé vers votre espace de téléchargement instantané. Un email confidentiel vous est envoyé en parallèle, et notre assistance WhatsApp vous le transmet également si vous le souhaitez. Vous pouvez le lire sur smartphone, tablette ou ordinateur.
+            </p>
           </div>
         </div>
 
+        <!-- Q6 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            <span>Comment fonctionne le paiement par Mobile Money (Wave, Orange, MTN, Moov) ?</span>
+          <div class="faq-trigger">
+            <span>❓ Et si nous ne constatons pas de changement dans notre couple ?</span>
             <span class="faq-icon">+</span>
-          </button>
+          </div>
           <div class="faq-content">
-            <p>C'est ultra-simple et instantané ! Cliquez sur n'importe quel bouton de commande pour accéder à notre page de paiement sécurisée <strong>Chariow</strong>. Vous pourrez régler vos 9 500 FCFA avec Wave, Orange Money, MTN Mobile Money, Moov ou Carte bancaire en moins de 30 secondes et vous accédez immédiatement au livre et à vos bonus.</p>
+            <p>
+              Vous êtes couvert par notre <strong>Garantie Satisfait ou Remboursé de 30 jours 🛡️</strong>. Prenez un mois complet pour expérimenter les conseils. Si votre intimité n'est pas transformée, contactez-nous et nous vous remboursons intégralement.
+            </p>
           </div>
         </div>
 
+        <!-- Q7 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            <span>Et si je ne suis pas satisfait(e) après la lecture ?</span>
+          <div class="faq-trigger">
+            <span>❓ Le paiement est-il discret sur mon relevé bancaire ou Mobile Money ?</span>
             <span class="faq-icon">+</span>
-          </button>
+          </div>
           <div class="faq-content">
-            <p>Vous êtes protégé(e) par notre <strong>Garantie Inconditionnelle de 30 Jours</strong>. Si vous appliquez les conseils et que vous n'êtes pas transporté(e) par la métamorphose de votre lit, envoyez-nous un simple message WhatsApp et nous vous remboursons intégralement vos 9 500 FCFA sans poser de questions.</p>
+            <p>
+              <strong>Oui, discrétion absolue.</strong> L'intitulé de facturation apparaît sous un nom d'édition neutre ("Éditions Éveil"). Aucun mot compromettant ou explicite ne figure sur vos relevés ou notifications SMS.
+            </p>
           </div>
         </div>
 
       </div>
 
-      <!-- CTA Intermédiaire 5 : Après FAQ & Garantie -->
-      <div class="cta-inter-box reveal-on-scroll">
-        <div style="font-size: 0.95rem; color: var(--color-burgundy); font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
-          <span class="live-pulse-dot"></span> Vous n'avez aucun risque à essayer : garantie 30 jours 100% remboursé
-        </div>
-        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 540px; margin: 0 auto;">
-          <span>🔥 COMMENCER EN TOUTE SÉRÉNITÉ (9 500 FCFA) <span class="cta-arrow">→</span></span>
-          <span class="btn-cta-sub">Accès Immédiat en 1 Clic • Aucun Risque • Garantie Intégrale</span>
-        </a>
-        <div class="hero-badges-row" style="margin-top: 14px; justify-content: center; gap: 16px; font-size: 0.82rem;">
-          <div class="hero-badge-item"><span>🛡️ Zéro Risque Financier</span></div>
-          <div class="hero-badge-item"><span>⚡ Support WhatsApp Dédié</span></div>
-        </div>
+      <!-- Quick Urgency Reminder in FAQ -->
+      <div style="text-align: center; margin-top: 24px; color: #fbbf24; font-weight: 700;">
+        ⏰ Rappel : L'offre de lancement à 9 500 FCFA prend fin ce soir à 23H59 précises. Après cette heure, le tarif repasse à 25 000 FCFA.
       </div>
 
     </div>
@@ -1599,46 +1046,72 @@
   <div class="section-divider"></div>
 
   <!-- =========================================================================
-       13. SECTION : LE CHOIX FINAL (LE COÛT DE L'INACTION)
+       11. SECTION : LE CHOIX FINAL (LE COÛT DE L'INACTION)
        ========================================================================= -->
-  <section class="section" id="choix" style="padding-bottom: 110px;">
-    <div class="container" style="max-width: 840px;">
+  <section class="section" id="choix">
+    <div class="container">
       
-      <div style="text-align: center; margin-bottom: 36px;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 12px;">DEUX DESTINS POUR VOTRE MARIAGE</div>
-        <h2 style="font-size: 2.2rem; line-height: 1.25; margin-bottom: 14px; color: var(--color-text-title);">
-          Ce Soir, Deux Chemins S'Offrent À Vous
+      <div style="text-align: center; margin-bottom: 30px;">
+        <div class="badge-pill badge-red" style="margin-bottom: 10px;">⚡ LE MOMENT DE DÉCIDER</div>
+        <h2 style="font-size: 2.15rem; margin-bottom: 14px;">
+          Vous Êtes À La Croisée Des Chemins. <br>
+          <span class="text-gradient-red">Quel Avenir Choisissez-Vous Pour Votre Mariage ?</span>
         </h2>
-        <p style="color: var(--color-text-muted); font-size: 1.05rem;">
-          Dans quelques instants, vous allez fermer cette page. Que va-t-il se passer dans votre chambre ?
-        </p>
       </div>
 
       <div class="choices-grid">
         
-        <!-- CHEMIN A -->
+        <!-- Option A: Inaction -->
         <div class="choice-card choice-bad">
-          <h3 style="font-size: 1.15rem; color: #666666; margin-bottom: 10px;">CHEMIN A : NE RIEN CHANGER</h3>
-          <p style="font-size: 0.9rem; color: var(--color-text-body); line-height: 1.6;">
-            Vous fermez cet écran. Vous économisez 9 500 FCFA. Ce soir, vous vous couchez dos à dos dans le même lit tiède. L'homme reste avec son anxiété de performance, la femme reste avec sa frustration invisible. La routine continue de creuser son fossé, et la porte de l'infidélité reste entrouverte. Dans 1 an, dans 5 ans, où en sera votre mariage ?
-          </p>
+          <div>
+            <h3 style="color: #ff4d58; font-size: 1.25rem; margin-bottom: 14px;">
+              ❌ OPTION 1 : NE RIEN CHANGER
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.55; margin-bottom: 14px;">
+              Vous fermez cette page. Vous retournez à la même routine, avec les mêmes silences dans le noir, les mêmes excuses de fatigue et la même frustration qui s'accumule.
+            </p>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.55;">
+              Vous laissez la distance émotionnelle grandir lentement, en espérant qu'un miracle se produise sans poser d'action concrète...
+            </p>
+          </div>
+          <div style="margin-top: 20px; font-weight: 800; color: #ff4d58; font-size: 0.85rem; text-transform: uppercase;">
+            Coût : Routine pesante & risque d'éloignement définitif
+          </div>
         </div>
 
-        <!-- CHEMIN B -->
+        <!-- Option B: Action -->
         <div class="choice-card choice-good">
-          <h3 style="font-size: 1.15rem; color: var(--color-burgundy); margin-bottom: 10px;">CHEMIN B : ALLUMER LE FEU</h3>
-          <p style="font-size: 0.9rem; color: var(--color-text-body); line-height: 1.6;">
-            Vous investissez 9 500 FCFA (au lieu de 25 000 FCFA). Vous téléchargez le guide tout de suite. Ce soir, vous allumez une bougie. Vous lisez ensemble les premiers passages. Vous appliquez la règle de l'échelle 1-10, les caresses du clitoris et une nouvelle position. Vous voyez ses yeux briller comme au premier jour, et vous redécouvrez un amour plus complice que jamais !
-          </p>
+          <div>
+            <h3 style="color: #34d399; font-size: 1.25rem; margin-bottom: 14px;">
+              ✅ OPTION 2 : COMMANDER LE GUIDE (9 500 FCFA)
+            </h3>
+            <p style="color: #f1f5f9; font-size: 0.95rem; line-height: 1.55; margin-bottom: 14px;">
+              Vous investissez une somme modique pour transformer le pilier le plus intime de votre foyer et sceller votre fidélité devant Dieu.
+            </p>
+            <p style="color: #f1f5f9; font-size: 0.95rem; line-height: 1.55;">
+              Dès ce soir, vous ouvrez ce livre à deux, vous découvrez les schémas anatomiques, vous déculpabilisez votre lit et vous vivez un <strong>renouveau passionné, complice et ardent</strong>.
+            </p>
+          </div>
+          <div style="margin-top: 20px; font-weight: 800; color: #34d399; font-size: 0.85rem; text-transform: uppercase;">
+            Résultat : Un lit de feu, une joie profonde et la paix dans le foyer
+          </div>
         </div>
 
       </div>
 
-      <!-- Bouton final -->
-      <div style="text-align: center; margin-top: 36px;">
-        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-chariow-checkout" style="max-width: 520px; margin: 0 auto;">
-          <span>🔥 JE CHOISIS NOTRE LIT DE FEU (9 500 FCFA) <span class="cta-arrow">→</span></span>
-          <span class="btn-cta-sub">Téléchargement Immédiat • 100% Discret • Garantie 30 Jours</span>
+      <!-- Duplicated Red Badge at Bottom -->
+      <div style="text-align: center; margin-top: 36px; margin-bottom: 16px;">
+        <div class="badge-red">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <span>RÉSERVÉ AUX COUPLES QUI CHOISISSENT L'ÉPANOUISSEMENT ET LA FIDÉLITÉ</span>
+        </div>
+      </div>
+
+      <!-- Final Master CTA -->
+      <div style="text-align: center;">
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" target="_blank" rel="noopener" class="btn-cta btn-cta-intense-red" style="margin: 0 auto;">
+          <span>👉 JE COMMANDE LE GUIDE FOU DE TOI, FOLLE DE TOI (9 500 FCFA)</span>
+          <span class="btn-cta-sub">⚡ Téléchargement immédiat • Offre valable jusqu'à 23h59</span>
         </a>
       </div>
 
@@ -1646,205 +1119,105 @@
   </section>
 
   <!-- =========================================================================
-       14. FOOTER SECTION
+       12. FOOTER & CONTACT DIRECT
        ========================================================================= -->
   <footer class="footer-section">
     <div class="container">
-      <div style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: var(--color-burgundy); margin-bottom: 6px;">
-        FOU DE TOI, FOLLE DE TOI
+      
+      <div style="font-family: var(--font-heading); font-size: 1.45rem; font-weight: 900; color: #ffffff; margin-bottom: 8px;">
+        AMOUR & DÉSIR
       </div>
-      <div style="font-size: 0.85rem; color: var(--color-text-muted); font-style: italic; margin-bottom: 16px;">
-        Le guide du couple chrétien qui veut un lit de feu
-      </div>
-      <p style="font-size: 0.90rem; color: var(--color-text-dim); line-height: 1.6; max-width: 600px; margin: 0 auto 16px auto;">
-        © 2026 Tous droits réservés. Ce livre est un guide éducatif et pratique réservé aux couples adultes. Facturation 100% discrète.
+      <p style="color: var(--color-text-muted); font-size: 0.92rem; max-width: 520px; margin: 0 auto 20px;">
+        Maison d'édition de l'épanouissement intime, de la passion sanctifiée et de la paix dans le couple chrétien.
       </p>
-      <div class="footer-links" style="font-size: 0.8rem;">
-        <a href="#hero">Haut de page</a> • 
-        <a href="#programme">Le Programme</a> • 
-        <a href="#bonus">Les Bonus</a> • 
-        <a href="#faq">FAQ</a> • 
-        <a href="https://wa.me/2290195928057" target="_blank" rel="noopener">Contact WhatsApp (+229 0195928057)</a>
+
+      <div class="footer-links">
+        <a href="https://wa.me/2290195928057" target="_blank" rel="noopener">Assistance WhatsApp (+229 0195928057)</a>
+        <span>•</span>
+        <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" target="_blank" rel="noopener">Commander le Guide (9 500 FCFA)</a>
+        <span>•</span>
+        <a href="/pack-du-desir">Le Pack du Désir</a>
       </div>
+
+      <div style="font-size: 0.75rem; color: var(--color-text-dim); margin-top: 16px;">
+        © <span id="currentYear">2026</span> Amour & Désir. Tous droits réservés.<br>
+        Ce site ne fait pas partie du site web Facebook ou de Meta Platforms Inc. De plus, ce site n'est en aucun cas sponsorisé, approuvé ou administré par Facebook.
+      </div>
+
     </div>
   </footer>
 
   <!-- =========================================================================
-       15. STICKY MOBILE & DESKTOP FLOATING CTA BAR
+       13. STICKY BOTTOM BAR (MOBILE & DESKTOP ON SCROLL)
        ========================================================================= -->
   <div class="sticky-bottom-bar" id="stickyCtaBar">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-      
-      <div class="sticky-price-info">
-        <div class="sticky-price-title">LIT DE FEU • PACK COMPLET</div>
-        <div class="sticky-price-val">
-          9 500 FCFA <span style="color: #888888; text-decoration: line-through; font-size: 0.8rem; font-weight: 400;">25 000F</span>
-        </div>
-      </div>
-
-      <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" class="btn-cta btn-sticky-cta btn-chariow-checkout" style="flex: 1; max-width: 340px; padding: 12px 16px;">
-        <span style="font-weight: 800; font-size: 0.92rem;">🔥 COMMANDER MON EXEMPLAIRE <span class="cta-arrow">→</span></span>
-        <span class="btn-cta-sub" style="font-size: 0.85rem;">Wave • Orange • MTN • Moov • Carte</span>
-      </a>
-
+    <div class="sticky-price-info">
+      <div class="sticky-price-title" style="color: #FF1A26;">OFFRE ÉCLAIR</div>
+      <div class="sticky-price-val">9 500 FCFA <span>25 000 FCFA</span></div>
     </div>
+    <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" target="_blank" rel="noopener" class="btn-sticky-cta btn-sticky-cta-intense-red">
+      <span>JE COMMANDE LE GUIDE</span>
+      <span style="font-size: 0.78rem; opacity: 0.9; text-transform: none;">(9 500 FCFA)</span>
+    </a>
   </div>
 
   <!-- =========================================================================
-       16. SOCIAL PROOF LIVE NOTIFICATION TOAST
+       14. FLOATING WHATSAPP BUTTON
+       ========================================================================= -->
+  <a href="https://wa.me/2290195928057?text=Bonjour,%20j'ai%20une%20question%20sur%20le%20livre%20Fou%20de%20Toi%20avant%20de%20commander" target="_blank" rel="noopener" class="btn-whatsapp-float" title="Une question ? Écrivez-nous sur WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 20.16C10.57 20.16 9.12 19.76 7.85 19L7.55 18.82L4.43 19.64L5.26 16.6L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.05 20.16ZM16.61 14.38C16.36 14.25 15.13 13.64 14.9 13.56C14.67 13.48 14.51 13.44 14.34 13.68C14.18 13.93 13.71 14.48 13.57 14.65C13.42 14.81 13.28 14.83 13.03 14.71C12.79 14.58 12 14.33 11.06 13.49C10.33 12.84 9.84 12.03 9.7 11.78C9.55 11.54 9.68 11.41 9.81 11.28C9.92 11.17 10.05 11 10.18 10.86C10.3 10.71 10.34 10.61 10.42 10.45C10.5 10.28 10.46 10.14 10.4 10.02C10.34 9.89 9.85 8.7 9.65 8.2C9.45 7.72 9.25 7.79 9.1 7.78C8.96 7.77 8.79 7.77 8.63 7.77C8.46 7.77 8.19 7.83 7.96 8.08C7.73 8.33 7.08 8.94 7.08 10.19C7.08 11.44 7.99 12.65 8.12 12.82C8.24 12.98 9.91 15.55 12.46 16.65C13.07 16.91 13.54 17.07 13.91 17.19C14.52 17.38 15.08 17.36 15.52 17.29C16.01 17.22 17.03 16.67 17.24 16.08C17.45 15.48 17.45 14.98 17.38 14.86C17.32 14.75 17.17 14.68 16.93 14.56L16.61 14.38Z"/>
+    </svg>
+  </a>
+
+  <!-- =========================================================================
+       15. SOCIAL PROOF NOTIFICATION TOAST
        ========================================================================= -->
   <div class="social-proof-toast" id="socialProofToast">
-    <div class="toast-avatar">📖</div>
-    <div class="toast-text">
-      <div>
-        <strong id="toastName">Kouamé K.</strong> <span id="toastFlag">🇨🇮</span> de <span id="toastCity">Abidjan</span> a commandé
+    <div class="toast-avatar" id="toastFlag">🇨🇮</div>
+    <div>
+      <div class="toast-text">
+        <strong id="toastName">Kouamé K.</strong> (<span id="toastCity">Abidjan</span>) vient de commander le <strong>Guide Fou de Toi, Folle de Toi</strong>
       </div>
-      <div class="toast-time" id="toastTime">à l'instant • Accès envoyé par email</div>
+      <div class="toast-time" id="toastTime">il y a 2 min • Accès envoyé par email</div>
     </div>
   </div>
 
-  <!-- Embedded Client JavaScript Logic -->
+  <!-- External Defer Script (Browser Cached) -->
+  <script src="/assets/js/script.js" defer></script>
+
+  <!-- Meta CAPI & Conversion Trackers -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // 1. Synchronized Midnight Countdown
-      function updateCountdown() {
-        const now = new Date();
-        const midnight = new Date();
-        midnight.setHours(23, 59, 59, 999);
-        let diff = midnight.getTime() - now.getTime();
-        if (diff < 0) diff = 0;
-
-        const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
-        const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
-        const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
-
-        document.querySelectorAll('.cd-hours').forEach(el => el.textContent = hours);
-        document.querySelectorAll('.cd-minutes').forEach(el => el.textContent = minutes);
-        document.querySelectorAll('.cd-seconds').forEach(el => el.textContent = seconds);
-      }
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
-
-      // 2. FAQ Accordion
-      document.querySelectorAll('.faq-trigger').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const item = btn.parentElement;
-          const isActive = item.classList.contains('active');
-          document.querySelectorAll('.faq-item').forEach(other => other.classList.remove('active'));
-          if (!isActive) item.classList.add('active');
-        });
-      });
-
-      // 3. Sticky Bottom Bar visibility
-      const stickyBar = document.getElementById('stickyCtaBar');
-      const heroEl = document.getElementById('hero');
-      const offerEl = document.getElementById('offre');
-
-      window.addEventListener('scroll', () => {
-        if (!stickyBar || !heroEl) return;
-        const heroBottom = heroEl.getBoundingClientRect().bottom;
-        const offerRect = offerEl ? offerEl.getBoundingClientRect() : null;
-
-        const isPastHero = heroBottom < 0;
-        const isInsideOffer = offerRect && offerRect.top < window.innerHeight && offerRect.bottom > 0;
-
-        if (isPastHero && !isInsideOffer) {
-          stickyBar.classList.add('visible');
-        } else {
-          stickyBar.classList.remove('visible');
-        }
-      }, { passive: true });
-
-      // 4. Social Proof Toast Generator
-      const buyerPool = [
-        { name: 'Kouamé K.', city: 'Abidjan (Cocody)', flag: '🇨🇮' },
-        { name: 'Pasteur David M.', city: 'Yamoussoukro', flag: '🇨🇮' },
-        { name: 'Dieudonné M.', city: 'Brazzaville', flag: '🇨🇬' },
-        { name: 'Patrick K.', city: 'Kinshasa (Gombe)', flag: '🇨🇩' },
-        { name: 'Chantal & Marc A.', city: 'Abidjan (Plateau)', flag: '🇨🇮' },
-        { name: 'Dr. Emmanuel L.', city: 'Lubumbashi', flag: '🇨🇩' },
-        { name: 'Brice & Sandrine P.', city: 'Pointe-Noire', flag: '🇨🇬' },
-        { name: 'Christian M.', city: 'Cotonou', flag: '🇧🇯' },
-        { name: 'Serge & Grâce B.', city: 'Douala', flag: '🇨🇲' },
-        { name: 'Arsène G.', city: 'Abidjan (Yopougon)', flag: '🇨🇮' },
-        { name: 'Gloire M.', city: 'Brazzaville', flag: '🇨🇬' },
-        { name: 'Fabrice N.', city: 'Dakar', flag: '🇸🇳' },
-        { name: 'Fiston B.', city: 'Kinshasa', flag: '🇨🇩' },
-        { name: 'Yannick T.', city: 'Lomé', flag: '🇹🇬' }
-      ];
-
-      const timePhrases = ['à l'instant', 'il y a 1 min', 'il y a 2 min', 'il y a 3 min', 'il y a 5 min', 'il y a 8 min'];
-      let poolIndex = 0;
-
-      function triggerToast() {
-        const toast = document.getElementById('socialProofToast');
-        const nameEl = document.getElementById('toastName');
-        const cityEl = document.getElementById('toastCity');
-        const flagEl = document.getElementById('toastFlag');
-        const timeEl = document.getElementById('toastTime');
-
-        if (!toast || !nameEl) return;
-
-        const b = buyerPool[poolIndex % buyerPool.length];
-        const t = timePhrases[Math.floor(Math.random() * timePhrases.length)];
-
-        nameEl.textContent = b.name;
-        cityEl.textContent = b.city;
-        if (flagEl) flagEl.textContent = b.flag;
-        timeEl.textContent = t + ' • Accès envoyé par email';
-
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 4800);
-
-        poolIndex++;
-        setTimeout(triggerToast, 12000 + Math.random() * 10000);
-      }
-      setTimeout(triggerToast, 3500);
-
-      // 5. Chariow Direct Checkout Tracking
-      document.querySelectorAll('a[href*="mychariow.co"]').forEach(btn => {
-        btn.addEventListener('click', function() {
-          if (typeof fbq === 'function') {
+      var ctaElements = document.querySelectorAll('.btn-cta, .btn-sticky-cta');
+      ctaElements.forEach(function(el) {
+        el.addEventListener('click', function() {
+          var icEventId = 'ic_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+          
+          if (typeof fbq !== 'undefined') {
             fbq('track', 'InitiateCheckout', {
               content_name: 'FOU DE TOI, FOLLE DE TOI',
               currency: 'XOF',
               value: 9500
-            });
+            }, { eventID: icEventId });
           }
+
+          try {
+            fetch('/api/capi', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                event_name: 'InitiateCheckout',
+                event_id: icEventId,
+                value: 9500,
+                currency: 'XOF',
+                url: window.location.href
+              }),
+              keepalive: true
+            }).catch(function(){});
+          } catch(err){}
         });
       });
-
-      // Smooth scroll for anchors
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href');
-          if (targetId === '#' || targetId === '#open-checkout') return;
-          const targetEl = document.querySelector(targetId);
-          if (targetEl) {
-            e.preventDefault();
-            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-
-      // 6. Micro-animations : Scroll Reveal Observer
-      if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries, obs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              obs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-        document.querySelectorAll('.reveal-on-scroll, .part-card, .bonus-item-card, .screenshot-card, .position-card-rich, .verse-sacred-card, .regle-dor-card, .compare-col, .hero-media-card').forEach(el => {
-          el.classList.add('reveal-on-scroll');
-          revealObserver.observe(el);
-        });
-      } else {
-        document.querySelectorAll('.reveal-on-scroll, .part-card, .bonus-item-card, .screenshot-card, .position-card-rich, .verse-sacred-card, .regle-dor-card, .compare-col, .hero-media-card').forEach(el => el.classList.add('is-visible'));
-      }
     });
   </script>
 </body>

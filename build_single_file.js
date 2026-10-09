@@ -44,7 +44,7 @@ const singleFileHtml = `<!DOCTYPE html>
   <link rel="preload" as="image" href="${bannerHeroUrl}" fetchpriority="high">
 
   <!-- SEO & Open Graph Meta Tags -->
-  <meta name="description" content="Découvre le guide complet pour enfin comprendre les hormones de ta femme, réveiller son désir ardent, éviter les conflits et reprendre le contrôle de ton couple. Offre de lancement exclusive à 999 FCFA.">
+  <meta name="description" content="Découvre le guide complet pour enfin comprendre les hormones de ta femme, réveiller son désir ardent, éviter les conflits et reprendre le contrôle de ton couple. Offre de lancement exclusive à 2999 FCFA.">
   <meta property="og:title" content="PACK DU DÉSIR • Enfin Comprendre Sa Femme et Retrouver la Paix">
   <meta property="og:description" content="Elle devient distante ou refuse l'intimité ? Comprends enfin ce qui se passe et réveille son désir fou.">
   <meta property="og:image" content="${bannerHeroUrl}">
@@ -121,7 +121,7 @@ const singleFileHtml = `<!DOCTYPE html>
        ========================================================================= -->
   <div class="top-urgency-bar">
     <div class="top-urgency-inner">
-      <span>🔥 <strong>OFFRE EXCLUSIVE DE LANCEMENT</strong> : -94% DE RÉDUCTION IMMÉDIATE</span>
+      <span>🔥 <strong>OFFRE EXCLUSIVE DE LANCEMENT</strong> : -80% DE RÉDUCTION IMMÉDIATE</span>
       <div class="countdown-box">
         <span>FIN DANS :</span>
         <span class="countdown-digit cd-hours">${initHours || '23'}</span>h
@@ -160,7 +160,7 @@ const singleFileHtml = `<!DOCTYPE html>
         <img src="${bannerHeroUrl}" alt="Enfin Comprendre Les Hormones - Pack du Désir" width="1200" height="500" fetchpriority="high" decoding="async">
       </div>
 
-      <!-- Pricing Action Pill (999 FCFA) -->
+      <!-- Pricing Action Pill (2999 FCFA) -->
       <div style="display: flex; justify-content: center;">
         <div class="pricing-banner-pill">
           <div class="price-strike-group">
@@ -169,7 +169,7 @@ const singleFileHtml = `<!DOCTYPE html>
           </div>
           <div class="price-main-group">
             <div class="price-main-label">⚡ AUJOURD'HUI SEULEMENT</div>
-            <div class="price-main-val">999 FCFA</div>
+            <div class="price-main-val">2999 FCFA</div>
           </div>
         </div>
       </div>
@@ -180,7 +180,7 @@ const singleFileHtml = `<!DOCTYPE html>
           <span>👉 DÉBLOQUER LE PACK DU DÉSIR</span>
           <span class="btn-cta-sub">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/></svg>
-            Accès immédiat par email • 999 FCFA au lieu de 15 000 FCFA
+            Accès immédiat par email • 2999 FCFA au lieu de 15 000 FCFA
           </span>
         </a>
       </div>
@@ -378,7 +378,7 @@ const singleFileHtml = `<!DOCTYPE html>
       <div style="text-align: center; margin-top: 32px;">
         <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-cta" style="margin: 0 auto;">
           <span>JE VEUX CETTE TRANSFORMATION</span>
-          <span class="btn-cta-sub">👉 Obtenir le Pack complet pour 999 FCFA</span>
+          <span class="btn-cta-sub">👉 Obtenir le Pack complet pour 2999 FCFA</span>
         </a>
       </div>
 
@@ -852,14 +852,14 @@ const singleFileHtml = `<!DOCTYPE html>
           </li>
         </ul>
 
-        <!-- Price Stack Calc (900 FCFA) -->
+        <!-- Price Stack Calc (2999 FCFA) -->
         <div class="offer-total-calc">
           <div class="offer-total-old">Valeur totale cumulée : <span class="highlight-strike">60 000 FCFA</span></div>
           <div style="font-size: 1.05rem; color: var(--color-gold); font-weight: 800; text-transform: uppercase;">
             ⏰ PRIX PROMOTIONNEL JUSQU'À CE SOIR 23H59 :
           </div>
           <div class="offer-total-new text-gradient-red">
-            900 FCFA
+            2999 FCFA
           </div>
           <div style="font-size: 0.88rem; color: var(--color-text-muted);">
             (Paiement unique en une seule fois • Aucun abonnement caché)
@@ -880,7 +880,7 @@ const singleFileHtml = `<!DOCTYPE html>
         <!-- Master Royal Blue Order CTA Button (Chariow Direct Link) -->
         <div style="display: flex; justify-content: center; margin: 30px 0 18px;">
           <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-cta">
-            <span>🔥 OUI ! JE COMMANDE MON PACK DU DÉSIR (900 F)</span>
+            <span>🔥 OUI ! JE COMMANDE MON PACK DU DÉSIR (2999 F)</span>
             <span class="btn-cta-sub">
               ⚡ Accès immédiat envoyé par email en 30 secondes
             </span>
@@ -987,7 +987,7 @@ const singleFileHtml = `<!DOCTYPE html>
           </div>
           <div class="faq-content">
             <p>
-              Dès que ton paiement de 900 FCFA est validé sur la page sécurisée, tu es redirigé immédiatement vers la page de téléchargement, et un lien d'accès direct et confidentiel t'est envoyé à ton adresse email. Tu peux lire les guides sur ton smartphone, tablette ou ordinateur en toute discrétion.
+              Dès que ton paiement de 2999 FCFA est validé sur la page sécurisée, tu es redirigé immédiatement vers la page de téléchargement, et un lien d'accès direct et confidentiel t'est envoyé à ton adresse email. Tu peux lire les guides sur ton smartphone, tablette ou ordinateur en toute discrétion.
             </p>
           </div>
         </div>
@@ -1022,7 +1022,7 @@ const singleFileHtml = `<!DOCTYPE html>
 
       <!-- Quick Urgency Reminder in FAQ -->
       <div style="text-align: center; margin-top: 24px; color: #fbbf24; font-weight: 700;">
-        ⏰ Rappel : L'offre exceptionnelle à 900 FCFA prend fin aujourd'hui à 23H59 précises. Après cette heure, le tarif repasse à 15 000 FCFA.
+        ⏰ Rappel : L'offre exceptionnelle à 2999 FCFA prend fin aujourd'hui à 23H59 précises. Après cette heure, le tarif repasse à 15 000 FCFA.
       </div>
 
     </div>
@@ -1068,7 +1068,7 @@ const singleFileHtml = `<!DOCTYPE html>
         <div class="choice-card choice-good">
           <div>
             <h3 style="color: #34d399; font-size: 1.25rem; margin-bottom: 14px;">
-              ✅ OPTION 2 : PRENDRE LE PACK DU DÉSIR (900 F)
+              ✅ OPTION 2 : PRENDRE LE PACK DU DÉSIR (2999 F)
             </h3>
             <p style="color: #f1f5f9; font-size: 0.95rem; line-height: 1.55; margin-bottom: 14px;">
               Tu investis l'équivalent d'une simple collation pour accéder aux secrets du désir féminin et transformer ta dynamique de couple.
@@ -1095,7 +1095,7 @@ const singleFileHtml = `<!DOCTYPE html>
       <!-- Final Master CTA -->
       <div style="text-align: center;">
         <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-cta" style="margin: 0 auto;">
-          <span>👉 JE COMMANDE LE PACK DU DÉSIR À 900 FCFA</span>
+          <span>👉 JE COMMANDE LE PACK DU DÉSIR À 2999 FCFA</span>
           <span class="btn-cta-sub">⚡ Téléchargement immédiat • Offre valable jusqu'à 23h59</span>
         </a>
       </div>
@@ -1119,7 +1119,7 @@ const singleFileHtml = `<!DOCTYPE html>
       <div class="footer-links">
         <a href="https://wa.me/2290195928057" target="_blank" rel="noopener">Support WhatsApp (+229 0195928057)</a>
         <span>•</span>
-        <a href="${CHARIOW_URL}" target="_blank" rel="noopener">Commander le Pack (900 FCFA)</a>
+        <a href="${CHARIOW_URL}" target="_blank" rel="noopener">Commander le Pack (2999 FCFA)</a>
         <span>•</span>
         <a href="#">Politique de confidentialité</a>
       </div>
@@ -1138,11 +1138,11 @@ const singleFileHtml = `<!DOCTYPE html>
   <div class="sticky-bottom-bar" id="stickyCtaBar">
     <div class="sticky-price-info">
       <div class="sticky-price-title">OFFRE ÉCLAIR</div>
-      <div class="sticky-price-val">900 F <span>15 000 F</span></div>
+      <div class="sticky-price-val">2999 F <span>15 000 F</span></div>
     </div>
     <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-sticky-cta">
       <span>JE COMMANDE LE PACK</span>
-      <span style="font-size: 0.78rem; opacity: 0.9; text-transform: none;">(900 FCFA)</span>
+      <span style="font-size: 0.78rem; opacity: 0.9; text-transform: none;">(2999 FCFA)</span>
     </a>
   </div>
 
@@ -1185,7 +1185,7 @@ const singleFileHtml = `<!DOCTYPE html>
             fbq('track', 'InitiateCheckout', {
               content_name: 'PACK DU DESIR',
               currency: 'XOF',
-              value: 900
+              value: 2999
             }, { eventID: icEventId });
           }
 
@@ -1197,7 +1197,7 @@ const singleFileHtml = `<!DOCTYPE html>
               body: JSON.stringify({
                 event_name: 'InitiateCheckout',
                 event_id: icEventId,
-                value: 900,
+                value: 2999,
                 currency: 'XOF',
                 url: window.location.href
               }),

@@ -3,45 +3,15 @@ const path = require('path');
 
 console.log('Generating Light-Themed, Book-Accurate Sales Page for FOU DE TOI, FOLLE DE TOI (Zero Gold, Pure Book Charter)...');
 
-// Convert local image to base64
-function getBase64Image(filePath) {
-  try {
-    const ext = path.extname(filePath).replace('.', '').toLowerCase();
-    const mimeType = ext === 'png' ? 'image/png' : 'image/jpeg';
-    const data = fs.readFileSync(filePath).toString('base64');
-    return `data:${mimeType};base64,${data}`;
-  } catch (e) {
-    console.error(`Error reading ${filePath}:`, e.message);
-    return '';
-  }
-}
-
-const faviconB64 = getBase64Image('assets/images/favicon.jpg');
-const bookCoverB64 = getBase64Image('assets/images/couverture-fou-de-toi.jpg');
-const bundleMockupB64 = getBase64Image('assets/images/pack-bundle-mockup.jpg');
-const temoignageRivaldoB64 = getBase64Image('assets/images/testimonials/temoignage-rivaldo.jpg');
-const temoignageGuyAdolpheB64 = getBase64Image('assets/images/testimonials/temoignage-guy-adolphe.jpg');
-const temoignageRosemondeB64 = getBase64Image('assets/images/testimonials/temoignage-rosemonde.jpg');
-const temoignageThibautB64 = getBase64Image('assets/images/testimonials/temoignage-thibaut.jpg');
-const preuveVentesB64 = getBase64Image('assets/images/testimonials/preuve-ventes-dashboard.png');
-
-// Read CSS
-let cssContent = fs.readFileSync('assets/css/style.css', 'utf8');
-
-// Ensure sticky CTA text wrapping and centering
-cssContent += `
-/* Force perfect centering and wrapping on mobile sticky CTA */
-.btn-sticky-cta {
-  white-space: normal !important;
-  text-align: center !important;
-  display: inline-flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  line-height: 1.25 !important;
-  word-break: normal !important;
-}
-`;
+// Static Asset URLs for sub-second FCP/LCP & HTTP/2 caching
+const faviconUrl = '/assets/images/favicon.jpg';
+const bookCoverUrl = '/assets/images/couverture-fou-de-toi.jpg';
+const bundleMockupUrl = '/assets/images/pack-bundle-mockup.jpg';
+const temoignageRivaldoUrl = '/assets/images/testimonials/temoignage-rivaldo.jpg';
+const temoignageGuyAdolpheUrl = '/assets/images/testimonials/temoignage-guy-adolphe.jpg';
+const temoignageRosemondeUrl = '/assets/images/testimonials/temoignage-rosemonde.jpg';
+const temoignageThibautUrl = '/assets/images/testimonials/temoignage-thibaut.jpg';
+const preuveVentesUrl = '/assets/images/testimonials/preuve-ventes-dashboard.png';
 
 // Calculate initial countdown values
 const now = new Date();
@@ -62,15 +32,18 @@ const singleFileHtml = `<!DOCTYPE html>
   <title>FOU DE TOI, FOLLE DE TOI • Le Guide Du Couple Chrétien Qui Veut Un Lit De Feu</title>
   
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="${faviconB64}">
-  <link rel="shortcut icon" type="image/jpeg" href="${faviconB64}">
-  <link rel="apple-touch-icon" href="${faviconB64}">
+  <link rel="icon" type="image/jpeg" href="${faviconUrl}">
+  <link rel="shortcut icon" type="image/jpeg" href="${faviconUrl}">
+  <link rel="apple-touch-icon" href="${faviconUrl}">
   
+  <!-- Preload LCP Hero Image -->
+  <link rel="preload" as="image" href="${bookCoverUrl}" fetchpriority="high">
+
   <!-- SEO & Open Graph Meta Tags -->
   <meta name="description" content="Découvrez le livre officiel avec schémas anatomiques et 18 positions pour transformer votre chambre en un lit de feu. Déculpabilisation biblique, endurance masculine et fidélité absolue. Offre de lancement à 9 500 FCFA.">
   <meta property="og:title" content="FOU DE TOI, FOLLE DE TOI • Le Guide Du Couple Chrétien Qui Veut Un Lit De Feu">
   <meta property="og:description" content="Le livre avec schémas détaillés pour jouir à chaque fois et rendre votre partenaire complètement fou/folle de vous. Même sans endurance et sans positions compliquées.">
-  <meta property="og:image" content="${bookCoverB64}">
+  <meta property="og:image" content="${bookCoverUrl}">
   <meta property="og:type" content="website">
   
   <!-- Google Fonts: Plus Jakarta Sans (Haute Lisibilité) + Lora (Édition Noble) -->
@@ -78,11 +51,9 @@ const singleFileHtml = `<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   
+  <!-- Global Stylesheet (Browser Cached) -->
+  <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- Stylesheet -->
-  <style>
-${cssContent}
-  </style>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -171,7 +142,7 @@ ${cssContent}
       <div class="hero-media-card">
         
         <div class="book-cover-3d-box" style="margin-bottom: 24px;">
-          <img src="${bookCoverB64}" alt="Livre FOU DE TOI, FOLLE DE TOI - Guide Officiel" class="book-cover-3d-img">
+          <img src="${bookCoverUrl}" alt="Livre FOU DE TOI, FOLLE DE TOI - Guide Officiel" class="book-cover-3d-img" fetchpriority="high" decoding="async">
           <div style="font-size: 0.88rem; color: var(--color-burgundy); text-align: center; font-weight: 800; margin-top: 14px;">
             📖 LE GUIDE MAÎTRE OFFICIEL DU COUPLE CHRÉTIEN (190 PAGES HD) • 18 POSITIONS • 6 BONUS INCLUS
           </div>
@@ -1214,7 +1185,7 @@ ${cssContent}
 
       <!-- Bundle Mockup Image -->
       <div style="max-width: 580px; margin: 0 auto 36px auto; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-md);">
-        <img src="${bundleMockupB64}" alt="Pack Complet FOU DE TOI, FOLLE DE TOI" style="width: 100%; display: block;">
+        <img src="${bundleMockupUrl}" alt="Pack Complet FOU DE TOI, FOLLE DE TOI" style="width: 100%; display: block;" loading="lazy" decoding="async">
       </div>
 
       <!-- Grille de Bonus -->
@@ -1346,7 +1317,7 @@ ${cssContent}
       <div class="screenshots-grid">
         
         <div class="screenshot-card">
-          <img src="${temoignageGuyAdolpheB64}" alt="Témoignage WhatsApp Guy Adolphe">
+          <img src="${temoignageGuyAdolpheUrl}" alt="Témoignage WhatsApp Guy Adolphe" loading="lazy" decoding="async">
           <div class="screenshot-caption">
             <span class="screenshot-client-name">Guy-Adolphe (Abidjan)</span>
             <span class="screenshot-badge">Marié depuis 6 ans</span>
@@ -1354,7 +1325,7 @@ ${cssContent}
         </div>
 
         <div class="screenshot-card">
-          <img src="${temoignageRosemondeB64}" alt="Témoignage WhatsApp Rosemonde">
+          <img src="${temoignageRosemondeUrl}" alt="Témoignage WhatsApp Rosemonde" loading="lazy" decoding="async">
           <div class="screenshot-caption">
             <span class="screenshot-client-name">Rosemonde (Cotonou)</span>
             <span class="screenshot-badge">Femme comblée</span>
@@ -1362,7 +1333,7 @@ ${cssContent}
         </div>
 
         <div class="screenshot-card">
-          <img src="${temoignageRivaldoB64}" alt="Témoignage WhatsApp Rivaldo">
+          <img src="${temoignageRivaldoUrl}" alt="Témoignage WhatsApp Rivaldo" loading="lazy" decoding="async">
           <div class="screenshot-caption">
             <span class="screenshot-client-name">Rivaldo (Pointe-Noire)</span>
             <span class="screenshot-badge">Mariage renouvelé</span>
@@ -1370,7 +1341,7 @@ ${cssContent}
         </div>
 
         <div class="screenshot-card">
-          <img src="${temoignageThibautB64}" alt="Témoignage WhatsApp Thibaut">
+          <img src="${temoignageThibautUrl}" alt="Témoignage WhatsApp Thibaut" loading="lazy" decoding="async">
           <div class="screenshot-caption">
             <span class="screenshot-client-name">Thibaut (Kinshasa)</span>
             <span class="screenshot-badge">Fidélité préservée</span>
@@ -1381,7 +1352,7 @@ ${cssContent}
 
       <!-- Dashboard Ventes -->
       <div style="max-width: 680px; margin: 30px auto; border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); background: #FFFFFF;">
-        <img src="${preuveVentesB64}" alt="Preuve des ventes">
+        <img src="${preuveVentesUrl}" alt="Preuve des ventes" loading="lazy" decoding="async">
         <div style="padding: 14px; font-size: 0.85rem; color: var(--color-burgundy); text-align: center; font-weight: 700; background: var(--color-bg-subtle);">
           📊 Plus de 3 850 commandes enregistrées • 98,7% de couples déclarant un renouveau intime dès la 1ère semaine
         </div>

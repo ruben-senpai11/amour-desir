@@ -3,45 +3,17 @@ const path = require('path');
 
 console.log('Generating Single-File Standalone index.html with Meta Pixel & Conversions API (CAPI)...');
 
-// Read base images and convert to base64
-function getBase64Image(filePath) {
-  const ext = path.extname(filePath).replace('.', '').toLowerCase();
-  const mimeType = ext === 'png' ? 'image/png' : 'image/jpeg';
-  const data = fs.readFileSync(filePath).toString('base64');
-  return `data:${mimeType};base64,${data}`;
-}
-
-const faviconB64 = getBase64Image('assets/images/favicon.jpg');
-const bannerHeroB64 = getBase64Image('assets/images/banner-hero.png');
-const packCoverRedB64 = getBase64Image('assets/images/pack-cover-red.jpg');
-const packCoverBlueB64 = getBase64Image('assets/images/pack-cover-blue.jpg');
-const avantApresB64 = getBase64Image('assets/images/avant-apres.jpg');
-const temoignageRivaldoB64 = getBase64Image('assets/images/testimonials/temoignage-rivaldo.jpg');
-const temoignageGuyAdolpheB64 = getBase64Image('assets/images/testimonials/temoignage-guy-adolphe.jpg');
-const temoignageRosemondeB64 = getBase64Image('assets/images/testimonials/temoignage-rosemonde.jpg');
-const temoignageThibautB64 = getBase64Image('assets/images/testimonials/temoignage-thibaut.jpg');
-const preuveVentesB64 = getBase64Image('assets/images/testimonials/preuve-ventes-dashboard.png');
-
-// Read CSS and update rules
-let cssContent = fs.readFileSync('assets/css/style.css', 'utf8');
-
-// Ensure sticky CTA text wrapping and centering
-cssContent += `
-/* Force perfect centering and wrapping on mobile sticky CTA */
-.btn-sticky-cta {
-  white-space: normal !important;
-  text-align: center !important;
-  display: inline-flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  line-height: 1.25 !important;
-  word-break: normal !important;
-}
-`;
-
-// Read JS
-const jsContent = fs.readFileSync('assets/js/script.js', 'utf8');
+// Static Asset URLs for sub-second FCP/LCP & HTTP/2 caching
+const faviconUrl = '/assets/images/favicon.jpg';
+const bannerHeroUrl = '/assets/images/banner-hero.png';
+const packCoverRedUrl = '/assets/images/pack-cover-red.jpg';
+const packCoverBlueUrl = '/assets/images/pack-cover-blue.jpg';
+const avantApresUrl = '/assets/images/avant-apres.jpg';
+const temoignageRivaldoUrl = '/assets/images/testimonials/temoignage-rivaldo.jpg';
+const temoignageGuyAdolpheUrl = '/assets/images/testimonials/temoignage-guy-adolphe.jpg';
+const temoignageRosemondeUrl = '/assets/images/testimonials/temoignage-rosemonde.jpg';
+const temoignageThibautUrl = '/assets/images/testimonials/temoignage-thibaut.jpg';
+const preuveVentesUrl = '/assets/images/testimonials/preuve-ventes-dashboard.png';
 
 // Calculate initial server/build time countdown values so it never displays 00:00:00
 const now = new Date();
@@ -64,15 +36,18 @@ const singleFileHtml = `<!DOCTYPE html>
   <title>PACK DU DÉSIR • Enfin Comprendre Sa Femme, Son Désir & Retrouver la Paix</title>
   
   <!-- Favicon Sensuel & Élégant -->
-  <link rel="icon" type="image/jpeg" href="${faviconB64}">
-  <link rel="shortcut icon" type="image/jpeg" href="${faviconB64}">
-  <link rel="apple-touch-icon" href="${faviconB64}">
+  <link rel="icon" type="image/jpeg" href="${faviconUrl}">
+  <link rel="shortcut icon" type="image/jpeg" href="${faviconUrl}">
+  <link rel="apple-touch-icon" href="${faviconUrl}">
   
+  <!-- Preload LCP Hero Banner -->
+  <link rel="preload" as="image" href="${bannerHeroUrl}" fetchpriority="high">
+
   <!-- SEO & Open Graph Meta Tags -->
   <meta name="description" content="Découvre le guide complet pour enfin comprendre les hormones de ta femme, réveiller son désir ardent, éviter les conflits et reprendre le contrôle de ton couple. Offre de lancement exclusive à 999 FCFA.">
   <meta property="og:title" content="PACK DU DÉSIR • Enfin Comprendre Sa Femme et Retrouver la Paix">
   <meta property="og:description" content="Elle devient distante ou refuse l'intimité ? Comprends enfin ce qui se passe et réveille son désir fou.">
-  <meta property="og:image" content="${faviconB64}">
+  <meta property="og:image" content="${bannerHeroUrl}">
   <meta property="og:type" content="website">
   
   <!-- Google Fonts: Syne (Sensual Titles) + Outfit & Plus Jakarta Sans (Tall Elegant Body) -->
@@ -80,6 +55,9 @@ const singleFileHtml = `<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
   
+  <!-- Global Stylesheet (Browser Cached) -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -115,11 +93,6 @@ const singleFileHtml = `<!DOCTYPE html>
          src="https://www.facebook.com/tr?id=2465772550579051&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
-
-  <!-- Inlined Stylesheet -->
-  <style>
-${cssContent}
-  </style>
 
   <!-- Instant Countdown Initializer (Executes in 0ms before render) -->
   <script>
@@ -184,7 +157,7 @@ ${cssContent}
 
       <!-- Hero Visual Banner -->
       <div class="hero-media-card">
-        <img src="${bannerHeroB64}" alt="Enfin Comprendre Les Hormones - Pack du Désir" width="1200" height="500" loading="eager">
+        <img src="${bannerHeroUrl}" alt="Enfin Comprendre Les Hormones - Pack du Désir" width="1200" height="500" fetchpriority="high" decoding="async">
       </div>
 
       <!-- Pricing Action Pill (999 FCFA) -->
@@ -335,7 +308,7 @@ ${cssContent}
 
       <!-- Visual Graphic Image -->
       <div class="comparison-image-wrapper">
-        <img src="${avantApresB64}" alt="Avant vs Après - Reprends le contrôle de ta maison" width="1200" height="800" loading="lazy">
+        <img src="${avantApresUrl}" alt="Avant vs Après - Reprends le contrôle de ta maison" width="1200" height="800" loading="lazy" decoding="async">
       </div>
 
       <!-- Side by Side Comparative Grid -->
@@ -478,10 +451,10 @@ ${cssContent}
       <!-- Guide Covers Double Showcase (Red Passion & Royal Blue Edition) -->
       <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 36px;">
         <div style="max-width: 290px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-glow-red); border: 2px solid var(--color-primary-red);">
-          <img src="${packCoverRedB64}" alt="Guide Enfin Comprendre les Hormones - Édition Rouge Passion" width="600" height="900" loading="lazy">
+          <img src="${packCoverRedUrl}" alt="Guide Enfin Comprendre les Hormones - Édition Rouge Passion" width="600" height="900" loading="lazy" decoding="async">
         </div>
         <div style="max-width: 290px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-glow-blue); border: 2px solid var(--color-cta-blue);">
-          <img src="${packCoverBlueB64}" alt="Guide Enfin Comprendre les Hormones - Édition Bleu Roi" width="600" height="900" loading="lazy">
+          <img src="${packCoverBlueUrl}" alt="Guide Enfin Comprendre les Hormones - Édition Bleu Roi" width="600" height="900" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -746,7 +719,7 @@ ${cssContent}
         
         <!-- Screenshot 1: Rivaldo -->
         <div class="screenshot-card">
-          <img src="${temoignageRivaldoB64}" alt="Avis WhatsApp Rivaldo" width="600" height="1200" loading="lazy">
+          <img src="${temoignageRivaldoUrl}" alt="Avis WhatsApp Rivaldo" width="600" height="1200" loading="lazy" decoding="async">
           <div class="screenshot-caption">
             <span class="screenshot-client-name">👤 Rivaldo</span>
             <span class="screenshot-badge">✓ Achat vérifié</span>
@@ -755,7 +728,7 @@ ${cssContent}
 
         <!-- Screenshot 2: Guy Adolphe -->
         <div class="screenshot-card">
-          <img src="${temoignageGuyAdolpheB64}" alt="Avis WhatsApp Guy Adolphe" width="600" height="1200" loading="lazy">
+          <img src="${temoignageGuyAdolpheUrl}" alt="Avis WhatsApp Guy Adolphe" width="600" height="1200" loading="lazy" decoding="async">
           <div class="screenshot-caption">
             <span class="screenshot-client-name">👤 Guy Adolphe</span>
             <span class="screenshot-badge">✓ Achat vérifié</span>
@@ -764,7 +737,7 @@ ${cssContent}
 
         <!-- Screenshot 3: Rosemonde -->
         <div class="screenshot-card">
-          <img src="${temoignageRosemondeB64}" alt="Avis WhatsApp Rosemonde" width="600" height="1200" loading="lazy">
+          <img src="${temoignageRosemondeUrl}" alt="Avis WhatsApp Rosemonde" width="600" height="1200" loading="lazy" decoding="async">
           <div class="screenshot-caption">
             <span class="screenshot-client-name">👤 Rosemonde Coi...</span>
             <span class="screenshot-badge">✓ Achat vérifié</span>
@@ -773,7 +746,7 @@ ${cssContent}
 
         <!-- Screenshot 4: Thibaut -->
         <div class="screenshot-card">
-          <img src="${temoignageThibautB64}" alt="Avis WhatsApp Mr Thibaut" width="600" height="1200" loading="lazy">
+          <img src="${temoignageThibautUrl}" alt="Avis WhatsApp Mr Thibaut" width="600" height="1200" loading="lazy" decoding="async">
           <div class="screenshot-caption">
             <span class="screenshot-client-name">👤 Mr Thibaut</span>
             <span class="screenshot-badge">✓ Achat vérifié</span>
@@ -787,7 +760,7 @@ ${cssContent}
         <div class="badge-pill badge-blue" style="margin-bottom: 12px;">📊 PREUVE DE VENTES EN TEMPS RÉEL</div>
         <h3 style="font-size: 1.35rem; margin-bottom: 16px;">Plusieurs commandes enregistrées chaque jour sur notre boutique :</h3>
         <div class="proof-banner-card">
-          <img src="${preuveVentesB64}" alt="Commandes enregistrées Pack du Désir" width="1200" height="300" loading="lazy">
+          <img src="${preuveVentesUrl}" alt="Commandes enregistrées Pack du Désir" width="1200" height="300" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -1195,9 +1168,11 @@ ${cssContent}
     </div>
   </div>
 
-  <!-- Inlined JavaScript & Meta CAPI Event Trackers -->
+  <!-- External Defer Script (Browser Cached) -->
+  <script src="/assets/js/script.js" defer></script>
+
+  <!-- Meta CAPI & Conversion Trackers -->
   <script>
-${jsContent}
 
     // Attach Meta InitiateCheckout event tracking to all CTA links
     document.addEventListener('DOMContentLoaded', function() {

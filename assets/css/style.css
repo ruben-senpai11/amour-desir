@@ -1744,3 +1744,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* 8. Force perfect centering and wrapping on mobile sticky CTA */
+.btn-sticky-cta {
+  white-space: normal !important;
+  text-align: center !important;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  line-height: 1.25 !important;
+  word-break: normal !important;
+}
+

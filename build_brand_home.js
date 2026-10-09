@@ -3,25 +3,9 @@ const path = require('path');
 
 console.log('Generating Brand Landing Page for Amour & Désir with LIGHT BACKGROUND & STRICT BURGUNDY PALETTE (index.html)...');
 
-// Convert local image to base64
-function getBase64Image(filePath) {
-  try {
-    const ext = path.extname(filePath).replace('.', '').toLowerCase();
-    const mimeType = ext === 'png' ? 'image/png' : 'image/jpeg';
-    const data = fs.readFileSync(filePath).toString('base64');
-    return `data:${mimeType};base64,${data}`;
-  } catch (e) {
-    console.error(`Error reading ${filePath}:`, e.message);
-    return '';
-  }
-}
-
-const faviconB64 = getBase64Image('assets/images/favicon.jpg');
-const packDesirB64 = getBase64Image('assets/images/pack-cover-red.jpg');
-const fouDeToiB64 = getBase64Image('assets/images/couverture-fou-de-toi.jpg');
-
-// Read CSS
-let cssContent = fs.readFileSync('assets/css/style.css', 'utf8');
+const faviconUrl = '/assets/images/favicon.jpg';
+const packDesirUrl = '/assets/images/pack-cover-red.jpg';
+const fouDeToiUrl = '/assets/images/couverture-fou-de-toi.jpg';
 
 const htmlContent = `<!DOCTYPE html>
 <html lang="fr">
@@ -31,26 +15,31 @@ const htmlContent = `<!DOCTYPE html>
   <title>AMOUR & DÉSIR • Maison d'Édition de l'Épanouissement Intime & Conjugal</title>
   
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="${faviconB64}">
-  <link rel="shortcut icon" type="image/jpeg" href="${faviconB64}">
-  <link rel="apple-touch-icon" href="${faviconB64}">
+  <link rel="icon" type="image/jpeg" href="${faviconUrl}">
+  <link rel="shortcut icon" type="image/jpeg" href="${faviconUrl}">
+  <link rel="apple-touch-icon" href="${faviconUrl}">
   
+  <!-- Preload LCP Images -->
+  <link rel="preload" as="image" href="${packDesirUrl}" fetchpriority="high">
+  <link rel="preload" as="image" href="${fouDeToiUrl}" fetchpriority="high">
+
   <!-- SEO & Open Graph Meta Tags -->
   <meta name="description" content="Découvrez les éditions Amour & Désir. Guides pratiques et bienveillants pour réveiller la passion, comprendre le désir de l'autre et transformer le foyer en sanctuaire de paix.">
   <meta property="og:title" content="AMOUR & DÉSIR • Épanouissement Intime, Passion & Paix dans le Foyer">
   <meta property="og:description" content="Découvrez nos deux guides de référence : Le Pack du Désir (Psychologie & Hormones) et Fou de Toi, Folle de Toi (Le Guide du Couple Chrétien).">
-  <meta property="og:image" content="${fouDeToiB64}">
+  <meta property="og:image" content="${fouDeToiUrl}">
   <meta property="og:type" content="website">
   
-  <!-- Google Fonts: Plus Jakarta Sans (Haute Lisibilité) + Lora (Édition Noble) -->
+  <!-- Google Fonts: Preconnect & display=swap for Zero FOIT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   
-  <style>
-${cssContent}
+  <!-- Global Stylesheet (Browser Cached) -->
+  <link rel="stylesheet" href="/assets/css/style.css">
 
-    /* Brand Custom Layout */
+  <style>
+    /* Brand Custom Layout Specifics */
     .brand-navbar {
       background: #FFFFFF;
       border-bottom: 1px solid var(--color-border);
@@ -321,7 +310,7 @@ ${cssContent}
         <div class="product-showcase-card card-pack-desir">
           <div>
             <div class="product-img-box">
-              <img src="${packDesirB64}" alt="Pack du Désir - Comprendre Les Hormones" style="width: 100%; display: block;">
+              <img src="${packDesirUrl}" alt="Pack du Désir - Comprendre Les Hormones" style="width: 100%; display: block;" fetchpriority="high" decoding="async">
             </div>
 
             <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">
@@ -367,7 +356,7 @@ ${cssContent}
             </div>
 
             <a href="/pack-du-desir" class="btn-cta" style="width: 100%;">
-              <span style="font-weight: 800;">👉 DÉCOUVRIR LE PACK DU DÉSIR</span>
+              <span style="font-weight: 800;">👉 DÉCOUVRIR LE PACK DU DÉSIR <span class="cta-arrow">→</span></span>
               <span class="btn-cta-sub">Voir la présentation complète & les 8 bonus</span>
             </a>
           </div>
@@ -378,14 +367,14 @@ ${cssContent}
         <div class="product-showcase-card card-fou-de-toi">
           <div>
             <div class="product-img-box">
-              <img src="${fouDeToiB64}" alt="Livre Fou de Toi, Folle de Toi" style="width: 100%; display: block;">
+              <img src="${fouDeToiUrl}" alt="Livre Fou de Toi, Folle de Toi" style="width: 100%; display: block;" fetchpriority="high" decoding="async">
             </div>
 
             <div style="display: flex; gap: 8px; justify-content: center; margin-top: 14px; margin-bottom: 8px;">
-              <img src="/assets/images/illustrations/chapitre-4-cartes-zones-erogenes.jpg" alt="Aperçu Zones Érogènes" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Carte des zones érogènes">
-              <img src="/assets/images/illustrations/position-1-cuillere.jpg" alt="Aperçu 18 Positions" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="18 Positions adaptées">
-              <img src="/assets/images/illustrations/chapitre-11-six-temps.jpg" alt="Aperçu Déroulé en 6 temps" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Déroulé en 6 temps">
-              <img src="/assets/images/illustrations/chapitre-6-aliments-vitalite.jpg" alt="Aperçu Pharmacie africaine" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Pharmacie africaine">
+              <img src="/assets/images/illustrations/chapitre-4-cartes-zones-erogenes.jpg" alt="Aperçu Zones Érogènes" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Carte des zones érogènes" loading="lazy" decoding="async">
+              <img src="/assets/images/illustrations/position-1-cuillere.jpg" alt="Aperçu 18 Positions" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="18 Positions adaptées" loading="lazy" decoding="async">
+              <img src="/assets/images/illustrations/chapitre-11-six-temps.jpg" alt="Aperçu Déroulé en 6 temps" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Déroulé en 6 temps" loading="lazy" decoding="async">
+              <img src="/assets/images/illustrations/chapitre-6-aliments-vitalite.jpg" alt="Aperçu Pharmacie africaine" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Pharmacie africaine" loading="lazy" decoding="async">
             </div>
             <div style="font-size: 0.8rem; color: var(--color-burgundy); font-weight: 700; text-align: center; margin-bottom: 12px;">
               ✨ Livre illustré : schémas 3D, 18 positions & infographies exclusives

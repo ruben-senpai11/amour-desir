@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('Generating Brand Landing Page for Amour & Désir with LIGHT BACKGROUND & STRICT BURGUNDY PALETTE (index.html)...');
+console.log('Generating Brand Landing Page for Amour & Désir with LUXURY DARK THEME & HIGH CONTRAST (index.html)...');
 
 const faviconUrl = '/assets/images/favicon.jpg';
 const packDesirUrl = '/assets/images/pack-cover-red.jpg';
@@ -24,7 +24,7 @@ const htmlContent = `<!DOCTYPE html>
   <link rel="preload" as="image" href="${fouDeToiUrl}" fetchpriority="high">
 
   <!-- SEO & Open Graph Meta Tags -->
-  <meta name="description" content="Découvrez les éditions Amour & Désir. Guides pratiques et bienveillants pour réveiller la passion, comprendre le désir de l'autre et transformer le foyer en sanctuaire de paix.">
+  <meta name="description" content="Découvrez les éditions Amour & Désir. Guides pratiques, pudiques et bienveillants pour réveiller la passion, comprendre le désir de l'autre et transformer le foyer en sanctuaire de paix.">
   <meta property="og:title" content="AMOUR & DÉSIR • Épanouissement Intime, Passion & Paix dans le Foyer">
   <meta property="og:description" content="Découvrez nos deux guides de référence : Le Pack du Désir (Psychologie & Hormones) et Fou de Toi, Folle de Toi (Le Guide du Couple Chrétien).">
   <meta property="og:image" content="${fouDeToiUrl}">
@@ -33,21 +33,29 @@ const htmlContent = `<!DOCTYPE html>
   <!-- Google Fonts: Preconnect & display=swap for Zero FOIT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Global Stylesheet (Browser Cached) -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
   <style>
-    /* Brand Custom Layout Specifics */
+    /* Brand Foundation Dark Luxury Overrides */
+    body {
+      background-color: var(--color-bg-main) !important;
+      color: var(--color-text-body) !important;
+      padding-bottom: 0 !important;
+    }
+
     .brand-navbar {
-      background: #FFFFFF;
-      border-bottom: 1px solid var(--color-border);
+      background: rgba(10, 8, 14, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 18px 0;
-      box-shadow: var(--shadow-sm);
+      padding: 16px 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     }
 
     .brand-nav-inner {
@@ -61,15 +69,62 @@ const htmlContent = `<!DOCTYPE html>
       font-size: 1.55rem;
       font-weight: 800;
       letter-spacing: 0.08em;
-      color: var(--color-burgundy);
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
     .brand-hero {
-      padding: 60px 0 40px 0;
+      padding: 60px 0 35px 0;
       text-align: center;
+      position: relative;
+    }
+
+    /* Trust Stats Bar in Hero */
+    .brand-stats-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 820px;
+      margin: 36px auto 0 auto;
+    }
+
+    @media (min-width: 680px) {
+      .brand-stats-strip {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+    }
+
+    .brand-stat-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .brand-stat-item:hover {
+      border-color: rgba(255, 26, 38, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .brand-stat-num {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .brand-stat-label {
+      font-size: 0.76rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
     .products-showcase-grid {
@@ -82,56 +137,78 @@ const htmlContent = `<!DOCTYPE html>
     @media (min-width: 900px) {
       .products-showcase-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 36px;
       }
     }
 
     .product-showcase-card {
-      background: #FFFFFF;
-      border: 1px solid var(--color-border);
+      background: linear-gradient(180deg, rgba(22, 17, 26, 0.95) 0%, rgba(13, 10, 16, 0.98) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-xl);
-      padding: 32px 24px;
+      padding: 34px 26px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: var(--transition);
-      box-shadow: var(--shadow-card);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
       text-align: left;
+      position: relative;
+      overflow: hidden;
     }
 
     .product-showcase-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+      border-color: rgba(255, 26, 38, 0.45);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(229, 9, 20, 0.2);
     }
 
     .card-pack-desir {
-      border-top: 5px solid var(--color-burgundy);
+      border-top: 5px solid #2563EB;
     }
 
     .card-fou-de-toi {
-      border-top: 5px solid var(--color-burgundy);
+      border-top: 5px solid #FF1A26;
+      border: 1.5px solid rgba(229, 9, 20, 0.4);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(229, 9, 20, 0.18);
+    }
+
+    .card-flagship-ribbon {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: linear-gradient(135deg, #FF1A26 0%, #B8000B 100%);
+      color: #FFFFFF;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 10px rgba(229, 9, 20, 0.5);
     }
 
     .product-img-box {
       width: 100%;
       max-width: 320px;
-      margin: 0 auto 24px auto;
+      margin: 0 auto 22px auto;
       border-radius: var(--radius-md);
       overflow: hidden;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .product-title-big {
       font-family: var(--font-heading);
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       font-weight: 800;
-      color: var(--color-text-title);
+      color: #FFFFFF;
       margin-bottom: 6px;
       line-height: 1.25;
     }
 
     .product-subtitle-desc {
-      font-size: 0.92rem;
-      color: var(--color-text-muted);
+      font-size: 0.94rem;
+      color: #CBD5E1;
       line-height: 1.55;
       margin-bottom: 20px;
       font-style: italic;
@@ -141,33 +218,72 @@ const htmlContent = `<!DOCTYPE html>
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-bottom: 24px;
+      gap: 12px;
+      margin-bottom: 26px;
     }
 
     .product-features-list li {
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      font-size: 0.96rem;
-      color: var(--color-text-body);
+      font-size: 0.95rem;
+      color: #E2E8F0;
       line-height: 1.6;
     }
 
     .product-features-list li span.check-icon {
-      color: var(--color-burgundy);
+      color: #FF3340;
       font-weight: 900;
+      font-size: 1.05rem;
+      line-height: 1.4;
     }
 
     .product-pricing-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--color-bg-subtle);
-      border: 1px solid var(--color-border);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-md);
       padding: 14px 18px;
       margin-bottom: 20px;
+    }
+
+    .comparison-table-wrapper {
+      background: linear-gradient(180deg, rgba(20, 16, 24, 0.95) 0%, rgba(13, 10, 16, 0.98) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      overflow-x: auto;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.93rem;
+      min-width: 580px;
+    }
+
+    .comparison-table th {
+      padding: 14px 14px;
+      background: rgba(229, 9, 20, 0.22);
+      color: #FFFFFF;
+      border-bottom: 2px solid #FF1A26;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .comparison-table td {
+      padding: 14px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      color: #E2E8F0;
+    }
+
+    .comparison-table tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.02);
     }
 
     .pillars-grid {
@@ -190,39 +306,95 @@ const htmlContent = `<!DOCTYPE html>
     }
 
     .pillar-card {
-      background: #FFFFFF;
-      border: 1px solid var(--color-border);
+      background: linear-gradient(180deg, rgba(20, 16, 24, 0.9) 0%, rgba(13, 10, 16, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-lg);
-      padding: 24px 20px;
+      padding: 26px 22px;
       text-align: center;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
       transition: var(--transition);
     }
 
     .pillar-card:hover {
-      border-color: var(--color-burgundy-border);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
+      border-color: rgba(255, 26, 38, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 20px rgba(229, 9, 20, 0.15);
     }
 
     .pillar-icon {
       font-size: 2.2rem;
       margin-bottom: 12px;
-      color: var(--color-burgundy);
+      line-height: 1;
     }
 
     .pillar-title {
       font-family: var(--font-heading);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 800;
-      color: var(--color-text-title);
+      color: #FFFFFF;
       margin-bottom: 8px;
     }
 
     .pillar-desc {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-      line-height: 1.5;
+      font-size: 0.88rem;
+      color: #94A3B8;
+      line-height: 1.55;
+    }
+
+    /* Testimonials Section on Homepage */
+    .home-testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    @media (min-width: 768px) {
+      .home-testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .home-testimonial-card {
+      background: linear-gradient(180deg, rgba(22, 17, 26, 0.9) 0%, rgba(13, 10, 16, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      transition: var(--transition);
+    }
+
+    .home-testimonial-card:hover {
+      border-color: rgba(255, 26, 38, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .home-testimonial-stars {
+      color: #FBBF24;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .home-testimonial-quote {
+      font-size: 0.92rem;
+      color: #E2E8F0;
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .home-testimonial-author {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #FDA4AF;
+    }
+
+    .home-testimonial-location {
+      font-size: 0.78rem;
+      color: #94A3B8;
     }
   </style>
 
@@ -242,17 +414,17 @@ const htmlContent = `<!DOCTYPE html>
     fbq('track', 'PageView', {}, { eventID: pageViewEventId });
   </script>
 </head>
-<body style="background-color: #FAF7F5; padding-bottom: 0;">
+<body>
 
   <!-- Brand Navigation -->
   <header class="brand-navbar">
     <div class="container brand-nav-inner">
       <div class="brand-logo-text">
-        AMOUR & DÉSIR
+        AMOUR <span style="color: #FF1A26; text-shadow: 0 0 15px rgba(255, 26, 38, 0.6);">&</span> DÉSIR
       </div>
       <div>
-        <a href="#produits" class="badge-pill badge-burgundy" style="text-decoration: none; font-size: 0.8rem; padding: 7px 16px;">
-          📖 Nos Guides Officiels
+        <a href="#produits" class="badge-pill badge-red" style="text-decoration: none; font-size: 0.8rem; padding: 7px 18px; color: #FFFFFF;">
+          📖 Nos 2 Guides Officiels
         </a>
       </div>
     </div>
@@ -266,23 +438,43 @@ const htmlContent = `<!DOCTYPE html>
         <span class="book-header-text">Éditions Amour & Désir</span>
       </div>
 
-      <div class="badge-pill badge-burgundy" style="margin-bottom: 16px;">
-        MAISON D'ÉDITION POUR LE COUPLE • AFRIQUE & DIASPORA
+      <div class="badge-pill badge-red" style="margin-bottom: 18px;">
+        🏛️ MAISON D'ÉDITION OFFICIELLE POUR LE COUPLE • AFRIQUE & DIASPORA
       </div>
 
-      <h1 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.25; color: var(--color-text-title); max-width: 900px; margin: 0 auto 18px auto;">
-        Rallumez La Passion, Le Désir & La Paix Dans Votre Foyer
+      <h1 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.25; color: #FFFFFF; max-width: 900px; margin: 0 auto 18px auto;">
+        Rallumez La Passion, Le Désir & <span class="text-gradient-red">La Paix Dans Votre Foyer</span>
       </h1>
 
-      <p style="color: var(--color-text-muted); font-size: clamp(1rem, 2vw, 1.15rem); max-width: 760px; margin: 0 auto 30px auto; line-height: 1.65;">
-        Bienvenue chez <strong>Amour & Désir</strong>, la maison d'édition francophone dédiée à la réconciliation intime du couple. Nous allions <strong>science anatomique, psychologie profonde et respect absolu des valeurs sacrées du mariage</strong> pour faire de votre chambre un sanctuaire d'amour inébranlable.
+      <p style="color: #CBD5E1; font-size: clamp(1rem, 2vw, 1.15rem); max-width: 780px; margin: 0 auto 30px auto; line-height: 1.65;">
+        Bienvenue chez <strong>Amour & Désir</strong>, la maison d'édition francophone dédiée à la réconciliation intime du couple. Nous allions <strong>psychologie des hormones, physiologie du plaisir et respect absolu de la dignité conjugale</strong> pour transformer votre chambre en un sanctuaire d'amour inébranlable.
       </p>
 
       <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
-        <a href="#produits" class="btn-cta" style="max-width: 380px;">
-          <span style="font-weight: 800;">EXPLORER NOS 2 GUIDES PHARES</span>
+        <a href="#produits" class="btn-cta btn-cta-intense-red" style="max-width: 440px;">
+          <span style="font-weight: 800;">👉 EXPLORER NOS 2 GUIDES PHARES</span>
           <span class="btn-cta-sub">Des méthodes claires, pudiques et immédiatement applicables</span>
         </a>
+      </div>
+
+      <!-- Trust & Credibility Metrics Strip -->
+      <div class="brand-stats-strip">
+        <div class="brand-stat-item">
+          <div class="brand-stat-num text-gradient-red">+3 800</div>
+          <div class="brand-stat-label">Couples Accompagnés</div>
+        </div>
+        <div class="brand-stat-item">
+          <div class="brand-stat-num">100%</div>
+          <div class="brand-stat-label">Discrétion Facturation</div>
+        </div>
+        <div class="brand-stat-item">
+          <div class="brand-stat-num text-gradient-red">15-20 min</div>
+          <div class="brand-stat-label">Méthodes Sans Chimie</div>
+        </div>
+        <div class="brand-stat-item">
+          <div class="brand-stat-num">4.9 / 5</div>
+          <div class="brand-stat-label">Note Moyenne Lecteurs</div>
+        </div>
       </div>
 
     </div>
@@ -295,12 +487,12 @@ const htmlContent = `<!DOCTYPE html>
     <div class="container">
       
       <div style="text-align: center; max-width: 760px; margin: 0 auto 36px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 12px;">📚 NOS DEUX CRÉATIONS</div>
-        <h2 style="font-size: 2.2rem; margin-bottom: 12px; color: var(--color-burgundy);">
-          Choisissez Le Guide Adapté À Votre Couple
+        <div class="badge-pill badge-red" style="margin-bottom: 12px;">📚 NOS DEUX CRÉATIONS PHARES</div>
+        <h2 style="font-size: 2.2rem; margin-bottom: 12px; color: #FFFFFF;">
+          Choisissez Le Guide Adapté À <span class="text-gradient-red">Votre Couple</span>
         </h2>
-        <p style="color: var(--color-text-muted); font-size: 1rem;">
-          Deux méthodes complètes et complémentaires pour métamorphoser votre vie intime dès ce soir :
+        <p style="color: #94A3B8; font-size: 1.05rem;">
+          Deux méthodes complètes, pudiques et complémentaires pour métamorphoser votre intimité dès ce soir :
         </p>
       </div>
 
@@ -313,8 +505,8 @@ const htmlContent = `<!DOCTYPE html>
               <img src="${packDesirUrl}" alt="Pack du Désir - Comprendre Les Hormones" style="width: 100%; display: block;" fetchpriority="high" decoding="async">
             </div>
 
-            <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">
-              VOLUME 1 • PSYCHOLOGIE DU DÉSIR
+            <div style="font-size: 0.84rem; font-weight: 800; color: #60A5FA; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">
+              VOLUME 1 • PSYCHOLOGIE DU DÉSIR & HARMONIE
             </div>
             
             <h3 class="product-title-big">LE PACK DU DÉSIR</h3>
@@ -334,7 +526,7 @@ const htmlContent = `<!DOCTYPE html>
               </li>
               <li>
                 <span class="check-icon">✓</span>
-                <span><strong>Le protocole anti-conflit :</strong> Désamorcer les tensions et disputes du quotidien en 7 étapes simples.</span>
+                <span><strong>Le protocole anti-conflit en 7 étapes :</strong> Désamorcer les tensions et reproches du quotidien dans le calme.</span>
               </li>
               <li>
                 <span class="check-icon">✓</span>
@@ -346,42 +538,51 @@ const htmlContent = `<!DOCTYPE html>
           <div>
             <div class="product-pricing-bar">
               <div>
-                <div style="font-size: 0.88rem; color: var(--color-text-dim); text-transform: uppercase;">Prix Standard</div>
-                <div style="font-size: 0.95rem; text-decoration: line-through; color: #888888;">15 000 FCFA</div>
+                <div style="font-size: 0.8rem; color: #94A3B8; text-transform: uppercase;">Prix Standard</div>
+                <div style="font-size: 0.95rem; text-decoration: line-through; color: #64748B;">15 000 FCFA</div>
               </div>
               <div style="text-align: right;">
-                <div style="font-size: 0.88rem; color: var(--color-burgundy); font-weight: 800;">⚡ OFFRE LIMITÉE</div>
-                <div style="font-size: 1.6rem; font-weight: 900; color: var(--color-burgundy);">999 FCFA</div>
+                <div style="font-size: 0.8rem; color: #60A5FA; font-weight: 800;">⚡ OFFRE LIMITÉE (-93%)</div>
+                <div style="font-size: 1.65rem; font-weight: 900; color: #FFFFFF;">999 FCFA</div>
               </div>
             </div>
 
-            <a href="/pack-du-desir" class="btn-cta" style="width: 100%;">
+            <a href="/pack-du-desir" class="btn-cta" style="width: 100%; margin-bottom: 12px;">
               <span style="font-weight: 800;">👉 DÉCOUVRIR LE PACK DU DÉSIR <span class="cta-arrow">→</span></span>
-              <span class="btn-cta-sub">Voir la présentation complète & les 8 bonus</span>
+              <span class="btn-cta-sub">Voir la présentation complète & les 8 bonus offerts</span>
             </a>
+
+            <div style="text-align: center;">
+              <a href="https://amour-desir.mychariow.co/pack-du-desir/checkout" target="_blank" rel="noopener" style="font-size: 0.82rem; color: #94A3B8; text-decoration: underline;">
+                Accès direct au paiement sécurisé (999 FCFA) ⚡
+              </a>
+            </div>
           </div>
 
         </div>
 
         <!-- PRODUCT 2 : FOU DE TOI, FOLLE DE TOI -->
         <div class="product-showcase-card card-fou-de-toi">
+          
+          <div class="card-flagship-ribbon">👑 NOUVEAU GUIDE MAÎTRE</div>
+
           <div>
             <div class="product-img-box">
               <img src="${fouDeToiUrl}" alt="Livre Fou de Toi, Folle de Toi" style="width: 100%; display: block;" fetchpriority="high" decoding="async">
             </div>
 
-            <div style="display: flex; gap: 8px; justify-content: center; margin-top: 14px; margin-bottom: 8px;">
-              <img src="/assets/images/illustrations/chapitre-4-cartes-zones-erogenes.jpg" alt="Aperçu Zones Érogènes" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Carte des zones érogènes" loading="lazy" decoding="async">
-              <img src="/assets/images/illustrations/position-1-cuillere.jpg" alt="Aperçu 18 Positions" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="18 Positions adaptées" loading="lazy" decoding="async">
-              <img src="/assets/images/illustrations/chapitre-11-six-temps.jpg" alt="Aperçu Déroulé en 6 temps" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Déroulé en 6 temps" loading="lazy" decoding="async">
-              <img src="/assets/images/illustrations/chapitre-6-aliments-vitalite.jpg" alt="Aperçu Pharmacie africaine" style="width: 68px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border);" title="Pharmacie africaine" loading="lazy" decoding="async">
+            <!-- Mini real illustrations gallery -->
+            <div style="display: flex; gap: 8px; justify-content: center; margin-top: 10px; margin-bottom: 6px;">
+              <img src="/assets/images/illustrations/chapitre-4-cartes-zones-erogenes.jpg" alt="Aperçu Zones Érogènes" style="width: 68px; height: 48px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);" title="Carte des zones érogènes" loading="lazy" decoding="async">
+              <img src="/assets/images/illustrations/position-1-cuillere.jpg" alt="Aperçu 18 Positions" style="width: 68px; height: 48px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);" title="18 Positions adaptées" loading="lazy" decoding="async">
+              <img src="/assets/images/illustrations/chapitre-11-six-temps.jpg" alt="Aperçu Déroulé en 6 temps" style="width: 68px; height: 48px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);" title="Déroulé en 6 temps" loading="lazy" decoding="async">
+              <img src="/assets/images/illustrations/chapitre-6-aliments-vitalite.jpg" alt="Aperçu Pharmacie africaine" style="width: 68px; height: 48px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);" title="Pharmacie africaine" loading="lazy" decoding="async">
             </div>
-            <div style="font-size: 0.8rem; color: var(--color-burgundy); font-weight: 700; text-align: center; margin-bottom: 12px;">
-              ✨ Livre illustré : schémas 3D, 18 positions & infographies exclusives
+            <div style="font-size: 0.8rem; color: #FDA4AF; font-weight: 700; text-align: center; margin-bottom: 14px;">
+              ✨ Schémas 3D, 18 positions pudiques & pharmacie africaine
             </div>
 
-
-            <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-burgundy); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">
+            <div style="font-size: 0.84rem; font-weight: 800; color: #FF3340; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">
               VOLUME 2 • LE LIT CONJUGAL DE FEU
             </div>
 
@@ -406,7 +607,7 @@ const htmlContent = `<!DOCTYPE html>
               </li>
               <li>
                 <span class="check-icon">✓</span>
-                <span><strong>18 Positions du Kama Sutra Chrétien :</strong> Silhouettes pudiques sans visage adaptées aux ventres ronds, fatigue, grossesse, +50 ans.</span>
+                <span><strong>18 Positions du Kama Sutra Chrétien :</strong> Silhouettes pudiques adaptées aux ventres ronds, fatigue, grossesse, +50 ans.</span>
               </li>
               <li>
                 <span class="check-icon">✓</span>
@@ -418,19 +619,25 @@ const htmlContent = `<!DOCTYPE html>
           <div>
             <div class="product-pricing-bar">
               <div>
-                <div style="font-size: 0.88rem; color: var(--color-text-dim); text-transform: uppercase;">Prix Standard</div>
-                <div style="font-size: 0.95rem; text-decoration: line-through; color: #888888;">25 000 FCFA</div>
+                <div style="font-size: 0.8rem; color: #94A3B8; text-transform: uppercase;">Prix Standard</div>
+                <div style="font-size: 0.95rem; text-decoration: line-through; color: #64748B;">25 000 FCFA</div>
               </div>
               <div style="text-align: right;">
-                <div style="font-size: 0.88rem; color: var(--color-burgundy); font-weight: 800;">⚡ LANCEMENT EXCLUSIF (-62%)</div>
-                <div style="font-size: 1.6rem; font-weight: 900; color: var(--color-burgundy);">9 500 FCFA</div>
+                <div style="font-size: 0.8rem; color: #FF4D58; font-weight: 800;">⚡ LANCEMENT EXCLUSIF (-62%)</div>
+                <div style="font-size: 1.65rem; font-weight: 900; color: #FF1A26;">9 500 FCFA</div>
               </div>
             </div>
 
-            <a href="/fou-de-toi-folle-de-toi" class="btn-cta" style="width: 100%;">
+            <a href="/fou-de-toi-folle-de-toi" class="btn-cta btn-cta-intense-red" style="width: 100%; margin-bottom: 12px;">
               <span style="font-weight: 800;">🔥 DÉCOUVRIR FOU DE TOI, FOLLE DE TOI</span>
               <span class="btn-cta-sub">Voir la présentation complète & les 18 positions</span>
             </a>
+
+            <div style="text-align: center;">
+              <a href="https://amour-desir.mychariow.co/prd_lw2y36td/checkout" target="_blank" rel="noopener" style="font-size: 0.82rem; color: #FDA4AF; text-decoration: underline;">
+                Accès direct au paiement sécurisé (9 500 FCFA) ⚡
+              </a>
+            </div>
           </div>
 
         </div>
@@ -440,57 +647,60 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </section>
 
+  <div class="section-divider"></div>
+
   <!-- Comparison & Orientation Guide -->
-  <section class="section" style="background: var(--color-bg-subtle);">
-    <div class="container" style="max-width: 860px;">
+  <section class="section">
+    <div class="container" style="max-width: 880px;">
       
       <div style="text-align: center; margin-bottom: 30px;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 10px;">🧭 GUIDE D'ORIENTATION</div>
-        <h3 style="font-size: 1.9rem; color: var(--color-text-title);">Quel Guide Correspond Au Besoin De Votre Couple ?</h3>
+        <div class="badge-pill badge-red" style="margin-bottom: 10px;">🧭 GUIDE D'ORIENTATION</div>
+        <h3 style="font-size: 2rem; color: #FFFFFF;">Quel Guide Correspond Au Besoin De Votre Couple ?</h3>
+        <p style="color: #94A3B8; font-size: 0.95rem; margin-top: 6px;">Comparez en un coup d'œil selon la situation actuelle de votre couple :</p>
       </div>
 
-      <div class="card-light" style="padding: 24px; overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem; min-width: 580px;">
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
           <thead>
-            <tr style="border-bottom: 2px solid var(--color-burgundy); background: var(--color-burgundy); color: #FFFFFF;">
-              <th style="padding: 14px 12px;">Votre Situation Actuelle</th>
-              <th style="padding: 14px 12px; text-align: center;">Le Pack du Désir</th>
-              <th style="padding: 14px 12px; text-align: center;">Fou de Toi, Folle de Toi</th>
+            <tr>
+              <th>Votre Situation Actuelle</th>
+              <th style="text-align: center;">Le Pack du Désir</th>
+              <th style="text-align: center;">Fou de Toi, Folle de Toi</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid var(--color-border); background: #FFFFFF;">
-              <td style="padding: 14px 12px; color: var(--color-text-body);">Elle refuse l'intimité, s'énerve souvent ou semble distante</td>
-              <td style="padding: 14px 12px; text-align: center; color: var(--color-burgundy); font-weight: 800;">✓ INDISPENSABLE</td>
-              <td style="padding: 14px 12px; text-align: center; color: var(--color-text-muted);">Complémentaire</td>
+            <tr>
+              <td>Elle refuse l'intimité, s'énerve souvent ou semble distante</td>
+              <td style="text-align: center; color: #60A5FA; font-weight: 800;">✓ INDISPENSABLE</td>
+              <td style="text-align: center; color: #94A3B8;">Complémentaire</td>
             </tr>
-            <tr style="border-bottom: 1px solid var(--color-border); background: var(--color-bg-subtle);">
-              <td style="padding: 14px 12px; color: var(--color-text-body);">Rapport rapide (3 min), manque d'endurance, peur de la panne</td>
-              <td style="padding: 14px 12px; text-align: center; color: var(--color-text-muted);">Utile</td>
-              <td style="padding: 14px 12px; text-align: center; color: var(--color-burgundy); font-weight: 800;">✓ INDISPENSABLE</td>
+            <tr>
+              <td>Rapport rapide (3 min), manque d'endurance, peur de la panne</td>
+              <td style="text-align: center; color: #94A3B8;">Utile</td>
+              <td style="text-align: center; color: #FF3340; font-weight: 800;">✓ INDISPENSABLE</td>
             </tr>
-            <tr style="border-bottom: 1px solid var(--color-border); background: #FFFFFF;">
-              <td style="padding: 14px 12px; color: var(--color-text-body);">Elle ne jouit pas, a mal, simule ou a honte de son corps</td>
-              <td style="padding: 14px 12px; text-align: center; color: var(--color-text-muted);">Utile</td>
-              <td style="padding: 14px 12px; text-align: center; color: var(--color-burgundy); font-weight: 800;">✓ INDISPENSABLE</td>
+            <tr>
+              <td>Elle ne jouit pas, a mal, simule ou a honte de son corps</td>
+              <td style="text-align: center; color: #94A3B8;">Utile</td>
+              <td style="text-align: center; color: #FF3340; font-weight: 800;">✓ INDISPENSABLE</td>
             </tr>
-            <tr style="border-bottom: 1px solid var(--color-border); background: var(--color-bg-subtle);">
-              <td style="padding: 14px 12px; color: var(--color-text-body);">Couple chrétien voulant déculpabiliser et renouveler le lit</td>
-              <td style="padding: 14px 12px; text-align: center; color: var(--color-text-muted);">Recommandé</td>
-              <td style="padding: 14px 12px; text-align: center; color: var(--color-burgundy); font-weight: 800;">✓ CRUCIAL (100%)</td>
+            <tr>
+              <td>Couple chrétien voulant déculpabiliser et renouveler le lit</td>
+              <td style="text-align: center; color: #94A3B8;">Recommandé</td>
+              <td style="text-align: center; color: #FF3340; font-weight: 800;">✓ CRUCIAL (100%)</td>
             </tr>
-            <tr style="background: #FFFFFF;">
-              <td style="padding: 14px 12px; color: var(--color-text-body);">Besoin de positions variées adaptées aux corps réels & coussins</td>
-              <td style="padding: 14px 12px; text-align: center; color: var(--color-text-muted);">Non inclus</td>
-              <td style="padding: 14px 12px; text-align: center; color: var(--color-burgundy); font-weight: 800;">✓ 18 POSITIONS</td>
+            <tr>
+              <td>Besoin de positions variées adaptées aux corps réels & coussins</td>
+              <td style="text-align: center; color: #64748B;">Non inclus</td>
+              <td style="text-align: center; color: #FF3340; font-weight: 800;">✓ 18 POSITIONS</td>
             </tr>
           </tbody>
         </table>
 
-        <div class="callout-retenir" style="margin-top: 24px;">
-          <div class="callout-title-retenir">LE CONSEIL D'AMOUR & DÉSIR :</div>
-          <p style="font-size: 0.92rem; color: var(--color-text-body); line-height: 1.55;">
-            Beaucoup de couples débutent par <em>Le Pack du Désir</em> pour restaurer la communication et le magnétisme au quotidien, puis approfondissent avec <em>Fou de Toi, Folle de Toi</em> pour transformer leur chambre conjugale en un lit de feu.
+        <div style="background: rgba(229, 9, 20, 0.08); border-left: 4px solid #FF1A26; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-top: 24px;">
+          <div style="font-weight: 800; color: #FDA4AF; font-size: 0.95rem; margin-bottom: 4px;">💡 LE CONSEIL D'AMOUR & DÉSIR :</div>
+          <p style="font-size: 0.92rem; color: #E2E8F0; line-height: 1.6; margin: 0;">
+            Beaucoup de couples débutent par <em>Le Pack du Désir</em> pour restaurer la communication et le magnétisme dans la journée, puis approfondissent avec <em>Fou de Toi, Folle de Toi</em> pour transformer leur chambre conjugale en un lit de feu sacré.
           </p>
         </div>
       </div>
@@ -498,13 +708,67 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </section>
 
+  <div class="section-divider"></div>
+
+  <!-- Real Testimonials Section (Base du Site) -->
+  <section class="section">
+    <div class="container">
+      
+      <div style="text-align: center; max-width: 760px; margin: 0 auto 30px auto;">
+        <div class="badge-pill badge-gold" style="margin-bottom: 10px;">⭐ TÉMOIGNAGES VÉRIFIÉS</div>
+        <h3 style="font-size: 2rem; color: #FFFFFF;">Ils Ont Retrouvé La Paix & La Passion</h3>
+        <p style="color: #94A3B8; font-size: 0.95rem; margin-top: 6px;">Retours de couples en Afrique et dans la diaspora :</p>
+      </div>
+
+      <div class="home-testimonials-grid">
+        
+        <div class="home-testimonial-card">
+          <div class="home-testimonial-stars">★★★★★</div>
+          <p class="home-testimonial-quote">
+            « Nous pensions que la routine avait eu raison de nous après 12 ans de mariage. La compréhension des phases de ma femme a tout désamorcé, et le guide pratique nous a redonné des sensations oubliées. »
+          </p>
+          <div>
+            <div class="home-testimonial-author">Jean-Marc & Florence</div>
+            <div class="home-testimonial-location">Abidjan, Côte d'Ivoire (Mariés 12 ans)</div>
+          </div>
+        </div>
+
+        <div class="home-testimonial-card">
+          <div class="home-testimonial-stars">★★★★★</div>
+          <p class="home-testimonial-quote">
+            « En tant que couple chrétien engagé, nous avions peur de pécher en cherchant le plaisir. Ce guide lève toute fausse honte avec la Bible à l'appui. Notre lit est devenu un lieu de joie et d'intimité profonde. »
+          </p>
+          <div>
+            <div class="home-testimonial-author">Pasteur Daniel & Sarah</div>
+            <div class="home-testimonial-location">Cotonou, Bénin (Mariés 19 ans)</div>
+          </div>
+        </div>
+
+        <div class="home-testimonial-card">
+          <div class="home-testimonial-stars">★★★★★</div>
+          <p class="home-testimonial-quote">
+            « Les explications sur l'endurance et les mouvements doux pour la femme ont sauvé nos nuits. C'est clair, sans vulgarité, pudique et terriblement efficace. Merci infiniment ! »
+          </p>
+          <div>
+            <div class="home-testimonial-author">Patrick & Linda</div>
+            <div class="home-testimonial-location">Paris / Diaspora (Mariés 7 ans)</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
   <!-- Brand Pillars Section -->
   <section class="section">
     <div class="container">
       
       <div style="text-align: center; max-width: 760px; margin: 0 auto 30px auto;">
-        <div class="badge-pill badge-burgundy" style="margin-bottom: 10px;">🛡️ NOS ENGAGEMENTS</div>
-        <h3 style="font-size: 1.9rem; color: var(--color-text-title);">Pourquoi Faire Confiance À Amour & Désir ?</h3>
+        <div class="badge-pill badge-red" style="margin-bottom: 10px;">🛡️ NOS 4 ENGAGEMENTS SOLENNELS</div>
+        <h3 style="font-size: 2rem; color: #FFFFFF;">Pourquoi Faire Confiance À Amour & Désir ?</h3>
       </div>
 
       <div class="pillars-grid">
@@ -517,14 +781,14 @@ const htmlContent = `<!DOCTYPE html>
 
         <div class="pillar-card">
           <div class="pillar-icon">⚡</div>
-          <div class="pillar-title">Accès Instantané</div>
+          <div class="pillar-title">Accès Instantané 24/7</div>
           <div class="pillar-desc">Téléchargement immédiat en PDF Haute Définition après paiement, avec sauvegarde envoyée par email et assistance WhatsApp.</div>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-icon">📱</div>
           <div class="pillar-title">Paiement Mobile Money</div>
-          <div class="pillar-desc">Paiement fluide via Wave, Orange Money, MTN, Moov et cartes bancaires dans toute l'Afrique de l'Ouest, Centrale et la diaspora.</div>
+          <div class="pillar-desc">Paiement 100% sécurisé via Wave, Orange Money, MTN, Moov et cartes bancaires dans toute l'Afrique et la diaspora.</div>
         </div>
 
         <div class="pillar-card">
@@ -541,19 +805,19 @@ const htmlContent = `<!DOCTYPE html>
   <!-- Brand Footer -->
   <footer class="footer-section">
     <div class="container">
-      <div style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--color-burgundy); margin-bottom: 6px;">
-        AMOUR & DÉSIR
+      <div style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: #FFFFFF; margin-bottom: 6px;">
+        AMOUR <span style="color: #FF1A26;">&</span> DÉSIR
       </div>
-      <div style="font-size: 0.85rem; color: var(--color-text-muted); font-style: italic; margin-bottom: 16px;">
-        Maison d'édition de l'épanouissement intime et de la paix dans le couple
+      <div style="font-size: 0.88rem; color: #CBD5E1; font-style: italic; margin-bottom: 16px;">
+        Maison d'édition francophone pour l'épanouissement intime et la dignité du couple
       </div>
-      <p style="font-size: 0.8rem; color: var(--color-text-dim); line-height: 1.6; max-width: 620px; margin: 0 auto 20px auto;">
-        © 2026 Éditions Amour & Désir. Tous droits réservés. Tous nos guides sont destinés à un public adulte et engagé dans une démarche d'épanouissement mutuel et de fidélité conjugale.
+      <p style="font-size: 0.82rem; color: #94A3B8; line-height: 1.6; max-width: 660px; margin: 0 auto 22px auto;">
+        © 2026 Éditions Amour & Désir. Tous droits réservés. Tous nos guides sont destinés à un public adulte et engagé dans une démarche d'épanouissement mutuel et de fidélité conjugale. Facturation discrète sous l'intitulé "Éditions Éveil".
       </p>
-      <div class="footer-links" style="font-size: 0.82rem;">
-        <a href="/pack-du-desir">Le Pack du Désir</a> • 
-        <a href="/fou-de-toi-folle-de-toi">Fou de Toi, Folle de Toi</a> • 
-        <a href="https://wa.me/2290195928057" target="_blank" rel="noopener">Assistance WhatsApp (+229 0195928057)</a>
+      <div class="footer-links" style="font-size: 0.86rem; color: #CBD5E1;">
+        <a href="/pack-du-desir" style="color: #60A5FA;">Le Pack du Désir (999 FCFA)</a> • 
+        <a href="/fou-de-toi-folle-de-toi" style="color: #FDA4AF;">Fou de Toi, Folle de Toi (9 500 FCFA)</a> • 
+        <a href="https://wa.me/2290195928057" target="_blank" rel="noopener" style="color: #34D399;">Assistance WhatsApp (+229 0195928057)</a>
       </div>
     </div>
   </footer>
@@ -562,4 +826,4 @@ const htmlContent = `<!DOCTYPE html>
 </html>`;
 
 fs.writeFileSync('index.html', htmlContent, 'utf8');
-console.log('Successfully written brand landing page index.html with LIGHT BACKGROUND & ZERO GOLD (' + fs.statSync('index.html').size + ' bytes)!');
+console.log('Successfully written brand landing page index.html with DARK LUXURY & HIGH CONTRAST (' + fs.statSync('index.html').size + ' bytes)!');

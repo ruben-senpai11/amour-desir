@@ -54,7 +54,7 @@ const htmlContent = `<!DOCTYPE html>
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 16px 0;
+      padding: 14px 0;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     }
 
@@ -62,6 +62,27 @@ const htmlContent = `<!DOCTYPE html>
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    @media (max-width: 640px) {
+      .brand-navbar {
+        padding: 10px 0 12px 0;
+      }
+      .brand-nav-inner {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        text-align: center;
+      }
+      .brand-logo-text {
+        font-size: 1.4rem;
+      }
+      .brand-nav-badge {
+        white-space: nowrap !important;
+        font-size: 0.78rem !important;
+        padding: 5px 16px !important;
+        display: inline-flex !important;
+      }
     }
 
     .brand-logo-text {
@@ -79,6 +100,28 @@ const htmlContent = `<!DOCTYPE html>
       padding: 60px 0 35px 0;
       text-align: center;
       position: relative;
+      overflow: hidden;
+    }
+
+    .brand-hero::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(850px, 95vw);
+      height: 480px;
+      background: radial-gradient(circle at 50% 30%, rgba(229, 9, 20, 0.28) 0%, rgba(184, 0, 11, 0.14) 40%, rgba(244, 63, 94, 0.08) 65%, transparent 80%);
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: 0;
+      animation: sensualBreathingAura 7s ease-in-out infinite;
+      will-change: transform, opacity;
+    }
+
+    .brand-hero > * {
+      position: relative;
+      z-index: 1;
     }
 
     /* Trust Stats Bar in Hero */
@@ -423,7 +466,7 @@ const htmlContent = `<!DOCTYPE html>
         AMOUR <span style="color: #FF1A26; text-shadow: 0 0 15px rgba(255, 26, 38, 0.6);">&</span> DÉSIR
       </div>
       <div>
-        <a href="#produits" class="badge-pill badge-red" style="text-decoration: none; font-size: 0.8rem; padding: 7px 18px; color: #FFFFFF;">
+        <a href="#produits" class="badge-pill badge-red brand-nav-badge" style="text-decoration: none; font-size: 0.8rem; padding: 7px 18px; color: #FFFFFF; white-space: nowrap;">
           📖 Nos 2 Guides Officiels
         </a>
       </div>

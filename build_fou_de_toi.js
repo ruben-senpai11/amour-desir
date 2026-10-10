@@ -1195,14 +1195,17 @@ const htmlContent = `<!DOCTYPE html>
   <!-- =========================================================================
        13. STICKY BOTTOM BAR (MOBILE & DESKTOP ON SCROLL)
        ========================================================================= -->
-  <div class="sticky-bottom-bar" id="stickyCtaBar">
+  <div class="sticky-bottom-bar sticky-bottom-bar-red" id="stickyCtaBar">
     <div class="sticky-price-info">
       <div class="sticky-price-title" style="color: #FF1A26;">OFFRE ÉCLAIR</div>
-      <div class="sticky-price-val">${CURRENT_PRICE} <span>${REGULAR_PRICE}</span></div>
+      <div class="sticky-price-val">
+        ${CURRENT_PRICE}
+        <span class="sticky-price-compare">${REGULAR_PRICE}</span>
+      </div>
     </div>
     <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-sticky-cta btn-sticky-cta-intense-red">
       <span>JE COMMANDE LE GUIDE</span>
-      <span style="font-size: 0.78rem; opacity: 0.9; text-transform: none;">(${CURRENT_PRICE})</span>
+      <span class="btn-sticky-sub">(${CURRENT_PRICE})</span>
     </a>
   </div>
 

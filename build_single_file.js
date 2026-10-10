@@ -1138,11 +1138,14 @@ const singleFileHtml = `<!DOCTYPE html>
   <div class="sticky-bottom-bar" id="stickyCtaBar">
     <div class="sticky-price-info">
       <div class="sticky-price-title">OFFRE ÉCLAIR</div>
-      <div class="sticky-price-val">2999 F <span>15 000 F</span></div>
+      <div class="sticky-price-val">
+        2999 F
+        <span class="sticky-price-compare">15 000 F</span>
+      </div>
     </div>
     <a href="${CHARIOW_URL}" target="_blank" rel="noopener" class="btn-sticky-cta">
       <span>JE COMMANDE LE PACK</span>
-      <span style="font-size: 0.78rem; opacity: 0.9; text-transform: none;">(2999 FCFA)</span>
+      <span class="btn-sticky-sub">(2999 FCFA)</span>
     </a>
   </div>
 

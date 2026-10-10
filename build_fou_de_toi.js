@@ -161,11 +161,11 @@ const htmlContent = `<!DOCTYPE html>
           ✦ LE MANDAT DIVIN DANS LE MARIAGE ✦
         </div>
         <div style="font-family: var(--font-heading); font-size: 1.22rem; font-style: italic; color: #FFFFFF; line-height: 1.6; margin-bottom: 10px;">
-          « Que ta source soit bénie, et fais ta joie de la femme de ta jeunesse... <br>
-          <strong style="color: #FF1A26;">Que ses caresses te comblent en tout temps, sois continuellement épris de son amour !</strong> »
+          « Que ta fontaine soit bénie et <mark class="verse-jouis-highlight">jouis</mark> de la femme de ta jeunesse, biche amoureuse et gracieuse gazelle... <br>
+          <strong style="color: #FF1A26;">Que ses seins te comblent en tout temps, enivre-toi toujours de son amour !</strong> »
         </div>
         <div style="font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; color: #FDA4AF; text-transform: uppercase;">
-          — PROVERBES 5:18-19
+          — PROVERBES 5:18-19 (BIBLE TOB)
         </div>
       </div>
 
